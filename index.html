@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Menú completo del restaurante Oye Bonita - La Casa del Vallenato. Disfruta de gastronomía colombiana, cócteles únicos y ambiente vallenato en Valledupar.">
-    <meta name="keywords" content="restaurante, vallenato, comida colombiana, menú, Valledupar, Oye Bonita, gastronomía, cócteles, música en vivo">
+    <meta name="description" content="Menú completo del restaurante Oye Bonita - La Casa del Vallenato">
+    <meta name="keywords" content="restaurante, vallenato, comida colombiana, menú, Valledupar, Oye Bonita">
     <meta name="author" content="Oye Bonita - La Casa del Vallenato">
-    <meta property="og:title" content="OYE BONITA - La Casa del Vallenato | Menú Completo">
-    <meta property="og:description" content="Sabores que suenan a vallenato. Disfruta de nuestra gastronomía colombiana con ambiente musical único.">
+    <meta property="og:title" content="OYE BONITA - La Casa del Vallenato | Menú">
+    <meta property="og:description" content="Sabores que suenan a vallenato. Disfruta de nuestra gastronomía colombiana.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_CO">
     
-    <title>OYE BONITA - La Casa del Vallenato | Menú Completo</title>
+    <title>OYE BONITA - La Casa del Vallenato | Menú</title>
     
     <!-- Preconexiones para performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,437 +26,214 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-    
-    <!-- Schema.org para restaurante -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Oye Bonita - La Casa del Vallenato",
-        "description": "Restaurante especializado en gastronomía colombiana con ambiente de música vallenata en vivo.",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Calle 70 # 45 - 23, Barrio La Castellana",
-            "addressLocality": "Valledupar",
-            "addressRegion": "Cesar",
-            "addressCountry": "CO"
-        },
-        "telephone": "+57-321-456-7890",
-        "openingHours": [
-            "Mo-Th 12:00-23:00",
-            "Fr-Sa 12:00-02:00",
-            "Su 12:00-18:00"
-        ],
-        "servesCuisine": ["Colombiana", "Vallenata"],
-        "priceRange": "$$"
-    }
-    </script>
 </head>
 <body>
-    <!-- Elementos decorativos de fondo (accesibles) -->
-    <div class="decorative-element maraca" style="top: 10%; left: 5%;" aria-hidden="true" role="presentation"></div>
-    <div class="decorative-element accordion" style="top: 20%; right: 10%;" aria-hidden="true" role="presentation"></div>
-    <div class="decorative-element maraca" style="bottom: 30%; right: 5%; transform: rotate(30deg);" aria-hidden="true" role="presentation"></div>
-    <div class="decorative-element accordion" style="bottom: 15%; left: 10%;" aria-hidden="true" role="presentation"></div>
-
-    <div id="app" role="main">
-        <!-- Header con logo y navegación -->
-        <header class="main-header" role="banner">
-            <div class="container">
-                <div class="logo">
-                    <h1><i class="fas fa-music" aria-hidden="true"></i> OYE BONITA</h1>
-                    <p class="tagline">La Casa del Vallenato</p>
-                </div>
-                <nav class="main-nav" aria-label="Navegación principal">
-                    <ul role="menubar">
-                        <li role="none">
-                            <a href="#inicio" class="active" role="menuitem" aria-current="page">
-                                <i class="fas fa-home" aria-hidden="true"></i> Inicio
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="#menu" role="menuitem">
-                                <i class="fas fa-utensils" aria-hidden="true"></i> Menú
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="#eventos" role="menuitem">
-                                <i class="fas fa-calendar-alt" aria-hidden="true"></i> Eventos
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="#reservas" role="menuitem">
-                                <i class="fas fa-phone-alt" aria-hidden="true"></i> Reservas
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="#ubicacion" role="menuitem">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <button class="btn btn-primary" aria-label="Realizar pedido">
-                        <i class="fas fa-shopping-cart" aria-hidden="true"></i> Pedir Ahora
-                    </button>
-                </div>
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <h1><i class="fas fa-music" aria-hidden="true"></i> OYE BONITA</h1>
+                <p class="tagline">La Casa del Vallenato</p>
             </div>
-        </header>
-
-        <!-- Contenido principal -->
-        <main>
-            <!-- Hero Section -->
-            <section id="inicio" class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <h2>Sabores que suenan a vallenato</h2>
-                        <p class="subtitle">Donde cada bocado es una nota musical</p>
-                        <p>Bienvenidos al restaurante donde la gastronomía colombiana se fusiona con la magia del vallenato. Disfruta de platos tradicionales, cócteles únicos y un ambiente lleno de música y alegría.</p>
-                        <div class="hero-buttons">
-                            <a href="#menu" class="btn btn-primary btn-large">Explorar Menú</a>
-                            <a href="#reservas" class="btn btn-secondary btn-large">Reservar Mesa</a>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-guitar"></i>
-                            <p>Pareja bailando vallenato</p>
-                            <small>Ambiente único y auténtico</small>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Navegación de categorías del menú -->
-            <section class="menu-navigation">
-                <div class="container">
-                    <h2 class="section-title">Nuestro Menú</h2>
-                    <p class="section-subtitle">Selecciona una categoría para descubrir nuestros platos</p>
-                    <div class="menu-categories">
-                        <button class="category-btn active" data-category="entradas">
-                            <i class="fas fa-utensil-spoon"></i> Entradas
-                        </button>
-                        <button class="category-btn" data-category="hamburguesas">
-                            <i class="fas fa-hamburger"></i> Hamburguesas
-                        </button>
-                        <button class="category-btn" data-category="para-picar">
-                            <i class="fas fa-drumstick-bite"></i> Para Picar
-                        </button>
-                        <button class="category-btn" data-category="licores">
-                            <i class="fas fa-glass-whiskey"></i> Licores
-                        </button>
-                        <button class="category-btn" data-category="cocteles">
-                            <i class="fas fa-cocktail"></i> Cócteles
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Entradas -->
-            <section id="menu" class="menu-section">
-                <div class="container">
-                    <h3 class="section-title">Entradas</h3>
-                    <p class="section-subtitle">Para empezar con buen sabor</p>
-                    <div class="menu-grid" id="entradas-grid">
-                        <!-- Las tarjetas se generarán con JavaScript -->
-                        <div class="menu-card">
-                            <div class="menu-card__header">
-                                <h4 class="menu-card__title">Chorizos Caramelizados</h4>
-                                <span class="menu-card__price">$18.000</span>
-                            </div>
-                            <div class="menu-card__body">
-                                <p class="menu-card__description">Chorizos artesanales caramelizados con panela y especias, acompañados de patacón.</p>
-                                <div class="menu-card__tags">
-                                    <span class="menu-card__tag menu-card__tag--recommended">Recomendado</span>
-                                    <span class="menu-card__tag menu-card__tag--spicy">Picante</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-card">
-                            <div class="menu-card__header">
-                                <h4 class="menu-card__title">Patacón Tentación</h4>
-                                <span class="menu-card__price">$22.000</span>
-                            </div>
-                            <div class="menu-card__body">
-                                <p class="menu-card__description">Patacón crujiente con queso costeño, carne desmechada y guacamole.</p>
-                                <div class="menu-card__tags">
-                                    <span class="menu-card__tag menu-card__tag--recommended">Recomendado</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-card">
-                            <div class="menu-card__header">
-                                <h4 class="menu-card__title">Empanadas Vallenatas</h4>
-                                <span class="menu-card__price">$12.000</span>
-                            </div>
-                            <div class="menu-card__body">
-                                <p class="menu-card__description">Rellenas de carne molida con papa, acompañadas de ají picante.</p>
-                                <div class="menu-card__tags">
-                                    <span class="menu-card__tag">Tradicional</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-card">
-                            <div class="menu-card__header">
-                                <h4 class="menu-card__title">Arepas Rellenas</h4>
-                                <span class="menu-card__price">$15.000</span>
-                            </div>
-                            <div class="menu-card__body">
-                                <p class="menu-card__description">Arepa de maíz con queso, chorizo y hogao.</p>
-                                <div class="menu-card__tags">
-                                    <span class="menu-card__tag menu-card__tag--new">Nuevo</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Hamburguesas -->
-            <section class="menu-section" style="display: none;" id="hamburguesas-section">
-                <div class="container">
-                    <h3 class="section-title">Hamburguesas</h3>
-                    <p class="section-subtitle">Las mejores hamburguesas con sabor colombiano</p>
-                    <div class="menu-grid" id="hamburguesas-grid">
-                        <!-- Contenido generado por JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección Para Picar -->
-            <section class="menu-section" style="display: none;" id="para-picar-section">
-                <div class="container">
-                    <h3 class="section-title">Para Picar</h3>
-                    <p class="section-subtitle">Para compartir con amigos y buena música</p>
-                    <div class="menu-grid" id="para-picar-grid">
-                        <!-- Contenido generado por JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Licores -->
-            <section class="menu-section" style="display: none;" id="licores-section">
-                <div class="container">
-                    <h3 class="section-title">Licores</h3>
-                    <p class="section-subtitle">Los mejores licores para brindar</p>
-                    <div class="menu-grid" id="licores-grid">
-                        <!-- Contenido generado por JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Cócteles -->
-            <section class="menu-section" style="display: none;" id="cocteles-section">
-                <div class="container">
-                    <h3 class="section-title">Cócteles</h3>
-                    <p class="section-subtitle">Mezclas perfectas para disfrutar</p>
-                    <div class="menu-grid" id="cocteles-grid">
-                        <!-- Contenido generado por JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Eventos -->
-            <section id="eventos" class="menu-section">
-                <div class="container">
-                    <h2 class="section-title">Eventos Musicales</h2>
-                    <p class="section-subtitle">Vive el vallenato en vivo cada fin de semana</p>
-                    <div class="menu-grid">
-                        <div class="menu-card">
-                            <div class="menu-card__header">
-                                <h4 class="menu-card__title">Viernes de Vallenato</h4>
-                                <span class="menu-card__price">21:00 hrs</span>
-                            </div>
-                            <div class="menu-card__body">
-                                <p class="menu-card__description">Disfruta de los mejores acordeoneros de la región con promociones especiales en bebidas.</p>
-                                <div class="menu-card__tags">
-                                    <span class="menu-card__tag menu-card__tag--recommended">En vivo</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-card">
-                            <div class="menu-card__header">
-                                <h4 class="menu-card__title">Sábado de Parranda</h4>
-                                <span class="menu-card__price">22:00 hrs</span>
-                            </div>
-                            <div class="menu-card__body">
-                                <p class="menu-card__description">Noche de música tradicional con grupos invitados y platos especiales.</p>
-                                <div class="menu-card__tags">
-                                    <span class="menu-card__tag menu-card__tag--new">Especial</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-card">
-                            <div class="menu-card__header">
-                                <h4 class="menu-card__title">Domingo Familiar</h4>
-                                <span class="menu-card__price">12:00 - 18:00 hrs</span>
-                            </div>
-                            <div class="menu-card__body">
-                                <p class="menu-card__description">Almuerzo especial con música en vivo y actividades para toda la familia.</p>
-                                <div class="menu-card__tags">
-                                    <span class="menu-card__tag">Familiar</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Reservas -->
-            <section id="reservas" class="menu-section">
-                <div class="container">
-                    <h2 class="section-title">Reserva tu Mesa</h2>
-                    <p class="section-subtitle">Asegura tu lugar para una experiencia inolvidable</p>
-                    <div class="menu-card reservation-form-container">
-                        <div class="menu-card__body">
-                            <form id="reservation-form" aria-labelledby="reservation-title">
-                                <div class="form-grid">
-                                    <div class="form-group">
-                                        <label for="reservation-name" class="form-label">
-                                            <i class="fas fa-user" aria-hidden="true"></i> Nombre completo
-                                        </label>
-                                        <input type="text" id="reservation-name" name="name" placeholder="Ej: Juan Pérez" required
-                                               class="form-input" aria-required="true">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="reservation-email" class="form-label">
-                                            <i class="fas fa-envelope" aria-hidden="true"></i> Correo electrónico
-                                        </label>
-                                        <input type="email" id="reservation-email" name="email" placeholder="ejemplo@correo.com" required
-                                               class="form-input" aria-required="true">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="reservation-phone" class="form-label">
-                                            <i class="fas fa-phone" aria-hidden="true"></i> Teléfono
-                                        </label>
-                                        <input type="tel" id="reservation-phone" name="phone" placeholder="+57 321 456 7890" required
-                                               class="form-input" aria-required="true" pattern="[0-9+\s\-\(\)]{10,}">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="reservation-date" class="form-label">
-                                            <i class="fas fa-calendar" aria-hidden="true"></i> Fecha
-                                        </label>
-                                        <input type="date" id="reservation-date" name="date" required
-                                               class="form-input" aria-required="true" min="">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="reservation-time" class="form-label">
-                                            <i class="fas fa-clock" aria-hidden="true"></i> Hora
-                                        </label>
-                                        <input type="time" id="reservation-time" name="time" required
-                                               class="form-input" aria-required="true" min="12:00" max="23:00">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="reservation-people" class="form-label">
-                                            <i class="fas fa-users" aria-hidden="true"></i> Número de personas
-                                        </label>
-                                        <select id="reservation-people" name="people" required class="form-select" aria-required="true">
-                                            <option value="" disabled selected>Selecciona una opción</option>
-                                            <option value="1-2">1-2 personas</option>
-                                            <option value="3-4">3-4 personas</option>
-                                            <option value="5-6">5-6 personas</option>
-                                            <option value="7+">7+ personas</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group form-group-full">
-                                        <button type="submit" class="btn btn-primary btn-block">
-                                            <i class="fas fa-check-circle" aria-hidden="true"></i> Reservar Ahora
-                                        </button>
-                                        <p class="form-note" aria-live="polite">
-                                            <i class="fas fa-info-circle" aria-hidden="true"></i> Te contactaremos para confirmar tu reserva.
-                                        </p>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Ubicación -->
-            <section id="ubicacion" class="menu-section">
-                <div class="container">
-                    <h2 class="section-title">Ubicación</h2>
-                    <p class="section-subtitle">Visítanos y vive la experiencia vallenata</p>
-                    <div class="menu-card" style="max-width: 800px; margin: 0 auto;">
-                        <div class="menu-card__body">
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center;">
-                                <div>
-                                    <h4 style="color: var(--gold-accent); margin-bottom: var(--space-md);">Oye Bonita - La Casa del Vallenato</h4>
-                                    <p><i class="fas fa-map-marker-alt"></i> Calle 70 # 45 - 23, Barrio La Castellana, Valledupar, Colombia</p>
-                                    <p><i class="fas fa-phone"></i> +57 321 456 7890</p>
-                                    <p><i class="fas fa-envelope"></i> info@oyebonita.com</p>
-                                    <p><i class="fas fa-clock"></i> Lunes a Jueves: 12:00 - 23:00 hrs</p>
-                                    <p><i class="fas fa-clock"></i> Viernes a Domingo: 12:00 - 02:00 hrs</p>
-                                </div>
-                                <div style="background: var(--confeti-blue); height: 200px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white;">
-                                    <i class="fas fa-map-marked-alt" style="font-size: 4rem;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="main-footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-column">
-                        <h3>Oye Bonita</h3>
-                        <p>La Casa del Vallenato, donde la gastronomía y la música se encuentran para crear experiencias únicas.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Enlaces Rápidos</h3>
-                        <a href="#inicio">Inicio</a>
-                        <a href="#menu">Menú</a>
-                        <a href="#eventos">Eventos</a>
-                        <a href="#reservas">Reservas</a>
-                        <a href="#ubicacion">Ubicación</a>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Horarios</h3>
-                        <p><strong>Lunes - Jueves:</strong> 12:00 - 23:00 hrs</p>
-                        <p><strong>Viernes - Sábado:</strong> 12:00 - 02:00 hrs</p>
-                        <p><strong>Domingo:</strong> 12:00 - 18:00 hrs</p>
-                        <p><em>Horarios especiales para eventos</em></p>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Contacto</h3>
-                        <p><i class="fas fa-phone"></i> +57 321 456 7890</p>
-                        <p><i class="fas fa-envelope"></i> info@oyebonita.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Calle 70 #45-23, Valledupar</p>
-                        <p><i class="fas fa-music"></i> ¡Ven y vive el vallenato!</p>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2023 Oye Bonita - La Casa del Vallenato. Todos los derechos reservados.</p>
-                    <p>Diseñado con <i class="fas fa-heart" style="color: var(--confeti-red);"></i> para los amantes de la música y la buena comida.</p>
-                </div>
+            <div class="welcome-message">
+                <p>Bienvenidos a nuestra casa</p>
+                <p class="subtitle">Donde cada bocado es una nota musical</p>
             </div>
-        </footer>
+            <div class="loading-indicator">
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+                <p class="loading-text">Cargando menú...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal (oculto inicialmente) -->
+    <div id="main-content" class="main-content" style="display: none;">
+        <!-- Elementos decorativos de fondo -->
+        <div class="decorative-element maraca" style="top: 10%; left: 5%;" aria-hidden="true" role="presentation"></div>
+        <div class="decorative-element accordion" style="top: 20%; right: 10%;" aria-hidden="true" role="presentation"></div>
+        <div class="decorative-element maraca" style="bottom: 30%; right: 5%; transform: rotate(30deg);" aria-hidden="true" role="presentation"></div>
+        <div class="decorative-element accordion" style="bottom: 15%; left: 10%;" aria-hidden="true" role="presentation"></div>
+
+        <div id="app" role="main">
+            <!-- Header simplificado -->
+            <header class="main-header" role="banner">
+                <div class="container">
+                    <div class="logo">
+                        <h1><i class="fas fa-music" aria-hidden="true"></i> OYE BONITA</h1>
+                        <p class="tagline">La Casa del Vallenato</p>
+                    </div>
+                    <nav class="main-nav" aria-label="Navegación principal">
+                        <ul role="menubar">
+                            <li role="none">
+                                <a href="#menu" class="active" role="menuitem" aria-current="page">
+                                    <i class="fas fa-utensils" aria-hidden="true"></i> Menú
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Contenido principal -->
+            <main>
+                <!-- Navegación de categorías del menú -->
+                <section class="menu-navigation">
+                    <div class="container">
+                        <h2 class="section-title">Nuestro Menú</h2>
+                        <p class="section-subtitle">Selecciona una categoría para descubrir nuestros platos</p>
+                        <div class="menu-categories">
+                            <button class="category-btn active" data-category="entradas">
+                                <i class="fas fa-utensil-spoon"></i> Entradas
+                            </button>
+                            <button class="category-btn" data-category="hamburguesas">
+                                <i class="fas fa-hamburger"></i> Hamburguesas
+                            </button>
+                            <button class="category-btn" data-category="para-picar">
+                                <i class="fas fa-drumstick-bite"></i> Para Picar
+                            </button>
+                            <button class="category-btn" data-category="licores">
+                                <i class="fas fa-glass-whiskey"></i> Licores
+                            </button>
+                            <button class="category-btn" data-category="cocteles">
+                                <i class="fas fa-cocktail"></i> Cócteles
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de Entradas -->
+                <section id="entradas" class="menu-section">
+                    <div class="container">
+                        <h3 class="section-title">Entradas</h3>
+                        <p class="section-subtitle">Para empezar con buen sabor</p>
+                        <div class="menu-grid" id="entradas-grid">
+                            <!-- Las tarjetas se generarán con JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de Hamburguesas -->
+                <section id="hamburguesas" class="menu-section">
+                    <div class="container">
+                        <h3 class="section-title">Hamburguesas</h3>
+                        <p class="section-subtitle">Las mejores hamburguesas con sabor colombiano</p>
+                        <div class="menu-grid" id="hamburguesas-grid">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección Para Picar -->
+                <section id="para-picar" class="menu-section">
+                    <div class="container">
+                        <h3 class="section-title">Para Picar</h3>
+                        <p class="section-subtitle">Para compartir con amigos y buena música</p>
+                        <div class="menu-grid" id="para-picar-grid">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de Licores -->
+                <section id="licores" class="menu-section">
+                    <div class="container">
+                        <h3 class="section-title">Licores</h3>
+                        <p class="section-subtitle">Los mejores licores para brindar</p>
+                        <div class="menu-grid" id="licores-grid">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de Cócteles -->
+                <section id="cocteles" class="menu-section">
+                    <div class="container">
+                        <h3 class="section-title">Cócteles</h3>
+                        <p class="section-subtitle">Mezclas perfectas para disfrutar</p>
+                        <div class="menu-grid" id="cocteles-grid">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de Dirección -->
+                <section id="direccion" class="menu-section">
+                    <div class="container">
+                        <h2 class="section-title">Visítanos</h2>
+                        <p class="section-subtitle">Ven y disfruta de nuestra gastronomía</p>
+                        <div class="address-card">
+                            <div class="address-content">
+                                <h4><i class="fas fa-map-marker-alt"></i> Oye Bonita - La Casa del Vallenato</h4>
+                                <p>Calle 70 # 45 - 23, Barrio La Castellana</p>
+                                <p>Valledupar, Colombia</p>
+                                <p class="contact-info"><i class="fas fa-phone"></i> +57 321 456 7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer simplificado -->
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-column">
+                            <h3>Oye Bonita</h3>
+                            <p>La Casa del Vallenato, donde la gastronomía y la música se encuentran.</p>
+                        </div>
+                        <div class="footer-column">
+                            <h3>Dirección</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Calle 70 #45-23</p>
+                            <p>Barrio La Castellana</p>
+                            <p>Valledupar, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2023 Oye Bonita - La Casa del Vallenato.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>
     <script>
-        // Inicialización básica
+        // Transición automática de pantalla de bienvenida
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Oye Bonita - Menú cargado');
+            const welcomeScreen = document.getElementById('welcome-screen');
+            const mainContent = document.getElementById('main-content');
+            const loadingProgress = document.querySelector('.loading-progress');
+            
+            // Simular carga
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 2;
+                loadingProgress.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Ocultar pantalla de bienvenida y mostrar contenido principal
+                    setTimeout(() => {
+                        welcomeScreen.style.opacity = '0';
+                        welcomeScreen.style.transition = 'opacity 0.5s ease';
+                        
+                        setTimeout(() => {
+                            welcomeScreen.style.display = 'none';
+                            mainContent.style.display = 'block';
+                            mainContent.style.opacity = '0';
+                            mainContent.style.transition = 'opacity 0.5s ease';
+                            
+                            setTimeout(() => {
+                                mainContent.style.opacity = '1';
+                            }, 50);
+                        }, 500);
+                    }, 300);
+                }
+            }, 30);
         });
     </script>
 </body>

@@ -2,281 +2,552 @@
   "categories": [
     {
       "id": "entradas",
-      "name": "Entradas",
-      "description": "Para empezar con buen sabor",
+      "name": "ENTRADAS",
+      "description": "",
       "icon": "🥟",
       "items": [
         {
           "id": "chorizos-caramelizados",
           "name": "Chorizos Caramelizados",
-          "description": "Chorizos artesanales caramelizados con panela y especias, acompañados de patacón",
-          "price": 18000,
-          "image": "assets/images/menu/entradas/chorizos.jpg",
-          "tags": ["Recomendado", "Picante"]
+          "description": "Chorizos artesanales glaseados, acompañados con papas en cascos.",
+          "price": 15000,
+          "tags": []
         },
         {
           "id": "patacon-tentacion",
           "name": "Patacón Tentación",
-          "description": "Patacón crujiente con queso costeño, carne desmechada y guacamole",
-          "price": 22000,
-          "image": "assets/images/menu/entradas/patacon.jpg",
-          "tags": ["Recomendado"]
-        },
-        {
-          "id": "empanadas-vallenatas",
-          "name": "Empanadas Vallenatas",
-          "description": "Rellenas de carne molida con papa, acompañadas de ají picante",
-          "price": 12000,
-          "image": "assets/images/menu/entradas/empanadas.jpg",
-          "tags": ["Tradicional"]
-        },
-        {
-          "id": "arepas-rellenas",
-          "name": "Arepas Rellenas",
-          "description": "Arepa de maíz con queso, chorizo y hogao",
+          "description": "Patacón crocante con bondiola de cerdo, guacamole y salsas.",
           "price": 15000,
-          "image": "assets/images/menu/entradas/arepas.jpg",
-          "tags": ["Nuevo"]
+          "tags": []
         },
         {
-          "id": "chicharron-limon",
-          "name": "Chicharrón con Limón",
-          "description": "Chicharrón crocante acompañado de limón y ají picante",
+          "id": "panceta-parrandera",
+          "name": "Panceta Parrandera",
+          "description": "Panceta de cerdo, acompañada de arepitas y guacamole.",
           "price": 16000,
-          "image": "assets/images/menu/entradas/chicharron.jpg",
-          "tags": ["Tradicional", "Picante"]
+          "tags": []
+        },
+        {
+          "id": "ceviche-del-juglar",
+          "name": "Ceviche del Juglar",
+          "description": "Chicharrón crocante con vegetales, acompañado de guacamole o suero.",
+          "price": 16000,
+          "tags": []
+        },
+        {
+          "id": "empanadas-guapachosas",
+          "name": "Empanadas Guapachosas",
+          "description": "4 empanaditas acompañadas de guacamole y salsa tártara.",
+          "price": 10000,
+          "tags": []
         }
       ]
     },
     {
       "id": "hamburguesas",
-      "name": "Hamburguesas",
-      "description": "Las mejores hamburguesas con sabor colombiano",
+      "name": "HAMBURGUESAS",
+      "description": "(Acompañadas de papa a la francesa)",
       "icon": "🍔",
       "items": [
         {
           "id": "oye-bonita",
           "name": "Oye Bonita",
-          "description": "Carne 200g, queso costeño, cebolla caramelizada, lechuga, tomate y salsa de la casa",
-          "price": 28000,
-          "image": "assets/images/menu/hamburguesas/oye-bonita.jpg",
-          "tags": ["Recomendado", "Especial"]
+          "description": "Carne de res, pechuga de pollo, lomo de cerdo, queso fundido y salsas de la casa.",
+          "price": 35000,
+          "tags": []
         },
         {
           "id": "la-consentida",
           "name": "La Consentida",
-          "description": "Doble carne, doble queso, tocineta, huevo frito y salsa BBQ",
-          "price": 35000,
-          "image": "assets/images/menu/hamburguesas/consentida.jpg",
-          "tags": ["Picante"]
+          "description": "Doble carne, dip de pimentón, tocineta y queso.",
+          "price": 31000,
+          "tags": []
         },
         {
-          "id": "vallenata",
-          "name": "La Vallenata",
-          "description": "Carne de res, chorizo, chicharrón, aguacate y salsa de ají",
-          "price": 32000,
-          "image": "assets/images/menu/hamburguesas/vallenata.jpg",
-          "tags": ["Tradicional"]
+          "id": "la-cacica",
+          "name": "La Cacica",
+          "description": "Carne de res, carne desmechada, queso crema y jalapeños.",
+          "price": 29000,
+          "tags": []
         },
         {
-          "id": "vegetariana",
-          "name": "Vegetariana",
-          "description": "Hamburguesa de lentejas, queso, aguacate, lechuga y salsa de yogur",
-          "price": 25000,
-          "image": "assets/images/menu/hamburguesas/vegetariana.jpg",
-          "tags": ["Vegetariano"]
+          "id": "la-clasica-del-valle",
+          "name": "La Clásica del Valle",
+          "description": "Carne de res, queso mozzarella, jamón, cebolla caramelizada y pepinillos.",
+          "price": 23000,
+          "tags": []
         }
       ]
     },
     {
       "id": "para-picar",
-      "name": "Para Picar",
-      "description": "Para compartir con amigos y buena música",
+      "name": "PARA PICAR",
+      "description": "",
       "icon": "🍖",
       "items": [
         {
           "id": "picada-x2",
-          "name": "Picada x2",
-          "description": "Chicharrón, chorizo, morcilla, patacón, arepa y yuca frita",
+          "name": "Picada x 2",
+          "description": "Carnes mixtas, chorizo, salchicha prémium y papas.",
           "price": 45000,
-          "image": "assets/images/menu/picar/picada-x2.jpg",
-          "tags": ["Recomendado"]
+          "tags": []
         },
         {
           "id": "picada-x4",
-          "name": "Picada x4",
-          "description": "Chicharrón, chorizo, morcilla, costillas, patacón, arepa, yuca y papa criolla",
-          "price": 75000,
-          "image": "assets/images/menu/picar/picada-x4.jpg",
-          "tags": ["Especial"]
+          "name": "Picada x 4",
+          "description": "Carnes mixtas, chorizo, salchicha prémium y papas.",
+          "price": 80000,
+          "tags": []
         },
         {
-          "id": "alitas-bbq",
-          "name": "Alitas BBQ",
-          "description": "12 alitas de pollo bañadas en salsa BBQ de la casa",
-          "price": 30000,
-          "image": "assets/images/menu/picar/alitas.jpg",
-          "tags": ["Picante"]
+          "id": "choripollo",
+          "name": "Choripollo",
+          "description": "Chorizo prémium con pollo desmechado y papas.",
+          "price": 28000,
+          "tags": []
         },
         {
-          "id": "queso-fundido",
-          "name": "Queso Fundido",
-          "description": "Queso costeño derretido con chorizo y chicharrón, acompañado de arepitas",
-          "price": 25000,
-          "image": "assets/images/menu/picar/queso-fundido.jpg",
-          "tags": ["Nuevo"]
+          "id": "salchipollo",
+          "name": "Salchipollo",
+          "description": "Salchicha prémium, pollo desmechado y papas.",
+          "price": 26000,
+          "tags": []
         },
         {
-          "id": "papas-francesas",
-          "name": "Papas a la Francesa",
-          "description": "Papas fritas crujientes con salsa de la casa",
-          "price": 12000,
-          "image": "assets/images/menu/picar/papas.jpg",
-          "tags": ["Clásico"]
+          "id": "desgranado-costeno",
+          "name": "Desgranado Costeño",
+          "description": "Maíz, carnes mixtas, queso costeño y papa fósforo.",
+          "price": 35000,
+          "tags": []
         },
         {
-          "id": "yucas-suero",
-          "name": "Yucas Fritas con Suero",
-          "description": "Yucas fritas acompañadas de suero costeño y ají",
-          "price": 14000,
-          "image": "assets/images/menu/picar/yucas.jpg",
-          "tags": ["Tradicional"]
+          "id": "desgranado-sencillo",
+          "name": "Desgranado Sencillo",
+          "description": "Maíz, pollo, queso fundido, crema de leche y tocineta.",
+          "price": 28000,
+          "tags": []
         }
       ]
     },
     {
       "id": "licores",
-      "name": "Licores",
-      "description": "Los mejores licores para brindar",
+      "name": "LICORES",
+      "description": "",
       "icon": "🥃",
       "items": [
         {
-          "id": "aguardiente",
-          "name": "Aguardiente Antioqueño",
-          "description": "Botella 750ml, tradición colombiana",
-          "price": 80000,
-          "image": "assets/images/menu/licores/aguardiente.jpg",
-          "tags": ["Tradicional"]
+          "id": "aguardiente-antioqueno-375",
+          "name": "Aguardiente Antioqueño (375 ml)",
+          "description": "",
+          "price": 55000,
+          "tags": ["Aguardiente"]
         },
         {
-          "id": "ron",
-          "name": "Ron Viejo de Caldas",
-          "description": "Ron añejo 12 años, 750ml",
-          "price": 120000,
-          "image": "assets/images/menu/licores/ron.jpg",
-          "tags": ["Premium"]
+          "id": "aguardiente-antioqueno-750",
+          "name": "Aguardiente Antioqueño (750 ml)",
+          "description": "",
+          "price": 100000,
+          "tags": ["Aguardiente"]
         },
         {
-          "id": "whisky",
-          "name": "Whisky Johnnie Walker",
-          "description": "Black Label 750ml",
+          "id": "aguardiente-amarillo-375",
+          "name": "Aguardiente Amarillo (375 ml)",
+          "description": "",
+          "price": 55000,
+          "tags": ["Aguardiente"]
+        },
+        {
+          "id": "aguardiente-amarillo-750",
+          "name": "Aguardiente Amarillo (750 ml)",
+          "description": "",
+          "price": 100000,
+          "tags": ["Aguardiente"]
+        },
+        {
+          "id": "ron-caldas-tradicional-375",
+          "name": "Ron Caldas Tradicional (375 ml)",
+          "description": "",
+          "price": 55000,
+          "tags": ["Ron"]
+        },
+        {
+          "id": "ron-caldas-tradicional-750",
+          "name": "Ron Caldas Tradicional (750 ml)",
+          "description": "",
+          "price": 100000,
+          "tags": ["Ron"]
+        },
+        {
+          "id": "ron-caldas-8-anos-375",
+          "name": "Ron Caldas 8 años (375 ml)",
+          "description": "",
+          "price": 100000,
+          "tags": ["Ron", "Premium"]
+        },
+        {
+          "id": "ron-caldas-8-anos-750",
+          "name": "Ron Caldas 8 años (750 ml)",
+          "description": "",
+          "price": 190000,
+          "tags": ["Ron", "Premium"]
+        },
+        {
+          "id": "buchanans-deluxe-375",
+          "name": "Buchanans Deluxe (375 ml)",
+          "description": "",
           "price": 150000,
-          "image": "assets/images/menu/licores/whisky.jpg",
-          "tags": ["Premium"]
+          "tags": ["Whisky"]
         },
         {
-          "id": "tequila",
-          "name": "Tequila Don Julio",
-          "description": "Reposado 750ml",
-          "price": 180000,
-          "image": "assets/images/menu/licores/tequila.jpg",
-          "tags": ["Premium"]
+          "id": "buchanans-deluxe-750",
+          "name": "Buchanans Deluxe (750 ml)",
+          "description": "",
+          "price": 280000,
+          "tags": ["Whisky"]
         },
         {
-          "id": "vodka",
-          "name": "Vodka Absolut",
-          "description": "Vodka sueco 750ml, ideal para cócteles",
-          "price": 90000,
-          "image": "assets/images/menu/licores/vodka.jpg",
-          "tags": ["Popular"]
+          "id": "buchanans-master-750",
+          "name": "Buchanans Master (750 ml)",
+          "description": "",
+          "price": 320000,
+          "tags": ["Whisky", "Premium"]
         },
         {
-          "id": "ginebra",
-          "name": "Ginebra Tanqueray",
-          "description": "Ginebra premium londinense 750ml",
-          "price": 110000,
-          "image": "assets/images/menu/licores/ginebra.jpg",
-          "tags": ["Premium"]
+          "id": "old-parr-750",
+          "name": "Old Parr (750 ml)",
+          "description": "",
+          "price": 260000,
+          "tags": ["Whisky"]
         },
         {
-          "id": "cervezas",
-          "name": "Cervezas Artesanales",
-          "description": "Selección de cervezas colombianas (Águila, Poker, Club Colombia)",
-          "price": 8000,
-          "image": "assets/images/menu/licores/cervezas.jpg",
-          "tags": ["Popular"]
+          "id": "red-label-750",
+          "name": "Red Label (750 ml)",
+          "description": "",
+          "price": 140000,
+          "tags": ["Whisky"]
+        },
+        {
+          "id": "black-label-750",
+          "name": "Black Label (750 ml)",
+          "description": "",
+          "price": 250000,
+          "tags": ["Whisky", "Premium"]
+        },
+        {
+          "id": "double-black-750",
+          "name": "Double Black (750 ml)",
+          "description": "",
+          "price": 300000,
+          "tags": ["Whisky", "Premium"]
+        },
+        {
+          "id": "jack-daniels-750",
+          "name": "Jack Daniels (750 ml)",
+          "description": "",
+          "price": 220000,
+          "tags": ["Whisky"]
+        },
+        {
+          "id": "jack-daniels-canela-750",
+          "name": "Jack Daniels Canela (750 ml)",
+          "description": "",
+          "price": 220000,
+          "tags": ["Whisky"]
+        },
+        {
+          "id": "jose-cuervo-750",
+          "name": "José Cuervo (750 ml)",
+          "description": "",
+          "price": 200000,
+          "tags": ["Tequila"]
+        },
+        {
+          "id": "centenario-plata-750",
+          "name": "Centenario Plata (750 ml)",
+          "description": "",
+          "price": 210000,
+          "tags": ["Tequila"]
+        },
+        {
+          "id": "don-julio-blanco-750",
+          "name": "Don Julio Blanco (750 ml)",
+          "description": "",
+          "price": 360000,
+          "tags": ["Tequila", "Premium"]
+        },
+        {
+          "id": "don-julio-70-750",
+          "name": "Don Julio 70 (750 ml)",
+          "description": "",
+          "price": 580000,
+          "tags": ["Tequila", "Premium"]
+        },
+        {
+          "id": "vino-copa",
+          "name": "Vino (Copa)",
+          "description": "",
+          "price": 25000,
+          "tags": ["Vino"]
+        },
+        {
+          "id": "jp-chenet-lata",
+          "name": "JP Chenet (Lata)",
+          "description": "",
+          "price": 20000,
+          "tags": ["Vino"]
+        },
+        {
+          "id": "jp-chenet-botella",
+          "name": "JP Chenet (Botella)",
+          "description": "",
+          "price": 130000,
+          "tags": ["Vino"]
+        },
+        {
+          "id": "vodka-smirnoff-tamarindo-750",
+          "name": "Vodka Smirnoff Tamarindo (750 ml)",
+          "description": "",
+          "price": 120000,
+          "tags": ["Vodka"]
+        },
+        {
+          "id": "cerveza-poker-aguila",
+          "name": "Poker / Aguila",
+          "description": "",
+          "price": 5000,
+          "tags": ["Cerveza"]
+        },
+        {
+          "id": "cerveza-premium",
+          "name": "Aguila Light / Club Colombia / Redd's / Budweiser / Heineken / Coronita",
+          "description": "",
+          "price": 6000,
+          "tags": ["Cerveza", "Premium"]
+        },
+        {
+          "id": "stella-artois",
+          "name": "Stella Artois",
+          "description": "",
+          "price": 12000,
+          "tags": ["Cerveza", "Premium"]
+        },
+        {
+          "id": "smirnoff",
+          "name": "Smirnoff",
+          "description": "",
+          "price": 14000,
+          "tags": ["Cerveza", "Premium"]
         }
       ]
     },
     {
       "id": "cocteles",
-      "name": "Cócteles",
-      "description": "Mezclas perfectas para disfrutar",
+      "name": "CÓCTEL DE LA CASA Y MEZCLAS",
+      "description": "",
       "icon": "🍹",
       "items": [
         {
-          "id": "mojito",
-          "name": "Mojito Vallenato",
-          "description": "Ron, hierbabuena, limón, azúcar y soda",
-          "price": 18000,
-          "image": "assets/images/menu/cocteles/mojito.jpg",
-          "tags": ["Recomendado", "Clásico"]
-        },
-        {
-          "id": "michelada",
-          "name": "Michelada Picante",
-          "description": "Cerveza, limón, salsa picante, sal y especias",
-          "price": 15000,
-          "image": "assets/images/menu/cocteles/michelada.jpg",
-          "tags": ["Picante"]
-        },
-        {
-          "id": "shot-aguardiente",
-          "name": "Shot de Aguardiente",
-          "description": "Shot de aguardiente con limón y sal",
-          "price": 5000,
-          "image": "assets/images/menu/cocteles/shot.jpg",
-          "tags": ["Tradicional"]
-        },
-        {
-          "id": "coctel-autor",
-          "name": "Cóctel de Autor",
-          "description": "Mezcla secreta del bartender con frutas tropicales",
-          "price": 25000,
-          "image": "assets/images/menu/cocteles/autor.jpg",
-          "tags": ["Especial", "Nuevo"]
-        },
-        {
-          "id": "cuba-libre",
-          "name": "Cuba Libre",
-          "description": "Ron cola con limón, refresco de cola y hielo",
-          "price": 16000,
-          "image": "assets/images/menu/cocteles/cuba-libre.jpg",
+          "id": "pina-colada-ilusiones",
+          "name": "Piña Colada - \"Ilusiones\"",
+          "description": "Ron blanco, coco y piña.",
+          "price": 20000,
           "tags": ["Clásico"]
         },
         {
-          "id": "margarita",
-          "name": "Margarita",
-          "description": "Tequila, triple sec, jugo de limón y sal en el borde",
+          "id": "cosmopolitan-obsesion",
+          "name": "Cosmopolitan - \"Obsesión\"",
+          "description": "Vodka, cítricos y arándanos.",
+          "price": 18000,
+          "tags": ["Clásico"]
+        },
+        {
+          "id": "tequila-sunrise-terremoto",
+          "name": "Tequila Sunrise - \"Terremoto\"",
+          "description": "Tequila, naranja y granadina.",
           "price": 22000,
-          "image": "assets/images/menu/cocteles/margarita.jpg",
-          "tags": ["Premium"]
+          "tags": ["Clásico"]
         },
         {
-          "id": "pina-colada",
-          "name": "Piña Colada",
-          "description": "Ron, crema de coco, jugo de piña y hielo",
+          "id": "sexo-en-la-playa-la-cometimos",
+          "name": "Sexo en la Playa - \"La Cometimos\"",
+          "description": "Ron, frutas y dulzor tropical.",
           "price": 20000,
-          "image": "assets/images/menu/cocteles/pina-colada.jpg",
-          "tags": ["Tropical"]
+          "tags": ["Clásico"]
         },
         {
-          "id": "soda-michelada",
-          "name": "Soda Michelada",
-          "description": "Soda, limón, sal, salsa inglesa y especias (sin alcohol)",
+          "id": "cuba-libre-ron-para-todo-el-mundo",
+          "name": "Cuba Libre - \"Ron para Todo el Mundo\"",
+          "description": "Ron oscuro, limón y cola.",
+          "price": 22000,
+          "tags": ["Clásico"]
+        },
+        {
+          "id": "tu-olvido",
+          "name": "Tu Olvido",
+          "description": "Gin, maracuyá y notas dulces.",
+          "price": 25000,
+          "tags": ["Autor", "Oye Bonita"]
+        },
+        {
+          "id": "cuando-la-vi",
+          "name": "Cuando la Vi",
+          "description": "Vodka, pitaya y menta.",
+          "price": 25000,
+          "tags": ["Autor", "Oye Bonita"]
+        },
+        {
+          "id": "ahi-vas-paloma",
+          "name": "Ahí Vas Paloma",
+          "description": "Frutal y refrescante.",
+          "price": 25000,
+          "tags": ["Autor", "Oye Bonita"]
+        },
+        {
+          "id": "maria-monito",
+          "name": "María Moñito",
+          "description": "Ron, mandarina y menta.",
+          "price": 25000,
+          "tags": ["Autor", "Oye Bonita"]
+        },
+        {
+          "id": "el-santo-cachon",
+          "name": "El Santo Cachón",
+          "description": "Tequila, limón y jalapeño.",
+          "price": 26000,
+          "tags": ["Autor", "Oye Bonita"]
+        },
+        {
+          "id": "mojito-frutos-rojos-maracuya",
+          "name": "Mojito (Frutos Rojos o Maracuyá)",
+          "description": "Ron, hierbabuena y fruta natural.",
+          "price": 17000,
+          "tags": ["Mojito"]
+        },
+        {
+          "id": "daiquiri-manguito-biche",
+          "name": "Daiquiri Manguito Biche",
+          "description": "Fresco, ácido y atrevido.",
+          "price": 20000,
+          "tags": ["Daiquiri"]
+        },
+        {
+          "id": "daiquiri-todo-de-cabeza",
+          "name": "Daiquiri Todo de Cabeza",
+          "description": "Intenso y tropical.",
+          "price": 20000,
+          "tags": ["Daiquiri"]
+        },
+        {
+          "id": "gin-tonic-osito-dormilon",
+          "name": "Gin & Tonic Osito Dormilón",
+          "description": "Refrescante y cítrico.",
+          "price": 20000,
+          "tags": ["Gin"]
+        },
+        {
+          "id": "gin-tonic-nina-bonita",
+          "name": "Gin & Tonic Niña Bonita",
+          "description": "Suave y elegante.",
+          "price": 20000,
+          "tags": ["Gin"]
+        },
+        {
+          "id": "michelada-tradicional",
+          "name": "Michelada Tradicional",
+          "description": "",
           "price": 8000,
-          "image": "assets/images/menu/cocteles/soda-michelada.jpg",
-          "tags": ["Sin Alcohol"]
+          "tags": ["Michelada"]
+        },
+        {
+          "id": "michelada-carinito-de-mi-vida",
+          "name": "Michelada Cariñito de mi vida",
+          "description": "Mango",
+          "price": 10000,
+          "tags": ["Michelada"]
+        },
+        {
+          "id": "michelada-terremoto",
+          "name": "Michelada Terremoto",
+          "description": "Mango y jalapeño",
+          "price": 10000,
+          "tags": ["Michelada"]
+        },
+        {
+          "id": "michelada-oye-bonita",
+          "name": "Michelada Oye Bonita",
+          "description": "Mix de frutas",
+          "price": 12000,
+          "tags": ["Michelada"]
+        },
+        {
+          "id": "michelada-la-celosa",
+          "name": "Michelada La Celosa",
+          "description": "Frutos amarillos",
+          "price": 14000,
+          "tags": ["Michelada"]
+        },
+        {
+          "id": "soda-artesanal-tamarindo-mandarina",
+          "name": "Soda Artesanal Tamarindo & Mandarina",
+          "description": "",
+          "price": 15000,
+          "tags": ["Soda Artesanal"]
+        },
+        {
+          "id": "soda-artesanal-maracuya-picante",
+          "name": "Soda Artesanal Maracuyá Picante",
+          "description": "",
+          "price": 15000,
+          "tags": ["Soda Artesanal"]
+        },
+        {
+          "id": "soda-artesanal-frutos-rojos",
+          "name": "Soda Artesanal Frutos Rojos",
+          "description": "",
+          "price": 15000,
+          "tags": ["Soda Artesanal"]
+        },
+        {
+          "id": "shot-buchanans-deluxe",
+          "name": "Shot Buchanans Deluxe",
+          "description": "",
+          "price": 27000,
+          "tags": ["Shot"]
+        },
+        {
+          "id": "shot-old-parr",
+          "name": "Shot Old Parr",
+          "description": "",
+          "price": 25000,
+          "tags": ["Shot"]
+        },
+        {
+          "id": "shot-ron-caldas-8-anos",
+          "name": "Shot Ron Caldas 8 años",
+          "description": "",
+          "price": 17000,
+          "tags": ["Shot"]
+        },
+        {
+          "id": "shot-tequila",
+          "name": "Shot Tequila",
+          "description": "",
+          "price": 15000,
+          "tags": ["Shot"]
+        },
+        {
+          "id": "shot-ron-caldas",
+          "name": "Shot Ron Caldas",
+          "description": "",
+          "price": 10000,
+          "tags": ["Shot"]
+        },
+        {
+          "id": "shot-aguardiente-antioqueno",
+          "name": "Shot Aguardiente Antioqueño",
+          "description": "",
+          "price": 10000,
+          "tags": ["Shot"]
         }
       ]
     }
