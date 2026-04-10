@@ -1204,35 +1204,43 @@ a:hover {
 @media (max-width: 768px) {
     /* Header optimizado para móviles */
     .main-header {
-        position: relative; /* Cambiar de sticky a relative en móviles */
-        padding: var(--space-xs) 0;
+        position: sticky;
+        padding: 0.25rem 0;
     }
     
     .main-header .container {
-        gap: var(--space-xs); /* Reducir gap en contenedor del header */
+        gap: var(--space-xs);
     }
     
     .main-nav ul {
-        gap: var(--space-xs); /* Reducir gap de navegación */
+        gap: var(--space-xs);
+    }
+
+    /* ↓ Esto es lo clave: reducir el espacio inicial del menú */
+    .menu-navigation {
+        padding: var(--space-md) 0 var(--space-sm);
+    }
+
+    .menu-navigation .section-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.25rem;
+    }
+
+    .menu-navigation .section-title::after {
+        margin: 0.35rem auto 0.5rem;
+        width: 60px;
+        height: 3px;
+    }
+
+    .menu-navigation .section-subtitle {
+        font-size: 0.85rem !important;
+        margin-bottom: var(--space-md);
     }
     
-    .header-actions .btn {
-        width: 100%; /* Botón de acciones ocupa todo el ancho */
-    }
-    
-    /* Tipografía optimizada */
-    h1 {
-        font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
-        line-height: 1.2;
-    }
-    
-    h2 {
-        font-size: clamp(1.5rem, 5vw, 1.8rem) !important;
-    }
-    
-    h3 {
-        font-size: clamp(1.2rem, 4vw, 1.4rem) !important;
-    }
+    /* Tipografía */
+    h1 { font-size: clamp(1.8rem, 6vw, 2.2rem) !important; line-height: 1.2; }
+    h2 { font-size: clamp(1.5rem, 5vw, 1.8rem) !important; }
+    h3 { font-size: clamp(1.2rem, 4vw, 1.4rem) !important; }
     
     .section-title {
         font-size: 2rem !important;
@@ -1244,121 +1252,15 @@ a:hover {
         margin-bottom: var(--space-lg);
     }
     
-    /* Contenedores y espaciado */
-    .container {
-        padding: 0 var(--space-sm);
-    }
+    .container { padding: 0 var(--space-sm); }
     
     .menu-section {
-        padding: var(--space-lg) 0;
-        margin-bottom: var(--space-xl);
-    }
-    
-    .menu-section:not(:first-of-type) {
-        padding-top: var(--space-xl);
-    }
-    
-    /* Grid de menú optimizado */
-    .menu-grid {
-        grid-template-columns: 1fr !important;
-        gap: var(--space-sm) !important;
-    }
-    
-    /* Items del menú simplificados */
-    .menu-item-simple {
-        padding: var(--space-sm) 0;
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .menu-item-info {
-        padding-right: 0;
-        margin-bottom: var(--space-xs);
-    }
-    
-    .menu-item-title {
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
-    }
-    
-    .menu-item-description {
-        font-size: 0.85rem;
-        line-height: 1.4;
-    }
-    
-    .menu-item-price {
-        font-size: 1.1rem;
-        text-align: left;
-        margin-left: 0;
-        margin-top: var(--space-xs);
-        min-width: auto;
-    }
-    
-    .menu-item-tags {
-        margin-top: 0.5rem;
-    }
-    
-    .menu-item-tag {
-        font-size: 0.65rem;
-        padding: 0.1rem 0.4rem;
-    }
-    
-    /* Botones de categoría */
-    .menu-categories {
-        gap: var(--space-sm);
-    }
-    
-    .category-btn {
-        flex: 1 0 100%;
-        padding: var(--space-sm);
-        font-size: 0.9rem;
-    }
-    
-    .category-btn i {
-        font-size: 1rem;
-    }
-    
-    /* Pantalla de bienvenida */
-    .welcome-logo h1 {
-        font-size: 2.5rem !important;
-    }
-    
-    .welcome-message p {
-        font-size: 1.1rem !important;
-    }
-    
-    .welcome-message .subtitle {
-        font-size: 0.95rem !important;
-    }
-    
-    /* Tarjeta de dirección */
-    .address-card {
-        padding: var(--space-md) !important;
-    }
-    
-    .address-content h4 {
-        font-size: 1.1rem;
-    }
-    
-    .address-content p {
-        font-size: 0.9rem;
-    }
-    
-    /* Footer */
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-        text-align: center;
-    }
-    
-    .footer-column {
+        padding: var(--space-md) 0;
         margin-bottom: var(--space-lg);
     }
     
-    .footer-bottom {
-        flex-direction: column;
-        gap: var(--space-sm);
-        text-align: center;
+    .menu-section:not(:first-of-type) {
+        padding-top: var(--space-lg);
     }
 }
 
