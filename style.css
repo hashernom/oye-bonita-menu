@@ -527,12 +527,13 @@ a:hover {
 }
 
 .menu-card__tag {
-    padding: 0.25rem 0.75rem;
-    background-color: var(--confeti-red);
+    padding: 0.2rem 0.5rem;
+    background-color: #C62828;
     color: white;
     border-radius: var(--radius-full);
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 .menu-card__tag--recommended {
@@ -540,7 +541,7 @@ a:hover {
 }
 
 .menu-card__tag--spicy {
-    background-color: var(--confeti-red);
+    background-color: #C62828;
 }
 
 .menu-card__tag--new {
