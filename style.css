@@ -1280,6 +1280,11 @@ a:hover {
     .menu-section:first-of-type {
         padding-top: 14px;
     }
+    
+    /* Ocultar elementos decorativos en móviles */
+    .decorative-element {
+        display: none;
+    }
 }
 
 /* Dispositivos muy pequeños (móviles pequeños) */
