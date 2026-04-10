@@ -1176,60 +1176,304 @@ a:hover {
 }
 
 /* ============================================
-   AJUSTES DE FUENTE PARA MÓVILES
+   RESPONSIVIDAD COMPLETA PARA MÓVILES
    ============================================ */
-@media (max-width: 768px) {
-    h1 {
-        font-size: clamp(2rem, 5vw, 2.5rem) !important;
-    }
-    
-    h2 {
-        font-size: clamp(1.5rem, 4vw, 1.8rem) !important;
-    }
-    
-    h3 {
-        font-size: clamp(1.2rem, 3vw, 1.4rem) !important;
-    }
-    
-    p {
-        font-size: 0.9rem !important;
-    }
-    
-    .section-title {
-        font-size: 2.5rem !important;
-    }
-    
-    .section-subtitle {
-        font-size: 1rem !important;
+
+/* Dispositivos medianos (tablets) */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 var(--space-md);
     }
     
     .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .menu-categories {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .category-btn {
+        flex: 1 0 calc(50% - var(--space-md));
+        min-width: 140px;
+    }
+}
+
+/* Dispositivos pequeños (móviles grandes) */
+@media (max-width: 768px) {
+    /* Tipografía optimizada */
+    h1 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: clamp(1.5rem, 5vw, 1.8rem) !important;
+    }
+    
+    h3 {
+        font-size: clamp(1.2rem, 4vw, 1.4rem) !important;
+    }
+    
+    .section-title {
+        font-size: 2rem !important;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem !important;
+        margin-bottom: var(--space-lg);
+    }
+    
+    /* Contenedores y espaciado */
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .menu-section {
+        padding: var(--space-lg) 0;
+        margin-bottom: var(--space-xl);
+    }
+    
+    .menu-section:not(:first-of-type) {
+        padding-top: var(--space-xl);
+    }
+    
+    /* Grid de menú optimizado */
+    .menu-grid {
         grid-template-columns: 1fr !important;
-        gap: var(--space-md) !important;
+        gap: var(--space-sm) !important;
     }
     
-    .menu-card__title {
-        font-size: 1.2rem !important;
+    /* Items del menú simplificados */
+    .menu-item-simple {
+        padding: var(--space-sm) 0;
+        flex-direction: column;
+        align-items: stretch;
     }
     
-    .menu-card__price {
-        font-size: 1.4rem !important;
+    .menu-item-info {
+        padding-right: 0;
+        margin-bottom: var(--space-xs);
     }
     
-    .menu-card__description {
-        font-size: 0.85rem !important;
+    .menu-item-title {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
     }
     
+    .menu-item-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .menu-item-price {
+        font-size: 1.1rem;
+        text-align: left;
+        margin-left: 0;
+        margin-top: var(--space-xs);
+        min-width: auto;
+    }
+    
+    .menu-item-tags {
+        margin-top: 0.5rem;
+    }
+    
+    .menu-item-tag {
+        font-size: 0.65rem;
+        padding: 0.1rem 0.4rem;
+    }
+    
+    /* Botones de categoría */
+    .menu-categories {
+        gap: var(--space-sm);
+    }
+    
+    .category-btn {
+        flex: 1 0 100%;
+        padding: var(--space-sm);
+        font-size: 0.9rem;
+    }
+    
+    .category-btn i {
+        font-size: 1rem;
+    }
+    
+    /* Pantalla de bienvenida */
     .welcome-logo h1 {
-        font-size: 3rem !important;
+        font-size: 2.5rem !important;
     }
     
     .welcome-message p {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
     }
     
+    .welcome-message .subtitle {
+        font-size: 0.95rem !important;
+    }
+    
+    /* Tarjeta de dirección */
     .address-card {
-        padding: var(--space-lg) !important;
+        padding: var(--space-md) !important;
+    }
+    
+    .address-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .address-content p {
+        font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+    
+    .footer-column {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+}
+
+/* Dispositivos muy pequeños (móviles pequeños) */
+@media (max-width: 480px) {
+    /* Tipografía aún más compacta */
+    h1 {
+        font-size: clamp(1.6rem, 7vw, 1.9rem) !important;
+    }
+    
+    h2 {
+        font-size: clamp(1.3rem, 6vw, 1.5rem) !important;
+    }
+    
+    h3 {
+        font-size: clamp(1.1rem, 5vw, 1.2rem) !important;
+    }
+    
+    .section-title {
+        font-size: 1.8rem !important;
+    }
+    
+    /* Contenedores más compactos */
+    .container {
+        padding: 0 var(--space-xs);
+    }
+    
+    .menu-section {
+        padding: var(--space-md) 0;
+    }
+    
+    /* Items del menú ultra compactos */
+    .menu-item-title {
+        font-size: 0.95rem;
+    }
+    
+    .menu-item-description {
+        font-size: 0.8rem;
+    }
+    
+    .menu-item-price {
+        font-size: 1rem;
+    }
+    
+    /* Botones de categoría en columna */
+    .menu-categories {
+        gap: var(--space-xs);
+    }
+    
+    .category-btn {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Header ultra compacto */
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo .tagline {
+        font-size: 0.7rem;
+    }
+    
+    .main-nav a span {
+        display: none;
+    }
+    
+    .main-nav a i {
+        font-size: 1rem;
+    }
+    
+    .main-nav a {
+        padding: 0.5rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        justify-content: center;
+    }
+    
+    /* Pantalla de bienvenida ajustada */
+    .welcome-content {
+        padding: var(--space-lg);
+    }
+    
+    .welcome-logo h1 {
+        font-size: 2rem !important;
+    }
+    
+    .welcome-message p {
+        font-size: 1rem !important;
+    }
+}
+
+/* Dispositivos en orientación horizontal */
+@media (max-width: 768px) and (orientation: landscape) {
+    .menu-item-simple {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .menu-item-price {
+        text-align: right;
+        min-width: 80px;
+        margin-left: var(--space-sm);
+    }
+    
+    .main-header .container {
+        flex-direction: row;
+    }
+    
+    .main-nav ul {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Mejoras de accesibilidad y touch */
+@media (max-width: 768px) {
+    /* Tamaños mínimos para touch */
+    .category-btn,
+    .main-nav a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Mejor espaciado para dedos */
+    .menu-item-simple {
+        padding: 0.75rem 0;
+    }
+    
+    /* Scroll suave mejorado */
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Compensa header fijo */
     }
 }
 
