@@ -1218,23 +1218,37 @@ a:hover {
 
     /* ↓ Esto es lo clave: reducir el espacio inicial del menú */
     .menu-navigation {
-        padding: var(--space-md) 0 var(--space-sm);
+        padding: 14px 16px 12px;
     }
 
     .menu-navigation .section-title {
-        font-size: 1.8rem !important;
-        margin-bottom: 0.25rem;
+        font-size: 22px !important;
+        margin-bottom: 2px;
     }
 
     .menu-navigation .section-title::after {
-        margin: 0.35rem auto 0.5rem;
-        width: 60px;
-        height: 3px;
+        margin: 4px auto 6px;
+        width: 50px;
+        height: 2px;
     }
 
     .menu-navigation .section-subtitle {
-        font-size: 0.85rem !important;
-        margin-bottom: var(--space-md);
+        font-size: 11px !important;
+        margin-bottom: 10px;
+    }
+    
+    /* Botones de categoría en grilla 2 columnas */
+    .menu-categories {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 0;
+    }
+    
+    .category-btn {
+        padding: 8px 4px;
+        font-size: 11px;
+        justify-content: center;
     }
     
     /* Tipografía */
@@ -1261,6 +1275,10 @@ a:hover {
     
     .menu-section:not(:first-of-type) {
         padding-top: var(--space-lg);
+    }
+    
+    .menu-section:first-of-type {
+        padding-top: 14px;
     }
 }
 
