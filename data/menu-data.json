@@ -1,0 +1,284 @@
+{
+  "categories": [
+    {
+      "id": "entradas",
+      "name": "Entradas",
+      "description": "Para empezar con buen sabor",
+      "icon": "🥟",
+      "items": [
+        {
+          "id": "chorizos-caramelizados",
+          "name": "Chorizos Caramelizados",
+          "description": "Chorizos artesanales caramelizados con panela y especias, acompañados de patacón",
+          "price": 18000,
+          "image": "assets/images/menu/entradas/chorizos.jpg",
+          "tags": ["Recomendado", "Picante"]
+        },
+        {
+          "id": "patacon-tentacion",
+          "name": "Patacón Tentación",
+          "description": "Patacón crujiente con queso costeño, carne desmechada y guacamole",
+          "price": 22000,
+          "image": "assets/images/menu/entradas/patacon.jpg",
+          "tags": ["Recomendado"]
+        },
+        {
+          "id": "empanadas-vallenatas",
+          "name": "Empanadas Vallenatas",
+          "description": "Rellenas de carne molida con papa, acompañadas de ají picante",
+          "price": 12000,
+          "image": "assets/images/menu/entradas/empanadas.jpg",
+          "tags": ["Tradicional"]
+        },
+        {
+          "id": "arepas-rellenas",
+          "name": "Arepas Rellenas",
+          "description": "Arepa de maíz con queso, chorizo y hogao",
+          "price": 15000,
+          "image": "assets/images/menu/entradas/arepas.jpg",
+          "tags": ["Nuevo"]
+        },
+        {
+          "id": "chicharron-limon",
+          "name": "Chicharrón con Limón",
+          "description": "Chicharrón crocante acompañado de limón y ají picante",
+          "price": 16000,
+          "image": "assets/images/menu/entradas/chicharron.jpg",
+          "tags": ["Tradicional", "Picante"]
+        }
+      ]
+    },
+    {
+      "id": "hamburguesas",
+      "name": "Hamburguesas",
+      "description": "Las mejores hamburguesas con sabor colombiano",
+      "icon": "🍔",
+      "items": [
+        {
+          "id": "oye-bonita",
+          "name": "Oye Bonita",
+          "description": "Carne 200g, queso costeño, cebolla caramelizada, lechuga, tomate y salsa de la casa",
+          "price": 28000,
+          "image": "assets/images/menu/hamburguesas/oye-bonita.jpg",
+          "tags": ["Recomendado", "Especial"]
+        },
+        {
+          "id": "la-consentida",
+          "name": "La Consentida",
+          "description": "Doble carne, doble queso, tocineta, huevo frito y salsa BBQ",
+          "price": 35000,
+          "image": "assets/images/menu/hamburguesas/consentida.jpg",
+          "tags": ["Picante"]
+        },
+        {
+          "id": "vallenata",
+          "name": "La Vallenata",
+          "description": "Carne de res, chorizo, chicharrón, aguacate y salsa de ají",
+          "price": 32000,
+          "image": "assets/images/menu/hamburguesas/vallenata.jpg",
+          "tags": ["Tradicional"]
+        },
+        {
+          "id": "vegetariana",
+          "name": "Vegetariana",
+          "description": "Hamburguesa de lentejas, queso, aguacate, lechuga y salsa de yogur",
+          "price": 25000,
+          "image": "assets/images/menu/hamburguesas/vegetariana.jpg",
+          "tags": ["Vegetariano"]
+        }
+      ]
+    },
+    {
+      "id": "para-picar",
+      "name": "Para Picar",
+      "description": "Para compartir con amigos y buena música",
+      "icon": "🍖",
+      "items": [
+        {
+          "id": "picada-x2",
+          "name": "Picada x2",
+          "description": "Chicharrón, chorizo, morcilla, patacón, arepa y yuca frita",
+          "price": 45000,
+          "image": "assets/images/menu/picar/picada-x2.jpg",
+          "tags": ["Recomendado"]
+        },
+        {
+          "id": "picada-x4",
+          "name": "Picada x4",
+          "description": "Chicharrón, chorizo, morcilla, costillas, patacón, arepa, yuca y papa criolla",
+          "price": 75000,
+          "image": "assets/images/menu/picar/picada-x4.jpg",
+          "tags": ["Especial"]
+        },
+        {
+          "id": "alitas-bbq",
+          "name": "Alitas BBQ",
+          "description": "12 alitas de pollo bañadas en salsa BBQ de la casa",
+          "price": 30000,
+          "image": "assets/images/menu/picar/alitas.jpg",
+          "tags": ["Picante"]
+        },
+        {
+          "id": "queso-fundido",
+          "name": "Queso Fundido",
+          "description": "Queso costeño derretido con chorizo y chicharrón, acompañado de arepitas",
+          "price": 25000,
+          "image": "assets/images/menu/picar/queso-fundido.jpg",
+          "tags": ["Nuevo"]
+        },
+        {
+          "id": "papas-francesas",
+          "name": "Papas a la Francesa",
+          "description": "Papas fritas crujientes con salsa de la casa",
+          "price": 12000,
+          "image": "assets/images/menu/picar/papas.jpg",
+          "tags": ["Clásico"]
+        },
+        {
+          "id": "yucas-suero",
+          "name": "Yucas Fritas con Suero",
+          "description": "Yucas fritas acompañadas de suero costeño y ají",
+          "price": 14000,
+          "image": "assets/images/menu/picar/yucas.jpg",
+          "tags": ["Tradicional"]
+        }
+      ]
+    },
+    {
+      "id": "licores",
+      "name": "Licores",
+      "description": "Los mejores licores para brindar",
+      "icon": "🥃",
+      "items": [
+        {
+          "id": "aguardiente",
+          "name": "Aguardiente Antioqueño",
+          "description": "Botella 750ml, tradición colombiana",
+          "price": 80000,
+          "image": "assets/images/menu/licores/aguardiente.jpg",
+          "tags": ["Tradicional"]
+        },
+        {
+          "id": "ron",
+          "name": "Ron Viejo de Caldas",
+          "description": "Ron añejo 12 años, 750ml",
+          "price": 120000,
+          "image": "assets/images/menu/licores/ron.jpg",
+          "tags": ["Premium"]
+        },
+        {
+          "id": "whisky",
+          "name": "Whisky Johnnie Walker",
+          "description": "Black Label 750ml",
+          "price": 150000,
+          "image": "assets/images/menu/licores/whisky.jpg",
+          "tags": ["Premium"]
+        },
+        {
+          "id": "tequila",
+          "name": "Tequila Don Julio",
+          "description": "Reposado 750ml",
+          "price": 180000,
+          "image": "assets/images/menu/licores/tequila.jpg",
+          "tags": ["Premium"]
+        },
+        {
+          "id": "vodka",
+          "name": "Vodka Absolut",
+          "description": "Vodka sueco 750ml, ideal para cócteles",
+          "price": 90000,
+          "image": "assets/images/menu/licores/vodka.jpg",
+          "tags": ["Popular"]
+        },
+        {
+          "id": "ginebra",
+          "name": "Ginebra Tanqueray",
+          "description": "Ginebra premium londinense 750ml",
+          "price": 110000,
+          "image": "assets/images/menu/licores/ginebra.jpg",
+          "tags": ["Premium"]
+        },
+        {
+          "id": "cervezas",
+          "name": "Cervezas Artesanales",
+          "description": "Selección de cervezas colombianas (Águila, Poker, Club Colombia)",
+          "price": 8000,
+          "image": "assets/images/menu/licores/cervezas.jpg",
+          "tags": ["Popular"]
+        }
+      ]
+    },
+    {
+      "id": "cocteles",
+      "name": "Cócteles",
+      "description": "Mezclas perfectas para disfrutar",
+      "icon": "🍹",
+      "items": [
+        {
+          "id": "mojito",
+          "name": "Mojito Vallenato",
+          "description": "Ron, hierbabuena, limón, azúcar y soda",
+          "price": 18000,
+          "image": "assets/images/menu/cocteles/mojito.jpg",
+          "tags": ["Recomendado", "Clásico"]
+        },
+        {
+          "id": "michelada",
+          "name": "Michelada Picante",
+          "description": "Cerveza, limón, salsa picante, sal y especias",
+          "price": 15000,
+          "image": "assets/images/menu/cocteles/michelada.jpg",
+          "tags": ["Picante"]
+        },
+        {
+          "id": "shot-aguardiente",
+          "name": "Shot de Aguardiente",
+          "description": "Shot de aguardiente con limón y sal",
+          "price": 5000,
+          "image": "assets/images/menu/cocteles/shot.jpg",
+          "tags": ["Tradicional"]
+        },
+        {
+          "id": "coctel-autor",
+          "name": "Cóctel de Autor",
+          "description": "Mezcla secreta del bartender con frutas tropicales",
+          "price": 25000,
+          "image": "assets/images/menu/cocteles/autor.jpg",
+          "tags": ["Especial", "Nuevo"]
+        },
+        {
+          "id": "cuba-libre",
+          "name": "Cuba Libre",
+          "description": "Ron cola con limón, refresco de cola y hielo",
+          "price": 16000,
+          "image": "assets/images/menu/cocteles/cuba-libre.jpg",
+          "tags": ["Clásico"]
+        },
+        {
+          "id": "margarita",
+          "name": "Margarita",
+          "description": "Tequila, triple sec, jugo de limón y sal en el borde",
+          "price": 22000,
+          "image": "assets/images/menu/cocteles/margarita.jpg",
+          "tags": ["Premium"]
+        },
+        {
+          "id": "pina-colada",
+          "name": "Piña Colada",
+          "description": "Ron, crema de coco, jugo de piña y hielo",
+          "price": 20000,
+          "image": "assets/images/menu/cocteles/pina-colada.jpg",
+          "tags": ["Tropical"]
+        },
+        {
+          "id": "soda-michelada",
+          "name": "Soda Michelada",
+          "description": "Soda, limón, sal, salsa inglesa y especias (sin alcohol)",
+          "price": 8000,
+          "image": "assets/images/menu/cocteles/soda-michelada.jpg",
+          "tags": ["Sin Alcohol"]
+        }
+      ]
+    }
+  ]
+}
