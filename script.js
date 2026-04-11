@@ -501,10 +501,93 @@
         };
     }
 
+    // Función para crear destellos dorados en la pantalla de carga
+    function createGoldenSparkles() {
+        const welcomeScreen = document.querySelector('.welcome-screen');
+        if (!welcomeScreen) return;
+        
+        // Crear múltiples destellos
+        for (let i = 0; i < 15; i++) {
+            setTimeout(() => {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'golden-sparkle';
+                
+                // Posición aleatoria dentro de la pantalla de carga
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                sparkle.style.left = x + '%';
+                sparkle.style.top = y + '%';
+                
+                // Tamaño aleatorio
+                const size = 4 + Math.random() * 8;
+                sparkle.style.width = size + 'px';
+                sparkle.style.height = size + 'px';
+                
+                // Intensidad del color
+                const intensity = 0.6 + Math.random() * 0.4;
+                sparkle.style.opacity = intensity.toString();
+                
+                // Color dorado con variaciones
+                const goldVariations = ['#E6B325', '#F8E6A8', '#D4AF37', '#FFD700'];
+                const goldColor = goldVariations[Math.floor(Math.random() * goldVariations.length)];
+                sparkle.style.background = goldColor;
+                sparkle.style.boxShadow = `0 0 ${10 + Math.random() * 15}px ${goldColor}, 0 0 ${20 + Math.random() * 30}px rgba(230, 179, 37, 0.7)`;
+                
+                welcomeScreen.appendChild(sparkle);
+                
+                // Animación combinada
+                const duration = 2000 + Math.random() * 3000;
+                const delay = Math.random() * 1000;
+                
+                // Animación de parpadeo
+                sparkle.animate([
+                    { opacity: 0, transform: 'scale(0.5)' },
+                    { opacity: intensity, transform: 'scale(1.2)' },
+                    { opacity: 0, transform: 'scale(0.5)' }
+                ], {
+                    duration: duration,
+                    delay: delay,
+                    easing: 'ease-in-out',
+                    iterations: Infinity
+                });
+                
+                // Animación de movimiento circular suave
+                const moveX = (Math.random() * 40 - 20) + 'px';
+                const moveY = (Math.random() * 40 - 20) + 'px';
+                
+                sparkle.animate([
+                    { transform: 'translate(0, 0) rotate(0deg)' },
+                    { transform: `translate(${moveX}, ${moveY}) rotate(180deg)` },
+                    { transform: 'translate(0, 0) rotate(360deg)' }
+                ], {
+                    duration: duration * 1.5,
+                    delay: delay,
+                    easing: 'ease-in-out',
+                    iterations: Infinity
+                });
+                
+                // Eliminar destello cuando la pantalla de carga desaparezca
+                const observer = new MutationObserver(() => {
+                    if (!document.contains(welcomeScreen) || welcomeScreen.style.display === 'none') {
+                        if (sparkle.parentNode) {
+                            sparkle.remove();
+                        }
+                        observer.disconnect();
+                    }
+                });
+                
+                observer.observe(document.body, { childList: true, subtree: true });
+            }, i * 200);
+        }
+    }
+
     // Inicializa la aplicación
     async function init() {
         try {
             Utils.log('Inicializando aplicación...');
+            
+            // Crear destellos dorados en la pantalla de carga
+            createGoldenSparkles();
             
             // Crear partículas flotantes
             createParticles();

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Dancing+Script:wght@600&family=Playfair+Display:wght@500;700&display=swap');
 /* ============================================
    RESET Y CONFIGURACIÓN BASE
    ============================================ */
@@ -136,8 +137,11 @@ a:hover {
     text-align: center;
     margin-bottom: var(--space-sm);
     position: relative;
-    font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--gold-accent);
 }
 
@@ -247,16 +251,14 @@ a:hover {
 /* ============================================
    HEADER VALLENATO
    ============================================ */
+/* Estilos para el Header y Logo */
 .main-header {
-    background-color: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
+    background-color: #0a0a0a; /* Fondo casi negro */
+    padding: 40px 0;
+    text-align: center;
+    position: static; /* Cambiado de sticky a static para que no baje con el cursor */
     z-index: 1000;
-    padding: var(--space-xs) 0;
     border-bottom: 2px solid var(--gold-accent);
-    contain: layout style;
-    will-change: backdrop-filter;
 }
 
 .main-header .container {
@@ -273,20 +275,46 @@ a:hover {
 }
 
 .logo h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2rem;
-    margin-bottom: 0;
-    color: var(--gold-accent);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 500; /* Cambiado de 700 a 500 para menos grosor */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    
+    /* Efecto Dorado Metálico */
+    background: linear-gradient(
+        to bottom,
+        #f8e5ad 0%,
+        #d4af37 40%,
+        #b28a30 60%,
+        #f8e5ad 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
     line-height: 1;
 }
 
 .logo .tagline {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #f8e5ad;
+    margin-top: -15px; /* Para que se acerque al título como en la imagen */
+    font-weight: normal;
+    text-transform: lowercase; /* El estilo script suele lucir mejor así */
     margin-bottom: 0;
     font-style: italic;
     letter-spacing: 0.5px;
+}
+
+/* Estilo para el icono de música (opcional, si quieres que combine) */
+.fa-music {
+    font-size: 0.6em;
+    vertical-align: middle;
+    margin-right: 10px;
+    color: #d4af37;
+    -webkit-text-fill-color: initial; /* Reset del gradiente del h1 */
 }
 
 .main-nav ul {
@@ -911,17 +939,35 @@ a:hover {
 }
 
 .welcome-logo h1 {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Playfair Display', serif;
     font-size: 4rem;
-    color: var(--gold-accent);
+    font-weight: 500; /* Igual que el header */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    
+    /* Efecto Dorado Metálico - Igual que el header */
+    background: linear-gradient(
+        to bottom,
+        #f8e5ad 0%,
+        #d4af37 40%,
+        #b28a30 60%,
+        #f8e5ad 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+    line-height: 1;
     margin-bottom: var(--space-xs);
-    text-shadow: 0 0 20px rgba(230, 179, 37, 0.7);
-    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .welcome-logo .tagline {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #f8e5ad;
+    margin-top: -15px; /* Para que se acerque al título como en el header */
+    font-weight: normal;
+    text-transform: lowercase; /* El estilo script suele lucir mejor así */
     margin-bottom: var(--space-xl);
     font-style: italic;
 }
@@ -939,30 +985,58 @@ a:hover {
     margin-bottom: var(--space-xl);
 }
 
+/* La barra de carga ha sido eliminada según solicitud del usuario */
 .loading-indicator {
-    margin-top: var(--space-xl);
+    display: none; /* Oculta completamente la barra de carga */
 }
 
-.loading-bar {
-    width: 100%;
-    height: 6px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-    margin-bottom: var(--space-sm);
+/* ============================================
+   DESTELLOS DORADOS PARA PANTALLA DE CARGA
+   ============================================ */
+.golden-sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #E6B325;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    filter: blur(1px);
+    box-shadow: 0 0 15px #E6B325, 0 0 30px rgba(230, 179, 37, 0.7);
 }
 
-.loading-progress {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, var(--confeti-red), var(--confeti-yellow), var(--confeti-green), var(--confeti-blue));
-    border-radius: var(--radius-full);
-    transition: width 0.3s ease;
+@keyframes sparkle-twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
 }
 
-.loading-text {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+@keyframes sparkle-move {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(20px, -20px) rotate(90deg);
+    }
+    50% {
+        transform: translate(40px, 0) rotate(180deg);
+    }
+    75% {
+        transform: translate(20px, 20px) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
 }
 
 /* ============================================
@@ -1072,11 +1146,13 @@ a:hover {
 }
 
 .menu-section h3.section-title {
-    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: 500;
     margin-bottom: var(--space-sm);
     color: var(--gold-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .menu-section .section-subtitle {
