@@ -1545,24 +1545,24 @@ a:hover {
    ============================================ */
 .firework {
     position: fixed;
-    width: 16px;
-    height: 16px;
+    width: 12px; /* Reducido ligeramente */
+    height: 12px; /* Reducido ligeramente */
     border-radius: 40%;
     pointer-events: none;
     z-index: -1;
     opacity: 0;
-    filter: blur(1px);
-    box-shadow: 0 0 20px currentColor, 0 0 40px rgba(255, 255, 255, 0.5);
+    filter: blur(0.8px); /* Reducido ligeramente */
+    box-shadow: 0 0 15px currentColor, 0 0 30px rgba(255, 255, 255, 0.4); /* Reducido */
 }
 
 .firework-spark {
     position: absolute;
-    width: 7px;
-    height: 7px;
+    width: 5px; /* Reducido ligeramente */
+    height: 5px; /* Reducido ligeramente */
     border-radius: 50%;
     opacity: 0;
-    filter: blur(1px);
-    box-shadow: 0 0 10px currentColor, 0 0 20px rgba(255, 255, 255, 0.3);
+    filter: blur(0.8px); /* Reducido ligeramente */
+    box-shadow: 0 0 8px currentColor, 0 0 16px rgba(255, 255, 255, 0.25); /* Reducido */
 }
 
 @keyframes firework-explosion {

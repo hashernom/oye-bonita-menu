@@ -374,8 +374,8 @@
             easing: 'ease-out'
         });
         
-        // Crear chispas (muchas más)
-        const sparkCount = 25 + Math.floor(Math.random() * 25);
+        // Crear chispas (reducidas para efecto más sutil con múltiples fuegos)
+        const sparkCount = 15 + Math.floor(Math.random() * 10); // 15-25 chispas
         for (let i = 0; i < sparkCount; i++) {
             setTimeout(() => {
                 const spark = document.createElement('div');
@@ -466,28 +466,81 @@
         }, 2000);
     }
     
-    // Función para crear fuegos artificiales aleatorios (MÁS FRECUENTES)
-   function startFireworks() {
-    function spawn() {
-        const x = 50 + Math.random() * (window.innerWidth - 100);
-        const y = 100 + Math.random() * (window.innerHeight - 200);
-        
-        createFirework(x, y);
-        
-        // Probabilidad del 20% para el segundo
-        if (Math.random() < 0.2) {
-            setTimeout(() => {
-                createFirework(x + 20, y + 20);
-            }, 300);
+    // Función para crear fuegos artificiales orgánicos (múltiples a la vez, efecto de fiesta no invasivo)
+    function startFireworks() {
+        // Función para crear un grupo de fuegos artificiales (2-4 a la vez)
+        function createFireworkGroup() {
+            const groupSize = 2 + Math.floor(Math.random() * 3); // 2-4 fuegos por grupo
+            
+            for (let i = 0; i < groupSize; i++) {
+                setTimeout(() => {
+                    // Posición aleatoria pero agrupada
+                    const baseX = 100 + Math.random() * (window.innerWidth - 200);
+                    const baseY = 150 + Math.random() * (window.innerHeight - 300);
+                    
+                    // Variación dentro del grupo
+                    const x = baseX + (Math.random() * 80 - 40);
+                    const y = baseY + (Math.random() * 60 - 30);
+                    
+                    createFirework(x, y);
+                    
+                    // 30% de probabilidad de fuego adicional cercano después de un breve retraso
+                    if (Math.random() < 0.3) {
+                        setTimeout(() => {
+                            createFirework(x + (Math.random() * 30 - 15), y + (Math.random() * 30 - 15));
+                        }, 200 + Math.random() * 300);
+                    }
+                }, i * 150); // Espaciado entre fuegos del mismo grupo
+            }
         }
-
-        // --- CAMBIO AQUÍ: Rango de 3 a 5 segundos ---
-        const proximoDisparo = 3000 + Math.random() * 2000; 
-        setTimeout(spawn, proximoDisparo);
+        
+        // Función principal de ciclo
+        function spawnCycle() {
+            // Crear un grupo de fuegos
+            createFireworkGroup();
+            
+            // Tiempo hasta el próximo grupo (más frecuente para efecto orgánico)
+            const nextGroupDelay = 2000 + Math.random() * 3000; // 2-5 segundos
+            
+            // 40% de probabilidad de crear un pequeño grupo secundario después de un tiempo
+            if (Math.random() < 0.4) {
+                setTimeout(() => {
+                    const secondarySize = 1 + Math.floor(Math.random() * 2); // 1-2 fuegos
+                    for (let j = 0; j < secondarySize; j++) {
+                        setTimeout(() => {
+                            const x = 50 + Math.random() * (window.innerWidth - 100);
+                            const y = 100 + Math.random() * (window.innerHeight - 200);
+                            createFirework(x, y);
+                        }, j * 200);
+                    }
+                }, nextGroupDelay / 2);
+            }
+            
+            // Programar próximo ciclo
+            setTimeout(spawnCycle, nextGroupDelay);
+        }
+        
+        // Iniciar el ciclo
+        spawnCycle();
+        
+        // También crear algunos fuegos individuales esporádicos
+        function spawnSporadic() {
+            setTimeout(() => {
+                // 60% de probabilidad de fuego individual
+                if (Math.random() < 0.6) {
+                    const x = 50 + Math.random() * (window.innerWidth - 100);
+                    const y = 100 + Math.random() * (window.innerHeight - 200);
+                    createFirework(x, y);
+                }
+                
+                // Siguiente fuego esporádico
+                spawnSporadic();
+            }, 1000 + Math.random() * 4000); // 1-5 segundos
+        }
+        
+        // Iniciar fuegos esporádicos
+        spawnSporadic();
     }
-
-    spawn(); // Inicia el primer disparo
-}
     // Inicializa elementos DOM
     function initDOM() {
         categoryButtons = document.querySelectorAll('.category-btn');
