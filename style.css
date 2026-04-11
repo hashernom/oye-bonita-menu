@@ -968,6 +968,42 @@ a:hover {
         font-size: 0.8rem;
     }
     
+    /* Barra de búsqueda responsive */
+    .header-search {
+        max-width: 100%;
+        margin: var(--space-sm) 0;
+        order: 3; /* Mover después del logo y navegación */
+        width: 100%;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    .search-input {
+        padding: 8px 35px 8px 35px;
+        font-size: 0.85rem;
+    }
+    
+    .search-icon {
+        left: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .search-clear {
+        right: 8px;
+        padding: 3px;
+        font-size: 0.75rem;
+    }
+    
+    .search-results {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        max-height: 250px;
+        z-index: 1002;
+    }
+    
     .menu-categories {
         flex-direction: column;
         align-items: center;
@@ -1494,7 +1530,7 @@ a:hover {
 
 /* Dispositivos pequeños (móviles grandes) */
 @media (max-width: 768px) {
-    /* Header optimizado para móviles */
+    /* Header optimizado para móviles con buscador */
     .main-header {
         position: sticky;
         padding: 0.25rem 0;
@@ -1502,10 +1538,49 @@ a:hover {
     
     .main-header .container {
         gap: var(--space-xs);
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    /* Logo en móviles */
+    .logo {
+        align-items: center;
+        text-align: center;
+        margin-bottom: var(--space-xs);
+    }
+    
+    /* Barra de búsqueda en móviles - versión compacta */
+    .header-search {
+        order: 2;
+        max-width: 100%;
+        margin: var(--space-xs) 0;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    .search-input {
+        padding: 8px 35px 8px 35px;
+        font-size: 0.85rem;
+    }
+    
+    /* Navegación en móviles */
+    .main-nav {
+        order: 3;
+        width: 100%;
+        margin-top: var(--space-xs);
     }
     
     .main-nav ul {
         gap: var(--space-xs);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .main-nav a {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
     }
 
     /* ↓ Esto es lo clave: reducir el espacio inicial del menú */
@@ -1808,25 +1883,25 @@ a:hover {
    FUEGOS ARTIFICIALES Y PARTÍCULAS DECORATIVAS
    ============================================ */
 .firework {
-    position: fixed;
-    width: 12px; /* Reducido ligeramente */
-    height: 12px; /* Reducido ligeramente */
-    border-radius: 40%;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0;
-    filter: blur(0.8px); /* Reducido ligeramente */
-    box-shadow: 0 0 15px currentColor, 0 0 30px rgba(255, 255, 255, 0.4); /* Reducido */
+   position: fixed;
+   width: 8px; /* Más pequeño para mejor rendimiento */
+   height: 8px; /* Más pequeño para mejor rendimiento */
+   border-radius: 40%;
+   pointer-events: none;
+   z-index: -1;
+   opacity: 0;
+   filter: blur(0.6px); /* Reducido para mejor rendimiento */
+   box-shadow: 0 0 10px currentColor, 0 0 20px rgba(255, 255, 255, 0.3); /* Reducido */
 }
 
 .firework-spark {
-    position: absolute;
-    width: 5px; /* Reducido ligeramente */
-    height: 5px; /* Reducido ligeramente */
-    border-radius: 50%;
-    opacity: 0;
-    filter: blur(0.8px); /* Reducido ligeramente */
-    box-shadow: 0 0 8px currentColor, 0 0 16px rgba(255, 255, 255, 0.25); /* Reducido */
+   position: absolute;
+   width: 3px; /* Más pequeño para mejor rendimiento */
+   height: 3px; /* Más pequeño para mejor rendimiento */
+   border-radius: 50%;
+   opacity: 0;
+   filter: blur(0.5px); /* Reducido para mejor rendimiento */
+   box-shadow: 0 0 5px currentColor, 0 0 10px rgba(255, 255, 255, 0.2); /* Reducido */
 }
 
 @keyframes firework-explosion {

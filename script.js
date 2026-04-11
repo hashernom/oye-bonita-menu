@@ -349,8 +349,8 @@
         }
     }
     
-    // Función para crear un fuego artificial (MÁS GRANDE Y VISTOSO)
-    function createFirework(x, y) {
+    // Función para crear un fuego artificial optimizado para rendimiento (más pequeño)
+    function createFirework(x, y, onComplete = null) {
         const firework = document.createElement('div');
         firework.className = 'firework';
         firework.style.left = x + 'px';
@@ -360,120 +360,161 @@
         const mainColors = ['#E6B325', '#FF5252', '#2196F3', '#4CAF50', '#9C27B0', '#FF9800'];
         const mainColor = mainColors[Math.floor(Math.random() * mainColors.length)];
         firework.style.background = mainColor;
-        firework.style.boxShadow = `0 0 20px ${mainColor}, 0 0 40px rgba(255, 255, 255, 0.5)`;
+        firework.style.boxShadow = `0 0 12px ${mainColor}, 0 0 24px rgba(255, 255, 255, 0.3)`; // Reducido
         
         document.body.appendChild(firework);
         
-        // Animación de explosión principal (más grande)
-        firework.animate([
+        // Animación de explosión principal (más pequeña)
+        const explosionAnimation = firework.animate([
             { transform: 'scale(0)', opacity: 1 },
-            { transform: 'scale(1.5)', opacity: 0.8 },
-            { transform: 'scale(2)', opacity: 0 }
+            { transform: 'scale(1.2)', opacity: 0.8 }, // Reducido de 1.5
+            { transform: 'scale(1.5)', opacity: 0 } // Reducido de 2
         ], {
-            duration: 1000,
+            duration: 800, // Reducido de 1000
             easing: 'ease-out'
         });
         
-        // Crear chispas (reducidas para efecto más sutil con múltiples fuegos)
-        const sparkCount = 15 + Math.floor(Math.random() * 10); // 15-25 chispas
+        // Crear chispas optimizadas (menos cantidad)
+        const sparkCount = 8 + Math.floor(Math.random() * 7); // 8-15 chispas (reducido de 15-25)
+        let sparksCreated = 0;
+        let sparksRemoved = 0;
+        
         for (let i = 0; i < sparkCount; i++) {
-            setTimeout(() => {
-                const spark = document.createElement('div');
-                spark.className = 'firework-spark';
-                
-                // Color aleatorio para las chispas
-                const sparkColors = ['#E6B325', '#FF5252', '#2196F3', '#4CAF50', '#9C27B0', '#FF9800', '#00BCD4', '#FFEB3B'];
-                const sparkColor = sparkColors[Math.floor(Math.random() * sparkColors.length)];
-                spark.style.background = sparkColor;
-                spark.style.boxShadow = `0 0 15px ${sparkColor}, 0 0 30px rgba(255, 255, 255, 0.3)`;
-                
-                spark.style.left = '5px';
-                spark.style.top = '5px';
-                
-                // Dirección aleatoria para las chispas (más lejos)
-                const angle = Math.random() * Math.PI * 2;
-                const distance = 30 + Math.random() * 50;  // 30-80 píxeles
-                const tx = Math.cos(angle) * distance;
-                const ty = Math.sin(angle) * distance;
-                
-                spark.style.setProperty('--tx', tx + 'px');
-                spark.style.setProperty('--ty', ty + 'px');
-                
-                firework.appendChild(spark);
-                
-                // Animación de chispa (más lenta y dramática)
-                spark.animate([
-                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-                    { transform: `translate(${tx}px, ${ty}px) scale(0.5)`, opacity: 0.5 },
-                    { transform: `translate(${tx * 1.2}px, ${ty * 1.2}px) scale(0)`, opacity: 0 }
-                ], {
-                    duration: 800 + Math.random() * 600,
-                    easing: 'ease-out'
-                });
-                
-                // Eliminar chispa después de la animación
+            // Usar requestAnimationFrame para mejor rendimiento
+            requestAnimationFrame(() => {
                 setTimeout(() => {
-                    if (spark.parentNode) {
-                        spark.remove();
-                    }
-                }, 1500);
-            }, i * 20);
+                    const spark = document.createElement('div');
+                    spark.className = 'firework-spark';
+                    
+                    // Color aleatorio para las chispas
+                    const sparkColors = ['#E6B325', '#FF5252', '#2196F3', '#4CAF50', '#9C27B0', '#FF9800'];
+                    const sparkColor = sparkColors[Math.floor(Math.random() * sparkColors.length)];
+                    spark.style.background = sparkColor;
+                    spark.style.boxShadow = `0 0 8px ${sparkColor}, 0 0 16px rgba(255, 255, 255, 0.2)`; // Reducido
+                    
+                    spark.style.left = '3px'; // Reducido de 5px
+                    spark.style.top = '3px'; // Reducido de 5px
+                    
+                    // Dirección aleatoria para las chispas
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 25 + Math.random() * 35;  // 25-60 píxeles (reducido de 30-80)
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+                    
+                    firework.appendChild(spark);
+                    sparksCreated++;
+                    
+                    // Animación de chispa optimizada
+                    const sparkAnimation = spark.animate([
+                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                        { transform: `translate(${tx}px, ${ty}px) scale(0.3)`, opacity: 0.3 }, // Reducido
+                        { transform: `translate(${tx * 1.1}px, ${ty * 1.1}px) scale(0)`, opacity: 0 }
+                    ], {
+                        duration: 600 + Math.random() * 400, // Reducido
+                        easing: 'ease-out'
+                    });
+                    
+                    sparkAnimation.onfinish = () => {
+                        if (spark.parentNode) {
+                            spark.remove();
+                        }
+                        sparksRemoved++;
+                        
+                        // Verificar si todas las chispas han sido eliminadas
+                        if (sparksRemoved === sparksCreated && sparksCreated === sparkCount) {
+                            cleanupFirework();
+                        }
+                    };
+                }, i * 30); // Espaciado mayor (30ms vs 20ms)
+            });
         }
         
-        // Crear explosión secundaria después de un breve retraso (30% de probabilidad)
-        if (Math.random() < 0.3) {
+        // Función para limpiar el fuego artificial
+        function cleanupFirework() {
             setTimeout(() => {
-                const secondaryCount = 8 + Math.floor(Math.random() * 8);
+                if (firework.parentNode) {
+                    firework.remove();
+                }
+                if (onComplete && typeof onComplete === 'function') {
+                    onComplete();
+                }
+            }, 500); // Tiempo adicional para asegurar que las animaciones terminen
+        }
+        
+        // Configurar limpieza automática después de la animación principal
+        explosionAnimation.onfinish = () => {
+            // Si no hay chispas, limpiar inmediatamente
+            if (sparkCount === 0) {
+                cleanupFirework();
+            } else {
+                // Esperar a que todas las chispas terminen (máximo 2 segundos)
+                setTimeout(cleanupFirework, 2000);
+            }
+        };
+        
+        // Eliminar explosiones secundarias para mejorar rendimiento
+        // (comentado para reducir complejidad)
+        /*
+        // Crear explosión secundaria después de un breve retraso (20% de probabilidad, reducido)
+        if (Math.random() < 0.2) {
+            setTimeout(() => {
+                // Crear pequeñas chispas secundarias (muy pocas)
+                const secondaryCount = 2 + Math.floor(Math.random() * 3);
                 for (let j = 0; j < secondaryCount; j++) {
                     setTimeout(() => {
                         const secondarySpark = document.createElement('div');
                         secondarySpark.className = 'firework-spark';
                         secondarySpark.style.background = mainColor;
-                        secondarySpark.style.boxShadow = `0 0 10px ${mainColor}`;
-                        secondarySpark.style.left = '5px';
-                        secondarySpark.style.top = '5px';
+                        secondarySpark.style.boxShadow = `0 0 6px ${mainColor}`;
+                        secondarySpark.style.left = '3px';
+                        secondarySpark.style.top = '3px';
                         
                         const secondaryAngle = Math.random() * Math.PI * 2;
-                        const secondaryDistance = 20 + Math.random() * 40;
+                        const secondaryDistance = 15 + Math.random() * 25;
                         const secondaryTx = Math.cos(secondaryAngle) * secondaryDistance;
                         const secondaryTy = Math.sin(secondaryAngle) * secondaryDistance;
                         
                         firework.appendChild(secondarySpark);
                         
-                        secondarySpark.animate([
+                        const secondaryAnimation = secondarySpark.animate([
                             { transform: 'translate(0, 0) scale(1)', opacity: 1 },
                             { transform: `translate(${secondaryTx}px, ${secondaryTy}px) scale(0)`, opacity: 0 }
                         ], {
-                            duration: 400 + Math.random() * 300,
+                            duration: 300 + Math.random() * 200,
                             easing: 'ease-out'
                         });
                         
-                        setTimeout(() => {
+                        secondaryAnimation.onfinish = () => {
                             if (secondarySpark.parentNode) {
                                 secondarySpark.remove();
                             }
-                        }, 800);
-                    }, j * 50);
+                        };
+                    }, j * 80);
                 }
-            }, 300);
+            }, 200);
         }
-        
-        // Eliminar fuego artificial después de la animación
-        setTimeout(() => {
-            if (firework.parentNode) {
-                firework.remove();
-            }
-        }, 2000);
+        */
     }
     
-    // Función para crear fuegos artificiales orgánicos (múltiples a la vez, efecto de fiesta no invasivo)
+    // Función para crear fuegos artificiales orgánicos optimizados para rendimiento
     function startFireworks() {
-        // Función para crear un grupo de fuegos artificiales (2-4 a la vez)
+        let activeFireworks = 0;
+        const MAX_ACTIVE_FIREWORKS = 8; // Límite máximo de fuegos activos simultáneamente
+        
+        // Función para crear un grupo de fuegos artificiales (1-3 a la vez)
         function createFireworkGroup() {
-            const groupSize = 2 + Math.floor(Math.random() * 3); // 2-4 fuegos por grupo
+            if (activeFireworks >= MAX_ACTIVE_FIREWORKS) {
+                return; // No crear más fuegos si ya hay muchos activos
+            }
+            
+            const groupSize = 1 + Math.floor(Math.random() * 3); // 1-3 fuegos por grupo (reducido)
             
             for (let i = 0; i < groupSize; i++) {
                 setTimeout(() => {
+                    if (activeFireworks >= MAX_ACTIVE_FIREWORKS) {
+                        return;
+                    }
+                    
                     // Posición aleatoria pero agrupada
                     const baseX = 100 + Math.random() * (window.innerWidth - 200);
                     const baseY = 150 + Math.random() * (window.innerHeight - 300);
@@ -482,15 +523,24 @@
                     const x = baseX + (Math.random() * 80 - 40);
                     const y = baseY + (Math.random() * 60 - 30);
                     
-                    createFirework(x, y);
+                    activeFireworks++;
+                    createFirework(x, y, () => {
+                        activeFireworks--;
+                    });
                     
-                    // 30% de probabilidad de fuego adicional cercano después de un breve retraso
-                    if (Math.random() < 0.3) {
+                    // 20% de probabilidad de fuego adicional cercano (reducido)
+                    if (Math.random() < 0.2) {
                         setTimeout(() => {
-                            createFirework(x + (Math.random() * 30 - 15), y + (Math.random() * 30 - 15));
+                            if (activeFireworks >= MAX_ACTIVE_FIREWORKS) {
+                                return;
+                            }
+                            activeFireworks++;
+                            createFirework(x + (Math.random() * 30 - 15), y + (Math.random() * 30 - 15), () => {
+                                activeFireworks--;
+                            });
                         }, 200 + Math.random() * 300);
                     }
-                }, i * 150); // Espaciado entre fuegos del mismo grupo
+                }, i * 300); // Espaciado mayor entre fuegos del mismo grupo (300ms)
             }
         }
         
@@ -499,47 +549,60 @@
             // Crear un grupo de fuegos
             createFireworkGroup();
             
-            // Tiempo hasta el próximo grupo (más frecuente para efecto orgánico)
-            const nextGroupDelay = 2000 + Math.random() * 3000; // 2-5 segundos
+            // Tiempo hasta el próximo grupo (menos frecuente para mejor rendimiento)
+            const nextGroupDelay = 3000 + Math.random() * 4000; // 3-7 segundos
             
-            // 40% de probabilidad de crear un pequeño grupo secundario después de un tiempo
-            if (Math.random() < 0.4) {
+            // 30% de probabilidad de crear un pequeño grupo secundario (reducido)
+            if (Math.random() < 0.3) {
                 setTimeout(() => {
                     const secondarySize = 1 + Math.floor(Math.random() * 2); // 1-2 fuegos
                     for (let j = 0; j < secondarySize; j++) {
                         setTimeout(() => {
+                            if (activeFireworks >= MAX_ACTIVE_FIREWORKS) {
+                                return;
+                            }
                             const x = 50 + Math.random() * (window.innerWidth - 100);
                             const y = 100 + Math.random() * (window.innerHeight - 200);
-                            createFirework(x, y);
-                        }, j * 200);
+                            activeFireworks++;
+                            createFirework(x, y, () => {
+                                activeFireworks--;
+                            });
+                        }, j * 300); // Espaciado mayor
                     }
                 }, nextGroupDelay / 2);
             }
             
-            // Programar próximo ciclo
-            setTimeout(spawnCycle, nextGroupDelay);
+            // Programar próximo ciclo usando requestAnimationFrame para mejor sincronización
+            setTimeout(() => {
+                requestAnimationFrame(spawnCycle);
+            }, nextGroupDelay);
         }
         
-        // Iniciar el ciclo
-        spawnCycle();
+        // Iniciar el ciclo después de un breve retraso inicial
+        setTimeout(() => {
+            requestAnimationFrame(spawnCycle);
+        }, 1000);
         
-        // También crear algunos fuegos individuales esporádicos
+        // También crear algunos fuegos individuales esporádicos (menos frecuentes)
         function spawnSporadic() {
             setTimeout(() => {
-                // 60% de probabilidad de fuego individual
-                if (Math.random() < 0.6) {
+                // 40% de probabilidad de fuego individual (reducido)
+                if (Math.random() < 0.4 && activeFireworks < MAX_ACTIVE_FIREWORKS) {
                     const x = 50 + Math.random() * (window.innerWidth - 100);
                     const y = 100 + Math.random() * (window.innerHeight - 200);
-                    createFirework(x, y);
+                    activeFireworks++;
+                    createFirework(x, y, () => {
+                        activeFireworks--;
+                    });
                 }
                 
                 // Siguiente fuego esporádico
                 spawnSporadic();
-            }, 1000 + Math.random() * 4000); // 1-5 segundos
+            }, 2000 + Math.random() * 5000); // 2-7 segundos (menos frecuente)
         }
         
-        // Iniciar fuegos esporádicos
-        spawnSporadic();
+        // Iniciar fuegos esporádicos después de un retraso
+        setTimeout(spawnSporadic, 3000);
     }
     // Inicializa elementos DOM
     function initDOM() {
