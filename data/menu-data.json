@@ -134,209 +134,246 @@
       "name": "LICORES",
       "description": "",
       "icon": "🥃",
-      "items": [
+      "hasSubcategories": true,
+      "subcategories": [
         {
-          "id": "aguardiente-antioqueno-375",
-          "name": "Aguardiente Antioqueño (375 ml)",
-          "description": "",
-          "price": 55000,
-          "tags": ["Aguardiente"]
+          "id": "aguardiente",
+          "name": "Aguardiente",
+          "items": [
+            {
+              "id": "aguardiente-antioqueno-375",
+              "name": "Antioqueño (375 ml)",
+              "description": "",
+              "price": 55000,
+              "tags": ["Aguardiente"]
+            },
+            {
+              "id": "aguardiente-antioqueno-750",
+              "name": "Antioqueño (750 ml)",
+              "description": "",
+              "price": 100000,
+              "tags": ["Aguardiente"]
+            },
+            {
+              "id": "aguardiente-amarillo-375",
+              "name": "Amarillo (375 ml)",
+              "description": "",
+              "price": 55000,
+              "tags": ["Aguardiente"]
+            },
+            {
+              "id": "aguardiente-amarillo-750",
+              "name": "Amarillo (750 ml)",
+              "description": "",
+              "price": 100000,
+              "tags": ["Aguardiente"]
+            }
+          ]
         },
         {
-          "id": "aguardiente-antioqueno-750",
-          "name": "Aguardiente Antioqueño (750 ml)",
-          "description": "",
-          "price": 100000,
-          "tags": ["Aguardiente"]
+          "id": "ron",
+          "name": "Ron",
+          "items": [
+            {
+              "id": "ron-caldas-tradicional-375",
+              "name": "Ron Caldas Tradicional (375 ml)",
+              "description": "",
+              "price": 55000,
+              "tags": ["Ron"]
+            },
+            {
+              "id": "ron-caldas-tradicional-750",
+              "name": "Ron Caldas Tradicional (750 ml)",
+              "description": "",
+              "price": 100000,
+              "tags": ["Ron"]
+            },
+            {
+              "id": "ron-caldas-8-anos-375",
+              "name": "Ron Caldas 8 años (375 ml)",
+              "description": "",
+              "price": 100000,
+              "tags": ["Ron", "Premium"]
+            },
+            {
+              "id": "ron-caldas-8-anos-750",
+              "name": "Ron Caldas 8 años (750 ml)",
+              "description": "",
+              "price": 190000,
+              "tags": ["Ron", "Premium"]
+            }
+          ]
         },
         {
-          "id": "aguardiente-amarillo-375",
-          "name": "Aguardiente Amarillo (375 ml)",
-          "description": "",
-          "price": 55000,
-          "tags": ["Aguardiente"]
+          "id": "whisky",
+          "name": "Whisky",
+          "items": [
+            {
+              "id": "buchanans-deluxe-375",
+              "name": "Buchanans Deluxe (375 ml)",
+              "description": "",
+              "price": 150000,
+              "tags": ["Whisky"]
+            },
+            {
+              "id": "buchanans-deluxe-750",
+              "name": "Buchanans Deluxe (750 ml)",
+              "description": "",
+              "price": 280000,
+              "tags": ["Whisky"]
+            },
+            {
+              "id": "buchanans-master-750",
+              "name": "Buchanans Master (750 ml)",
+              "description": "",
+              "price": 320000,
+              "tags": ["Whisky", "Premium"]
+            },
+            {
+              "id": "old-parr-750",
+              "name": "Old Parr (750 ml)",
+              "description": "",
+              "price": 260000,
+              "tags": ["Whisky"]
+            },
+            {
+              "id": "red-label-750",
+              "name": "Red Label (750 ml)",
+              "description": "",
+              "price": 140000,
+              "tags": ["Whisky"]
+            },
+            {
+              "id": "black-label-750",
+              "name": "Black Label (750 ml)",
+              "description": "",
+              "price": 250000,
+              "tags": ["Whisky", "Premium"]
+            },
+            {
+              "id": "double-black-750",
+              "name": "Double Black (750 ml)",
+              "description": "",
+              "price": 300000,
+              "tags": ["Whisky", "Premium"]
+            },
+            {
+              "id": "jack-daniels-750",
+              "name": "Jack Daniels (750 ml)",
+              "description": "",
+              "price": 220000,
+              "tags": ["Whisky"]
+            },
+            {
+              "id": "jack-daniels-canela-750",
+              "name": "Jack Daniels Canela (750 ml)",
+              "description": "",
+              "price": 220000,
+              "tags": ["Whisky"]
+            }
+          ]
         },
         {
-          "id": "aguardiente-amarillo-750",
-          "name": "Aguardiente Amarillo (750 ml)",
-          "description": "",
-          "price": 100000,
-          "tags": ["Aguardiente"]
+          "id": "tequila",
+          "name": "Tequila (750 ml)",
+          "items": [
+            {
+              "id": "jose-cuervo-750",
+              "name": "José Cuervo",
+              "description": "",
+              "price": 200000,
+              "tags": ["Tequila"]
+            },
+            {
+              "id": "centenario-plata-750",
+              "name": "Centenario Plata",
+              "description": "",
+              "price": 210000,
+              "tags": ["Tequila"]
+            },
+            {
+              "id": "don-julio-blanco-750",
+              "name": "Don Julio Blanco",
+              "description": "",
+              "price": 360000,
+              "tags": ["Tequila", "Premium"]
+            },
+            {
+              "id": "don-julio-70-750",
+              "name": "Don Julio 70",
+              "description": "",
+              "price": 580000,
+              "tags": ["Tequila", "Premium"]
+            }
+          ]
         },
         {
-          "id": "ron-caldas-tradicional-375",
-          "name": "Ron Caldas Tradicional (375 ml)",
-          "description": "",
-          "price": 55000,
-          "tags": ["Ron"]
+          "id": "otros-licores",
+          "name": "Otros Licores",
+          "items": [
+            {
+              "id": "vino-copa",
+              "name": "Vino (Copa)",
+              "description": "",
+              "price": 25000,
+              "tags": ["Vino"]
+            },
+            {
+              "id": "jp-chenet-lata",
+              "name": "JP Chenet (Lata)",
+              "description": "",
+              "price": 20000,
+              "tags": ["Vino"]
+            },
+            {
+              "id": "jp-chenet-botella",
+              "name": "JP Chenet (Botella)",
+              "description": "",
+              "price": 130000,
+              "tags": ["Vino"]
+            },
+            {
+              "id": "vodka-smirnoff-tamarindo-750",
+              "name": "Vodka Smirnoff Tamarindo (750 ml)",
+              "description": "",
+              "price": 120000,
+              "tags": ["Vodka"]
+            }
+          ]
         },
         {
-          "id": "ron-caldas-tradicional-750",
-          "name": "Ron Caldas Tradicional (750 ml)",
-          "description": "",
-          "price": 100000,
-          "tags": ["Ron"]
-        },
-        {
-          "id": "ron-caldas-8-anos-375",
-          "name": "Ron Caldas 8 años (375 ml)",
-          "description": "",
-          "price": 100000,
-          "tags": ["Ron", "Premium"]
-        },
-        {
-          "id": "ron-caldas-8-anos-750",
-          "name": "Ron Caldas 8 años (750 ml)",
-          "description": "",
-          "price": 190000,
-          "tags": ["Ron", "Premium"]
-        },
-        {
-          "id": "buchanans-deluxe-375",
-          "name": "Buchanans Deluxe (375 ml)",
-          "description": "",
-          "price": 150000,
-          "tags": ["Whisky"]
-        },
-        {
-          "id": "buchanans-deluxe-750",
-          "name": "Buchanans Deluxe (750 ml)",
-          "description": "",
-          "price": 280000,
-          "tags": ["Whisky"]
-        },
-        {
-          "id": "buchanans-master-750",
-          "name": "Buchanans Master (750 ml)",
-          "description": "",
-          "price": 320000,
-          "tags": ["Whisky", "Premium"]
-        },
-        {
-          "id": "old-parr-750",
-          "name": "Old Parr (750 ml)",
-          "description": "",
-          "price": 260000,
-          "tags": ["Whisky"]
-        },
-        {
-          "id": "red-label-750",
-          "name": "Red Label (750 ml)",
-          "description": "",
-          "price": 140000,
-          "tags": ["Whisky"]
-        },
-        {
-          "id": "black-label-750",
-          "name": "Black Label (750 ml)",
-          "description": "",
-          "price": 250000,
-          "tags": ["Whisky", "Premium"]
-        },
-        {
-          "id": "double-black-750",
-          "name": "Double Black (750 ml)",
-          "description": "",
-          "price": 300000,
-          "tags": ["Whisky", "Premium"]
-        },
-        {
-          "id": "jack-daniels-750",
-          "name": "Jack Daniels (750 ml)",
-          "description": "",
-          "price": 220000,
-          "tags": ["Whisky"]
-        },
-        {
-          "id": "jack-daniels-canela-750",
-          "name": "Jack Daniels Canela (750 ml)",
-          "description": "",
-          "price": 220000,
-          "tags": ["Whisky"]
-        },
-        {
-          "id": "jose-cuervo-750",
-          "name": "José Cuervo (750 ml)",
-          "description": "",
-          "price": 200000,
-          "tags": ["Tequila"]
-        },
-        {
-          "id": "centenario-plata-750",
-          "name": "Centenario Plata (750 ml)",
-          "description": "",
-          "price": 210000,
-          "tags": ["Tequila"]
-        },
-        {
-          "id": "don-julio-blanco-750",
-          "name": "Don Julio Blanco (750 ml)",
-          "description": "",
-          "price": 360000,
-          "tags": ["Tequila", "Premium"]
-        },
-        {
-          "id": "don-julio-70-750",
-          "name": "Don Julio 70 (750 ml)",
-          "description": "",
-          "price": 580000,
-          "tags": ["Tequila", "Premium"]
-        },
-        {
-          "id": "vino-copa",
-          "name": "Vino (Copa)",
-          "description": "",
-          "price": 25000,
-          "tags": ["Vino"]
-        },
-        {
-          "id": "jp-chenet-lata",
-          "name": "JP Chenet (Lata)",
-          "description": "",
-          "price": 20000,
-          "tags": ["Vino"]
-        },
-        {
-          "id": "jp-chenet-botella",
-          "name": "JP Chenet (Botella)",
-          "description": "",
-          "price": 130000,
-          "tags": ["Vino"]
-        },
-        {
-          "id": "vodka-smirnoff-tamarindo-750",
-          "name": "Vodka Smirnoff Tamarindo (750 ml)",
-          "description": "",
-          "price": 120000,
-          "tags": ["Vodka"]
-        },
-        {
-          "id": "cerveza-poker-aguila",
-          "name": "Poker / Aguila",
-          "description": "",
-          "price": 5000,
-          "tags": ["Cerveza"]
-        },
-        {
-          "id": "cerveza-premium",
-          "name": "Aguila Light / Club Colombia / Redd's / Budweiser / Heineken / Coronita",
-          "description": "",
-          "price": 6000,
-          "tags": ["Cerveza", "Premium"]
-        },
-        {
-          "id": "stella-artois",
-          "name": "Stella Artois",
-          "description": "",
-          "price": 12000,
-          "tags": ["Cerveza", "Premium"]
-        },
-        {
-          "id": "smirnoff",
-          "name": "Smirnoff",
-          "description": "",
-          "price": 14000,
-          "tags": ["Cerveza", "Premium"]
+          "id": "cervezas",
+          "name": "Cervezas",
+          "items": [
+            {
+              "id": "cerveza-poker-aguila",
+              "name": "Poker / Aguila",
+              "description": "",
+              "price": 5000,
+              "tags": ["Cerveza"]
+            },
+            {
+              "id": "cerveza-premium",
+              "name": "Aguila Light / Club Colombia / Redd's / Budweiser / Heineken / Coronita",
+              "description": "",
+              "price": 6000,
+              "tags": ["Cerveza", "Premium"]
+            },
+            {
+              "id": "stella-artois",
+              "name": "Stella Artois",
+              "description": "",
+              "price": 12000,
+              "tags": ["Cerveza", "Premium"]
+            },
+            {
+              "id": "smirnoff",
+              "name": "Smirnoff",
+              "description": "",
+              "price": 14000,
+              "tags": ["Cerveza", "Premium"]
+            }
+          ]
         }
       ]
     },
@@ -345,209 +382,246 @@
       "name": "CÓCTEL DE LA CASA Y MEZCLAS",
       "description": "",
       "icon": "🍹",
-      "items": [
+      "hasSubcategories": true,
+      "subcategories": [
         {
-          "id": "pina-colada-ilusiones",
-          "name": "Piña Colada - \"Ilusiones\"",
-          "description": "Ron blanco, coco y piña.",
-          "price": 20000,
-          "tags": ["Clásico"]
+          "id": "cocteles-clasicos",
+          "name": "Cócteles Clásicos",
+          "items": [
+            {
+              "id": "pina-colada-ilusiones",
+              "name": "Piña Colada - \"Ilusiones\"",
+              "description": "Ron blanco, coco y piña.",
+              "price": 20000,
+              "tags": ["Clásico"]
+            },
+            {
+              "id": "cosmopolitan-obsesion",
+              "name": "Cosmopolitan - \"Obsesión\"",
+              "description": "Vodka, cítricos y arándanos.",
+              "price": 18000,
+              "tags": ["Clásico"]
+            },
+            {
+              "id": "tequila-sunrise-terremoto",
+              "name": "Tequila Sunrise - \"Terremoto\"",
+              "description": "Tequila, naranja y granadina.",
+              "price": 22000,
+              "tags": ["Clásico"]
+            },
+            {
+              "id": "sexo-en-la-playa-la-cometimos",
+              "name": "Sexo en la Playa - \"La Cometimos\"",
+              "description": "Ron, frutas y dulzor tropical.",
+              "price": 20000,
+              "tags": ["Clásico"]
+            },
+            {
+              "id": "cuba-libre-ron-para-todo-el-mundo",
+              "name": "Cuba Libre - \"Ron para Todo el Mundo\"",
+              "description": "Ron oscuro, limón y cola.",
+              "price": 22000,
+              "tags": ["Clásico"]
+            }
+          ]
         },
         {
-          "id": "cosmopolitan-obsesion",
-          "name": "Cosmopolitan - \"Obsesión\"",
-          "description": "Vodka, cítricos y arándanos.",
-          "price": 18000,
-          "tags": ["Clásico"]
+          "id": "cocteles-autor",
+          "name": "Cócteles de Autor \"Oye Bonita\"",
+          "items": [
+            {
+              "id": "tu-olvido",
+              "name": "Tu Olvido",
+              "description": "Gin, maracuyá y notas dulces.",
+              "price": 25000,
+              "tags": ["Autor", "Oye Bonita"]
+            },
+            {
+              "id": "cuando-la-vi",
+              "name": "Cuando la Vi",
+              "description": "Vodka, pitaya y menta.",
+              "price": 25000,
+              "tags": ["Autor", "Oye Bonita"]
+            },
+            {
+              "id": "ahi-vas-paloma",
+              "name": "Ahí Vas Paloma",
+              "description": "Frutal y refrescante.",
+              "price": 25000,
+              "tags": ["Autor", "Oye Bonita"]
+            },
+            {
+              "id": "maria-monito",
+              "name": "María Moñito",
+              "description": "Ron, mandarina y menta.",
+              "price": 25000,
+              "tags": ["Autor", "Oye Bonita"]
+            },
+            {
+              "id": "el-santo-cachon",
+              "name": "El Santo Cachón",
+              "description": "Tequila, limón y jalapeño.",
+              "price": 26000,
+              "tags": ["Autor", "Oye Bonita"]
+            }
+          ]
         },
         {
-          "id": "tequila-sunrise-terremoto",
-          "name": "Tequila Sunrise - \"Terremoto\"",
-          "description": "Tequila, naranja y granadina.",
-          "price": 22000,
-          "tags": ["Clásico"]
+          "id": "mojitos-daiquiris-gin",
+          "name": "Mojitos, Daiquiris y Gin",
+          "items": [
+            {
+              "id": "mojito-frutos-rojos-maracuya",
+              "name": "Mojito (Frutos Rojos o Maracuyá)",
+              "description": "Ron, hierbabuena y fruta natural.",
+              "price": 17000,
+              "tags": ["Mojito"]
+            },
+            {
+              "id": "daiquiri-manguito-biche",
+              "name": "Daiquiri Manguito Biche",
+              "description": "Fresco, ácido y atrevido.",
+              "price": 20000,
+              "tags": ["Daiquiri"]
+            },
+            {
+              "id": "daiquiri-todo-de-cabeza",
+              "name": "Daiquiri Todo de Cabeza",
+              "description": "Intenso y tropical.",
+              "price": 20000,
+              "tags": ["Daiquiri"]
+            },
+            {
+              "id": "gin-tonic-osito-dormilon",
+              "name": "Gin & Tonic Osito Dormilón",
+              "description": "Refrescante y cítrico.",
+              "price": 20000,
+              "tags": ["Gin"]
+            },
+            {
+              "id": "gin-tonic-nina-bonita",
+              "name": "Gin & Tonic Niña Bonita",
+              "description": "Suave y elegante.",
+              "price": 20000,
+              "tags": ["Gin"]
+            }
+          ]
         },
         {
-          "id": "sexo-en-la-playa-la-cometimos",
-          "name": "Sexo en la Playa - \"La Cometimos\"",
-          "description": "Ron, frutas y dulzor tropical.",
-          "price": 20000,
-          "tags": ["Clásico"]
+          "id": "micheladas",
+          "name": "Micheladas",
+          "items": [
+            {
+              "id": "michelada-tradicional",
+              "name": "Tradicional",
+              "description": "",
+              "price": 8000,
+              "tags": ["Michelada"]
+            },
+            {
+              "id": "michelada-carinito-de-mi-vida",
+              "name": "Cariñito de mi vida",
+              "description": "Mango",
+              "price": 10000,
+              "tags": ["Michelada"]
+            },
+            {
+              "id": "michelada-terremoto",
+              "name": "Terremoto",
+              "description": "Mango y jalapeño",
+              "price": 10000,
+              "tags": ["Michelada"]
+            },
+            {
+              "id": "michelada-oye-bonita",
+              "name": "Oye Bonita",
+              "description": "Mix de frutas",
+              "price": 12000,
+              "tags": ["Michelada"]
+            },
+            {
+              "id": "michelada-la-celosa",
+              "name": "La Celosa",
+              "description": "Frutos amarillos",
+              "price": 14000,
+              "tags": ["Michelada"]
+            }
+          ]
         },
         {
-          "id": "cuba-libre-ron-para-todo-el-mundo",
-          "name": "Cuba Libre - \"Ron para Todo el Mundo\"",
-          "description": "Ron oscuro, limón y cola.",
-          "price": 22000,
-          "tags": ["Clásico"]
+          "id": "sodas-artesanales",
+          "name": "Sodas Artesanales",
+          "items": [
+            {
+              "id": "soda-artesanal-tamarindo-mandarina",
+              "name": "Tamarindo & Mandarina",
+              "description": "",
+              "price": 15000,
+              "tags": ["Soda Artesanal"]
+            },
+            {
+              "id": "soda-artesanal-maracuya-picante",
+              "name": "Maracuyá Picante",
+              "description": "",
+              "price": 15000,
+              "tags": ["Soda Artesanal"]
+            },
+            {
+              "id": "soda-artesanal-frutos-rojos",
+              "name": "Frutos Rojos",
+              "description": "",
+              "price": 15000,
+              "tags": ["Soda Artesanal"]
+            }
+          ]
         },
         {
-          "id": "tu-olvido",
-          "name": "Tu Olvido",
-          "description": "Gin, maracuyá y notas dulces.",
-          "price": 25000,
-          "tags": ["Autor", "Oye Bonita"]
-        },
-        {
-          "id": "cuando-la-vi",
-          "name": "Cuando la Vi",
-          "description": "Vodka, pitaya y menta.",
-          "price": 25000,
-          "tags": ["Autor", "Oye Bonita"]
-        },
-        {
-          "id": "ahi-vas-paloma",
-          "name": "Ahí Vas Paloma",
-          "description": "Frutal y refrescante.",
-          "price": 25000,
-          "tags": ["Autor", "Oye Bonita"]
-        },
-        {
-          "id": "maria-monito",
-          "name": "María Moñito",
-          "description": "Ron, mandarina y menta.",
-          "price": 25000,
-          "tags": ["Autor", "Oye Bonita"]
-        },
-        {
-          "id": "el-santo-cachon",
-          "name": "El Santo Cachón",
-          "description": "Tequila, limón y jalapeño.",
-          "price": 26000,
-          "tags": ["Autor", "Oye Bonita"]
-        },
-        {
-          "id": "mojito-frutos-rojos-maracuya",
-          "name": "Mojito (Frutos Rojos o Maracuyá)",
-          "description": "Ron, hierbabuena y fruta natural.",
-          "price": 17000,
-          "tags": ["Mojito"]
-        },
-        {
-          "id": "daiquiri-manguito-biche",
-          "name": "Daiquiri Manguito Biche",
-          "description": "Fresco, ácido y atrevido.",
-          "price": 20000,
-          "tags": ["Daiquiri"]
-        },
-        {
-          "id": "daiquiri-todo-de-cabeza",
-          "name": "Daiquiri Todo de Cabeza",
-          "description": "Intenso y tropical.",
-          "price": 20000,
-          "tags": ["Daiquiri"]
-        },
-        {
-          "id": "gin-tonic-osito-dormilon",
-          "name": "Gin & Tonic Osito Dormilón",
-          "description": "Refrescante y cítrico.",
-          "price": 20000,
-          "tags": ["Gin"]
-        },
-        {
-          "id": "gin-tonic-nina-bonita",
-          "name": "Gin & Tonic Niña Bonita",
-          "description": "Suave y elegante.",
-          "price": 20000,
-          "tags": ["Gin"]
-        },
-        {
-          "id": "michelada-tradicional",
-          "name": "Michelada Tradicional",
-          "description": "",
-          "price": 8000,
-          "tags": ["Michelada"]
-        },
-        {
-          "id": "michelada-carinito-de-mi-vida",
-          "name": "Michelada Cariñito de mi vida",
-          "description": "Mango",
-          "price": 10000,
-          "tags": ["Michelada"]
-        },
-        {
-          "id": "michelada-terremoto",
-          "name": "Michelada Terremoto",
-          "description": "Mango y jalapeño",
-          "price": 10000,
-          "tags": ["Michelada"]
-        },
-        {
-          "id": "michelada-oye-bonita",
-          "name": "Michelada Oye Bonita",
-          "description": "Mix de frutas",
-          "price": 12000,
-          "tags": ["Michelada"]
-        },
-        {
-          "id": "michelada-la-celosa",
-          "name": "Michelada La Celosa",
-          "description": "Frutos amarillos",
-          "price": 14000,
-          "tags": ["Michelada"]
-        },
-        {
-          "id": "soda-artesanal-tamarindo-mandarina",
-          "name": "Soda Artesanal Tamarindo & Mandarina",
-          "description": "",
-          "price": 15000,
-          "tags": ["Soda Artesanal"]
-        },
-        {
-          "id": "soda-artesanal-maracuya-picante",
-          "name": "Soda Artesanal Maracuyá Picante",
-          "description": "",
-          "price": 15000,
-          "tags": ["Soda Artesanal"]
-        },
-        {
-          "id": "soda-artesanal-frutos-rojos",
-          "name": "Soda Artesanal Frutos Rojos",
-          "description": "",
-          "price": 15000,
-          "tags": ["Soda Artesanal"]
-        },
-        {
-          "id": "shot-buchanans-deluxe",
-          "name": "Shot Buchanans Deluxe",
-          "description": "",
-          "price": 27000,
-          "tags": ["Shot"]
-        },
-        {
-          "id": "shot-old-parr",
-          "name": "Shot Old Parr",
-          "description": "",
-          "price": 25000,
-          "tags": ["Shot"]
-        },
-        {
-          "id": "shot-ron-caldas-8-anos",
-          "name": "Shot Ron Caldas 8 años",
-          "description": "",
-          "price": 17000,
-          "tags": ["Shot"]
-        },
-        {
-          "id": "shot-tequila",
-          "name": "Shot Tequila",
-          "description": "",
-          "price": 15000,
-          "tags": ["Shot"]
-        },
-        {
-          "id": "shot-ron-caldas",
-          "name": "Shot Ron Caldas",
-          "description": "",
-          "price": 10000,
-          "tags": ["Shot"]
-        },
-        {
-          "id": "shot-aguardiente-antioqueno",
-          "name": "Shot Aguardiente Antioqueño",
-          "description": "",
-          "price": 10000,
-          "tags": ["Shot"]
+          "id": "shots",
+          "name": "Shots",
+          "items": [
+            {
+              "id": "shot-buchanans-deluxe",
+              "name": "Buchanans Deluxe",
+              "description": "",
+              "price": 27000,
+              "tags": ["Shot"]
+            },
+            {
+              "id": "shot-old-parr",
+              "name": "Old Parr",
+              "description": "",
+              "price": 25000,
+              "tags": ["Shot"]
+            },
+            {
+              "id": "shot-ron-caldas-8-anos",
+              "name": "Ron Caldas 8 años",
+              "description": "",
+              "price": 17000,
+              "tags": ["Shot"]
+            },
+            {
+              "id": "shot-tequila",
+              "name": "Tequila",
+              "description": "",
+              "price": 15000,
+              "tags": ["Shot"]
+            },
+            {
+              "id": "shot-ron-caldas",
+              "name": "Ron Caldas",
+              "description": "",
+              "price": 10000,
+              "tags": ["Shot"]
+            },
+            {
+              "id": "shot-aguardiente-antioqueno",
+              "name": "Aguardiente Antioqueño",
+              "description": "",
+              "price": 10000,
+              "tags": ["Shot"]
+            }
+          ]
         }
       ]
     }

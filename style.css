@@ -15,7 +15,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: var(--bg-deep-black);
+    background:
+        radial-gradient(circle at 20% 30%, rgba(230,179,37,0.08), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,82,82,0.08), transparent 40%),
+        #0a0a0a;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -898,12 +901,22 @@ a:hover {
     max-width: 600px;
 }
 
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #E6B325;
+    }
+    to {
+        text-shadow: 0 0 25px #E6B325, 0 0 40px #E6B325;
+    }
+}
+
 .welcome-logo h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 4rem;
     color: var(--gold-accent);
     margin-bottom: var(--space-xs);
     text-shadow: 0 0 20px rgba(230, 179, 37, 0.7);
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .welcome-logo .tagline {
@@ -971,9 +984,11 @@ a:hover {
 }
 
 .menu-item-simple:hover {
-    background: rgba(212, 175, 55, 0.05);
+    background: rgba(212, 175, 55, 0.08);
     padding-left: var(--space-sm);
     padding-right: var(--space-sm);
+    transform: scale(1.01);
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .menu-item-info {
@@ -1004,6 +1019,7 @@ a:hover {
     white-space: nowrap;
     min-width: 100px;
     text-align: right;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
 }
 
 .menu-item-tags {
@@ -1353,6 +1369,241 @@ a:hover {
 }
 
 /* ============================================
+   ESTILOS PARA SUBCATEGORÍAS
+   ============================================ */
+.menu-subcategory {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(230, 179, 37, 0.2);
+}
+
+.menu-subcategory:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.subcategory-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--gold-accent);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--gold-accent);
+    position: relative;
+}
+
+.subcategory-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-accent), transparent);
+}
+
+.subcategory-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.subcategory-items .menu-item-simple {
+    margin-left: var(--space-sm);
+    border-left: 2px solid rgba(230, 179, 37, 0.3);
+    padding-left: var(--space-md);
+}
+
+.subcategory-items .menu-item-simple:hover {
+    border-left-color: var(--gold-accent);
+    background: rgba(230, 179, 37, 0.05);
+}
+
+/* Responsive para subcategorías */
+@media (max-width: 768px) {
+    .menu-subcategory {
+        margin-bottom: var(--space-lg);
+        padding-bottom: var(--space-md);
+    }
+    
+    .subcategory-title {
+        font-size: 1.4rem;
+    }
+    
+    .subcategory-items .menu-item-simple {
+        margin-left: 0;
+        padding-left: var(--space-sm);
+        border-left-width: 1px;
+    }
+}
+
+/* ============================================
+   PARTÍCULAS FLOTANTES
+   ============================================ */
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: #E6B325;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 8s infinite linear;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   FUEGOS ARTIFICIALES Y PARTÍCULAS DECORATIVAS
+   ============================================ */
+.firework {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    border-radius: 40%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(1px);
+    box-shadow: 0 0 20px currentColor, 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.firework-spark {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(1px);
+    box-shadow: 0 0 10px currentColor, 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes firework-explosion {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes spark-trail {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Partículas decorativas adicionales - MÁS GRANDES Y VISTOSAS */
+.particle-gold {
+    background: #E6B325;
+    box-shadow: 0 0 25px #E6B325, 0 0 50px rgba(230, 179, 37, 0.7);
+    width: 10px;
+    height: 10px;
+    filter: blur(0.5px);
+}
+
+.particle-red {
+    background: #FF5252;
+    box-shadow: 0 0 25px #FF5252, 0 0 50px rgba(255, 82, 82, 0.7);
+    width: 10px;
+    height: 10px;
+    filter: blur(0.5px);
+}
+
+.particle-blue {
+    background: #2196F3;
+    box-shadow: 0 0 25px #2196F3, 0 0 50px rgba(33, 150, 243, 0.7);
+    width: 10px;
+    height: 10px;
+    filter: blur(0.5px);
+}
+
+.particle-green {
+    background: #4CAF50;
+    box-shadow: 0 0 25px #4CAF50, 0 0 50px rgba(76, 175, 80, 0.7);
+    width: 10px;
+    height: 10px;
+    filter: blur(0.5px);
+}
+
+/* Partículas grandes especiales */
+.particle-large {
+    width: 15px;
+    height: 15px;
+    box-shadow: 0 0 30px currentColor, 0 0 60px rgba(255, 255, 255, 0.5);
+    animation: float-large 8s infinite linear;
+    filter: blur(1px);
+}
+
+/* Partículas extra grandes con efectos especiales */
+.particle-extra-large {
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 40px currentColor, 0 0 80px rgba(255, 255, 255, 0.6);
+    animation: float-extra-large 12s infinite ease-in-out;
+    filter: blur(1.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes float-large {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    to {
+        transform: translateY(-20vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float-extra-large {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.9;
+        transform: translateY(70vh) rotate(180deg) scale(1.2);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(40vh) rotate(360deg) scale(1);
+    }
+    80% {
+        opacity: 0.5;
+        transform: translateY(10vh) rotate(540deg) scale(0.9);
+    }
+    100% {
+        transform: translateY(-10vh) rotate(720deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* ============================================
    PRINT STYLES
    ============================================ */
 @media print {
@@ -1362,7 +1613,10 @@ a:hover {
     .btn,
     .confetti,
     .music-note,
-    .welcome-screen {
+    .welcome-screen,
+    .particle,
+    .firework,
+    .firework-spark {
         display: none !important;
     }
     
