@@ -375,7 +375,7 @@
         });
         
         // Crear chispas optimizadas (menos cantidad)
-        const sparkCount = 8 + Math.floor(Math.random() * 7); // 8-15 chispas (reducido de 15-25)
+        const sparkCount = 10 + Math.floor(Math.random() * 12); // 
         let sparksCreated = 0;
         let sparksRemoved = 0;
         
@@ -710,7 +710,7 @@
         
         let searchTimeout = null;
         
-        // Función para buscar en los datos del menú
+        // Función para buscar en los datos del menú (incluyendo categorías)
         function performSearch(query) {
             if (!query.trim()) {
                 searchResults.innerHTML = '';
@@ -721,7 +721,34 @@
             const normalizedQuery = query.toLowerCase().trim();
             const results = [];
             
-            // Buscar en todas las categorías
+            // Mapeo de IDs de categoría a nombres para búsqueda
+            const categoryNames = {
+                'entradas': ['entradas', 'entrada', 'aperitivos', 'aperitivo', 'inicio'],
+                'hamburguesas': ['hamburguesas', 'hamburguesa', 'hamburguesas', 'burger', 'burgers'],
+                'para-picar': ['para picar', 'picar', 'picadas', 'picada', 'compartir', 'compartidos'],
+                'licores': ['licores', 'licor', 'bebidas alcoholicas', 'alcohol', 'tragos fuertes', 'aguardiente', 'ron', 'whisky', 'tequila', 'cervezas'],
+                'cocteles': ['cocteles', 'coctel', 'tragos', 'bebidas', 'cocktails', 'mojitos', 'daiquiris', 'micheladas']
+            };
+            
+            // Primero buscar categorías que coincidan
+            for (const categoryId in categoryNames) {
+                const searchTerms = categoryNames[categoryId];
+                const matchesCategory = searchTerms.some(term =>
+                    term.includes(normalizedQuery) || normalizedQuery.includes(term)
+                );
+                
+                if (matchesCategory) {
+                    results.push({
+                        type: 'category',
+                        id: categoryId,
+                        name: getCategoryDisplayName(categoryId),
+                        description: getCategoryDescription(categoryId),
+                        priority: 1 // Alta prioridad para categorías
+                    });
+                }
+            }
+            
+            // Luego buscar items del menú
             for (const categoryId in menuData) {
                 const categoryData = menuData[categoryId];
                 
@@ -731,9 +758,11 @@
                         subcat.items.forEach(item => {
                             if (matchesSearch(item, normalizedQuery)) {
                                 results.push({
+                                    type: 'item',
                                     ...item,
                                     category: categoryId,
-                                    subcategory: subcat.name
+                                    subcategory: subcat.name,
+                                    priority: 2 // Prioridad media para items
                                 });
                             }
                         });
@@ -743,16 +772,45 @@
                     categoryData.forEach(item => {
                         if (matchesSearch(item, normalizedQuery)) {
                             results.push({
+                                type: 'item',
                                 ...item,
                                 category: categoryId,
-                                subcategory: null
+                                subcategory: null,
+                                priority: 2
                             });
                         }
                     });
                 }
             }
             
+            // Ordenar resultados: primero categorías, luego items
+            results.sort((a, b) => a.priority - b.priority);
+            
             displaySearchResults(results, normalizedQuery);
+        }
+        
+        // Función para obtener nombre de categoría para mostrar
+        function getCategoryDisplayName(categoryId) {
+            const names = {
+                'entradas': 'Entradas',
+                'hamburguesas': 'Hamburguesas',
+                'para-picar': 'Para Picar',
+                'licores': 'Licores',
+                'cocteles': 'Cócteles'
+            };
+            return names[categoryId] || categoryId;
+        }
+        
+        // Función para obtener descripción de categoría
+        function getCategoryDescription(categoryId) {
+            const descriptions = {
+                'entradas': 'Aperitivos y entradas para comenzar',
+                'hamburguesas': 'Hamburguesas artesanales con ingredientes frescos',
+                'para-picar': 'Platos para compartir en grupo',
+                'licores': 'Bebidas alcohólicas y licores premium',
+                'cocteles': 'Cócteles clásicos y de autor'
+            };
+            return descriptions[categoryId] || `Sección de ${getCategoryDisplayName(categoryId)}`;
         }
         
         // Función para verificar si un item coincide con la búsqueda
@@ -766,7 +824,7 @@
             return searchFields.some(field => field.includes(query));
         }
         
-        // Función para mostrar resultados
+        // Función para mostrar resultados (categorías e items)
         function displaySearchResults(results, query) {
             searchResults.innerHTML = '';
             
@@ -790,19 +848,41 @@
             limitedResults.forEach(result => {
                 const resultElement = document.createElement('div');
                 resultElement.className = 'search-result-item';
-                resultElement.innerHTML = `
-                    <div class="result-content">
-                        <h4>${result.nombre}</h4>
-                        <p class="result-description">${result.descripcion}</p>
-                        <div class="result-meta">
-                            <span class="result-price">${Utils.formatPrice(result.precio)}</span>
-                            <span class="result-category">${result.subcategory || result.category}</span>
+                
+                if (result.type === 'category') {
+                    // Resultado de categoría
+                    resultElement.innerHTML = `
+                        <div class="result-content">
+                            <div class="result-category-badge">
+                                <i class="fas fa-folder"></i>
+                                <span>CATEGORÍA</span>
+                            </div>
+                            <h4>${result.name}</h4>
+                            <p class="result-description">${result.description}</p>
+                            <div class="result-meta">
+                                <span class="result-category">Sección completa</span>
+                            </div>
                         </div>
-                    </div>
-                    <button class="result-action" aria-label="Ver ${result.nombre}">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                `;
+                        <button class="result-action" aria-label="Ir a ${result.name}">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    `;
+                } else {
+                    // Resultado de item
+                    resultElement.innerHTML = `
+                        <div class="result-content">
+                            <h4>${result.nombre}</h4>
+                            <p class="result-description">${result.descripcion}</p>
+                            <div class="result-meta">
+                                <span class="result-price">${Utils.formatPrice(result.precio)}</span>
+                                <span class="result-category">${result.subcategory || result.category}</span>
+                            </div>
+                        </div>
+                        <button class="result-action" aria-label="Ver ${result.nombre}">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    `;
+                }
                 
                 // Agregar evento para navegar al elemento
                 resultElement.addEventListener('click', () => {
@@ -815,38 +895,63 @@
             searchResults.classList.add('active');
         }
         
-        // Función para navegar a un resultado
+        // Función para navegar a un resultado (categoría o item)
         function navigateToSearchResult(result) {
             // Cerrar resultados
             searchResults.classList.remove('active');
             searchInput.value = '';
             
-            // Navegar a la categoría
-            navigateToCategory(result.category);
-            
-            // Desplazarse al elemento después de un breve retraso
-            setTimeout(() => {
-                const categorySection = document.getElementById(result.category);
-                if (categorySection) {
-                    // Buscar el elemento dentro de la categoría
-                    const itemElement = categorySection.querySelector(`[data-item-id="${result.id}"]`);
-                    if (itemElement) {
-                        // Resaltar el elemento
-                        itemElement.classList.add('highlighted');
+            if (result.type === 'category') {
+                // Navegar directamente a la categoría
+                navigateToCategory(result.id);
+                
+                // Resaltar la sección de categoría
+                setTimeout(() => {
+                    const categorySection = document.getElementById(result.id);
+                    if (categorySection) {
+                        // Resaltar toda la sección
+                        categorySection.classList.add('highlighted');
                         
-                        // Desplazarse al elemento
-                        itemElement.scrollIntoView({
+                        // Desplazarse a la categoría
+                        categorySection.scrollIntoView({
                             behavior: 'smooth',
-                            block: 'center'
+                            block: 'start'
                         });
                         
                         // Quitar resaltado después de 3 segundos
                         setTimeout(() => {
-                            itemElement.classList.remove('highlighted');
+                            categorySection.classList.remove('highlighted');
                         }, 3000);
                     }
-                }
-            }, 500);
+                }, 300);
+            } else {
+                // Navegar a la categoría del item
+                navigateToCategory(result.category);
+                
+                // Desplazarse al elemento después de un breve retraso
+                setTimeout(() => {
+                    const categorySection = document.getElementById(result.category);
+                    if (categorySection) {
+                        // Buscar el elemento dentro de la categoría
+                        const itemElement = categorySection.querySelector(`[data-item-id="${result.id}"]`);
+                        if (itemElement) {
+                            // Resaltar el elemento
+                            itemElement.classList.add('highlighted');
+                            
+                            // Desplazarse al elemento
+                            itemElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                            
+                            // Quitar resaltado después de 3 segundos
+                            setTimeout(() => {
+                                itemElement.classList.remove('highlighted');
+                            }, 3000);
+                        }
+                    }
+                }, 500);
+            }
         }
         
         // Event listeners
