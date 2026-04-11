@@ -537,7 +537,7 @@ a:hover {
 }
 
 .menu-card__tag--recommended {
-    background-color: var(--confeti-green);
+    background-color: #2E7D32;
 }
 
 .menu-card__tag--spicy {
@@ -545,7 +545,7 @@ a:hover {
 }
 
 .menu-card__tag--new {
-    background-color: var(--confeti-blue);
+    background-color: #1565C0;
 }
 
 
@@ -1014,27 +1014,33 @@ a:hover {
 }
 
 .menu-item-tag {
-    font-size: 0.7rem;
-    padding: 0.15rem 0.5rem;
+    font-size: 0.6rem;
+    padding: 0.1rem 0.45rem;
     border-radius: var(--radius-full);
-    background: var(--confeti-red);
-    color: white;
-    font-weight: 600;
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
 }
 
 .menu-item-tag.recommended {
-    background: var(--confeti-green);
+    background: rgba(76, 175, 80, 0.12);
+    color: rgba(76, 175, 80, 0.7);
+    border-color: rgba(76, 175, 80, 0.2);
 }
 
 .menu-item-tag.new {
-    background: var(--confeti-blue);
+    background: rgba(33, 150, 243, 0.12);
+    color: rgba(33, 150, 243, 0.7);
+    border-color: rgba(33, 150, 243, 0.2);
 }
 
 .menu-item-tag.premium {
-    background: var(--gold-accent);
-    color: var(--bg-deep-black);
+    background: rgba(230, 179, 37, 0.1);
+    color: rgba(230, 179, 37, 0.6);
+    border-color: rgba(230, 179, 37, 0.2);
 }
 
 /* ============================================
