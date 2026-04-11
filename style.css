@@ -254,11 +254,14 @@ a:hover {
 /* Estilos para el Header y Logo */
 .main-header {
     background-color: #0a0a0a; /* Fondo casi negro */
-    padding: 40px 0;
+    padding: 20px 0; /* Reducido para dejar espacio para el buscador */
     text-align: center;
-    position: static; /* Cambiado de sticky a static para que no baje con el cursor */
+    position: sticky; /* Vuelve a ser sticky */
+    top: 0;
     z-index: 1000;
     border-bottom: 2px solid var(--gold-accent);
+    backdrop-filter: blur(10px);
+    background-color: rgba(10, 10, 10, 0.95); /* Semi-transparente para efecto blur */
 }
 
 .main-header .container {
@@ -266,6 +269,15 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+/* Ajustes para el logo con buscador */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
 }
 
 .logo {
@@ -315,6 +327,258 @@ a:hover {
     margin-right: 10px;
     color: #d4af37;
     -webkit-text-fill-color: initial; /* Reset del gradiente del h1 */
+}
+
+/* ============================================
+   BUSCADOR EN HEADER
+   ============================================ */
+.header-search {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 var(--space-md);
+    position: relative;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--gold-accent);
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    transition: all var(--transition-base);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--gold-accent);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 2px rgba(230, 179, 37, 0.2);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-clear {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 0.8rem;
+    transition: color var(--transition-base);
+    z-index: 2;
+}
+
+.search-clear:hover {
+    color: var(--gold-accent);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(10, 10, 10, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-md);
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1001;
+    box-shadow: var(--shadow-lg);
+}
+
+.search-result-item {
+    padding: var(--space-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color var(--transition-base);
+}
+
+.search-result-item:hover {
+    background-color: rgba(230, 179, 37, 0.1);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-category {
+    font-size: 0.7rem;
+    color: var(--gold-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.search-result-name {
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.search-result-price {
+    color: var(--gold-accent);
+    font-weight: 600;
+}
+
+.search-no-results {
+    padding: var(--space-md);
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Resultados de búsqueda activos */
+.search-results.active {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Estilos para elementos de resultado individuales */
+.search-result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.search-result-item:hover {
+    background-color: rgba(230, 179, 37, 0.1);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item.no-results {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.search-result-item.no-results:hover {
+    background-color: transparent;
+}
+
+.search-result-item.no-results i {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-right: var(--space-sm);
+}
+
+.result-content {
+    flex: 1;
+}
+
+.result-content h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.result-description {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.result-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.result-price {
+    color: var(--gold-accent);
+    font-weight: 600;
+}
+
+.result-category {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.result-action {
+    background: none;
+    border: none;
+    color: var(--gold-accent);
+    cursor: pointer;
+    padding: 6px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity var(--transition-base);
+    margin-left: var(--space-sm);
+}
+
+.result-action:hover {
+    opacity: 1;
+}
+
+/* Elementos resaltados en el menú */
+.menu-item.highlighted {
+    animation: highlightPulse 2s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes highlightPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230, 179, 37, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(230, 179, 37, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(230, 179, 37, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .main-nav ul {

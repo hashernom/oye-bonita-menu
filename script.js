@@ -634,6 +634,215 @@
         }
     }
 
+    // Funcionalidad de búsqueda
+    function setupSearch() {
+        const searchInput = document.querySelector('.search-input');
+        const clearButton = document.querySelector('.search-clear');
+        const searchResults = document.querySelector('.search-results');
+        
+        if (!searchInput || !clearButton || !searchResults) {
+            Utils.log('Elementos de búsqueda no encontrados');
+            return;
+        }
+        
+        let searchTimeout = null;
+        
+        // Función para buscar en los datos del menú
+        function performSearch(query) {
+            if (!query.trim()) {
+                searchResults.innerHTML = '';
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            const normalizedQuery = query.toLowerCase().trim();
+            const results = [];
+            
+            // Buscar en todas las categorías
+            for (const categoryId in menuData) {
+                const categoryData = menuData[categoryId];
+                
+                if (categoryData.hasSubcategories) {
+                    // Buscar en subcategorías
+                    categoryData.subcategories.forEach(subcat => {
+                        subcat.items.forEach(item => {
+                            if (matchesSearch(item, normalizedQuery)) {
+                                results.push({
+                                    ...item,
+                                    category: categoryId,
+                                    subcategory: subcat.name
+                                });
+                            }
+                        });
+                    });
+                } else {
+                    // Buscar en categorías simples
+                    categoryData.forEach(item => {
+                        if (matchesSearch(item, normalizedQuery)) {
+                            results.push({
+                                ...item,
+                                category: categoryId,
+                                subcategory: null
+                            });
+                        }
+                    });
+                }
+            }
+            
+            displaySearchResults(results, normalizedQuery);
+        }
+        
+        // Función para verificar si un item coincide con la búsqueda
+        function matchesSearch(item, query) {
+            const searchFields = [
+                item.nombre.toLowerCase(),
+                item.descripcion.toLowerCase(),
+                ...(item.tags || []).map(tag => tag.toLowerCase())
+            ];
+            
+            return searchFields.some(field => field.includes(query));
+        }
+        
+        // Función para mostrar resultados
+        function displaySearchResults(results, query) {
+            searchResults.innerHTML = '';
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = `
+                    <div class="search-result-item no-results">
+                        <i class="fas fa-search"></i>
+                        <div class="result-content">
+                            <h4>No se encontraron resultados</h4>
+                            <p>No hay elementos que coincidan con "${query}"</p>
+                        </div>
+                    </div>
+                `;
+                searchResults.classList.add('active');
+                return;
+            }
+            
+            // Limitar a 10 resultados
+            const limitedResults = results.slice(0, 10);
+            
+            limitedResults.forEach(result => {
+                const resultElement = document.createElement('div');
+                resultElement.className = 'search-result-item';
+                resultElement.innerHTML = `
+                    <div class="result-content">
+                        <h4>${result.nombre}</h4>
+                        <p class="result-description">${result.descripcion}</p>
+                        <div class="result-meta">
+                            <span class="result-price">${Utils.formatPrice(result.precio)}</span>
+                            <span class="result-category">${result.subcategory || result.category}</span>
+                        </div>
+                    </div>
+                    <button class="result-action" aria-label="Ver ${result.nombre}">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                `;
+                
+                // Agregar evento para navegar al elemento
+                resultElement.addEventListener('click', () => {
+                    navigateToSearchResult(result);
+                });
+                
+                searchResults.appendChild(resultElement);
+            });
+            
+            searchResults.classList.add('active');
+        }
+        
+        // Función para navegar a un resultado
+        function navigateToSearchResult(result) {
+            // Cerrar resultados
+            searchResults.classList.remove('active');
+            searchInput.value = '';
+            
+            // Navegar a la categoría
+            navigateToCategory(result.category);
+            
+            // Desplazarse al elemento después de un breve retraso
+            setTimeout(() => {
+                const categorySection = document.getElementById(result.category);
+                if (categorySection) {
+                    // Buscar el elemento dentro de la categoría
+                    const itemElement = categorySection.querySelector(`[data-item-id="${result.id}"]`);
+                    if (itemElement) {
+                        // Resaltar el elemento
+                        itemElement.classList.add('highlighted');
+                        
+                        // Desplazarse al elemento
+                        itemElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                        
+                        // Quitar resaltado después de 3 segundos
+                        setTimeout(() => {
+                            itemElement.classList.remove('highlighted');
+                        }, 3000);
+                    }
+                }
+            }, 500);
+        }
+        
+        // Event listeners
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            
+            // Mostrar/ocultar botón de limpiar
+            if (query.trim()) {
+                clearButton.style.display = 'flex';
+            } else {
+                clearButton.style.display = 'none';
+                searchResults.classList.remove('active');
+            }
+            
+            // Debounce para evitar búsquedas frecuentes
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                performSearch(query);
+            }, 300);
+        });
+        
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim()) {
+                searchResults.classList.add('active');
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                searchResults.classList.remove('active');
+            }
+        });
+        
+        clearButton.addEventListener('click', () => {
+            searchInput.value = '';
+            searchResults.innerHTML = '';
+            searchResults.classList.remove('active');
+            clearButton.style.display = 'none';
+            searchInput.focus();
+        });
+        
+        // Manejar teclas especiales
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchResults.classList.remove('active');
+                searchInput.blur();
+            }
+            
+            if (e.key === 'Enter' && searchInput.value.trim()) {
+                const firstResult = searchResults.querySelector('.search-result-item');
+                if (firstResult) {
+                    firstResult.click();
+                }
+            }
+        });
+        
+        Utils.log('Buscador configurado exitosamente');
+    }
+    
     // Inicializa la aplicación
     async function init() {
         try {
@@ -656,6 +865,9 @@
             
             // Configurar eventos
             setupEventListeners();
+            
+            // Configurar buscador
+            setupSearch();
             
             // Cargar todas las categorías
             loadAllCategories();
