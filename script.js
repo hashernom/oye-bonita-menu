@@ -349,6 +349,93 @@
         }
     }
     
+    // Función para crear notas musicales flotantes
+    function createFloatingMusicNotes() {
+        const symbols = ['♩', '♪', '♫', '♬', '🎵', '🎶'];
+        const noteColors = ['#FFFFFF', '#F5F5F5', '#E6B325', '#D4AF37', '#F8E6A8'];
+        
+        function spawnNote() {
+            const note = document.createElement('div');
+            note.className = 'music-note';
+            
+            // Seleccionar símbolo aleatorio
+            const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+            note.textContent = symbol;
+            
+            // Posición horizontal aleatoria
+            note.style.left = (Math.random() * 90 + 5) + 'vw';
+            
+            // Tamaño y velocidad variable
+            const sizeVariants = ['', 'music-note--slow', 'music-note--fast'];
+            const variant = sizeVariants[Math.floor(Math.random() * sizeVariants.length)];
+            if (variant) note.classList.add(variant);
+            
+            // Color aleatorio (usando filter drop-shadow ya definido en CSS)
+            const color = noteColors[Math.floor(Math.random() * noteColors.length)];
+            note.style.color = color;
+            
+            // 30% de probabilidad de versión dorada con brillo extra
+            if (Math.random() < 0.3) {
+                note.classList.add('music-note--gold');
+            }
+            
+            // Variables CSS personalizadas para la animación
+            const driftX = (Math.random() * 80 - 40) + 'px';
+            const driftX2 = (Math.random() * 80 - 40) + 'px';
+            const driftX3 = (Math.random() * 80 - 40) + 'px';
+            const rotateDeg = (Math.random() * 60 - 30) + 'deg';
+            const rotateDeg2 = (Math.random() * 60 - 30) + 'deg';
+            const rotateDeg3 = (Math.random() * 60 - 30) + 'deg';
+            
+            note.style.setProperty('--drift-x', driftX);
+            note.style.setProperty('--drift-x2', driftX2);
+            note.style.setProperty('--drift-x3', driftX3);
+            note.style.setProperty('--rotate-deg', rotateDeg);
+            note.style.setProperty('--rotate-deg2', rotateDeg2);
+            note.style.setProperty('--rotate-deg3', rotateDeg3);
+            
+            // Posición inicial (desde abajo)
+            note.style.bottom = '-5vh';
+            
+            document.body.appendChild(note);
+            
+            // Eliminar la nota después de que termine la animación
+            const duration = variant === 'music-note--slow' ? 12000 :
+                           variant === 'music-note--fast' ? 6000 : 8000;
+            
+            setTimeout(() => {
+                if (note.parentNode) {
+                    note.remove();
+                }
+            }, duration + 2000); // +2s por el animation-delay
+        }
+        
+        // Crear notas periódicamente
+        function scheduleNextNote() {
+            const delay = 800 + Math.random() * 2000; // 0.8-2.8 segundos entre notas
+            
+            setTimeout(() => {
+                // Crear entre 1 y 3 notas simultáneas
+                const count = 1 + Math.floor(Math.random() * 3);
+                for (let i = 0; i < count; i++) {
+                    setTimeout(spawnNote, i * 300);
+                }
+                
+                scheduleNextNote();
+            }, delay);
+        }
+        
+        // Iniciar después de un retraso inicial
+        setTimeout(scheduleNextNote, 2000);
+        
+        // Crear algunas notas iniciales
+        for (let i = 0; i < 5; i++) {
+            setTimeout(spawnNote, i * 400);
+        }
+        
+        Utils.log('Notas musicales flotantes creadas');
+    }
+    
     // Función para crear un fuego artificial optimizado para rendimiento (más pequeño)
     function createFirework(x, y, onComplete = null) {
         const firework = document.createElement('div');
@@ -1021,6 +1108,9 @@
             
             // Crear partículas flotantes
             createParticles();
+            
+            // Crear notas musicales flotantes
+            createFloatingMusicNotes();
             
             // Iniciar fuegos artificiales (sutiles, de vez en cuando)
             startFireworks();
