@@ -1981,56 +1981,8 @@ a:hover {
 }
 
 /* ============================================
-   FUEGOS ARTIFICIALES Y PARTÍCULAS DECORATIVAS
+   PARTÍCULAS DECORATIVAS
    ============================================ */
-.firework {
-   position: fixed;
-   width: 8px; /* Más pequeño para mejor rendimiento */
-   height: 8px; /* Más pequeño para mejor rendimiento */
-   border-radius: 40%;
-   pointer-events: none;
-   z-index: -1;
-   opacity: 0;
-   filter: blur(0.6px); /* Reducido para mejor rendimiento */
-   box-shadow: 0 0 10px currentColor, 0 0 20px rgba(255, 255, 255, 0.3); /* Reducido */
-}
-
-.firework-spark {
-   position: absolute;
-   width: 3px; /* Más pequeño para mejor rendimiento */
-   height: 3px; /* Más pequeño para mejor rendimiento */
-   border-radius: 50%;
-   opacity: 0;
-   filter: blur(0.5px); /* Reducido para mejor rendimiento */
-   box-shadow: 0 0 5px currentColor, 0 0 10px rgba(255, 255, 255, 0.2); /* Reducido */
-}
-
-@keyframes firework-explosion {
-    0% {
-        transform: scale(0);
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-}
-
-@keyframes spark-trail {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(var(--tx), var(--ty)) scale(0);
-        opacity: 0;
-    }
-}
-
-/* Partículas decorativas adicionales - MÁS GRANDES Y VISTOSAS */
 .particle-gold {
     background: #E6B325;
     box-shadow: 0 0 25px #E6B325, 0 0 50px rgba(230, 179, 37, 0.7);
