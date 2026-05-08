@@ -1,4 +1,4 @@
-{
+﻿window.EMBEDDED_MENU_DATA = {
   "categories": [
     {
       "id": "entradas",
@@ -637,3 +637,4 @@
     }
   ]
 }
+;

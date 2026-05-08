@@ -286,38 +286,66 @@ a:hover {
     align-items: flex-start;
 }
 
-.logo h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 500; /* Cambiado de 700 a 500 para menos grosor */
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    
-    /* Efecto Dorado Metálico */
-    background: linear-gradient(
-        to bottom,
-        #f8e5ad 0%,
-        #d4af37 40%,
-        #b28a30 60%,
-        #f8e5ad 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-    line-height: 1;
-}
-
 .logo .tagline {
     font-family: 'Great Vibes', cursive;
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     color: #f8e5ad;
-    margin-top: -15px; /* Para que se acerque al título como en la imagen */
+    margin-top: 4px;
     font-weight: normal;
-    text-transform: lowercase; /* El estilo script suele lucir mejor así */
+    text-transform: lowercase;
     margin-bottom: 0;
     font-style: italic;
     letter-spacing: 0.5px;
+}
+
+/* Logo de imagen */
+.logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin: 0 auto 8px auto;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+    transition: filter var(--transition-base);
+}
+
+.logo-img:hover {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.7));
+}
+
+.logo-img-welcome {
+    height: 120px;
+    width: auto;
+    display: block;
+    margin: 0 auto 16px auto;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+    animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    from {
+        filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+    }
+    to {
+        filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.8));
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 60px;
+    }
+    .logo-img-welcome {
+        height: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 50px;
+    }
+    .logo-img-welcome {
+        height: 70px;
+    }
 }
 
 /* Estilo para el icono de música (opcional, si quieres que combine) */
@@ -987,10 +1015,6 @@ a:hover {
         align-items: center;
     }
     
-    .logo h1 {
-        font-size: 1.8rem;
-    }
-    
     .logo .tagline {
         font-size: 0.7rem;
     }
@@ -1068,10 +1092,6 @@ a:hover {
 
 /* Header más compacto para pantallas muy pequeñas */
 @media (max-width: 480px) {
-    .logo h1 {
-        font-size: 1.5rem;
-    }
-    
     .logo .tagline {
         display: none; /* Ocultar tagline en pantallas muy pequeñas */
     }
@@ -1282,36 +1302,13 @@ a:hover {
     }
 }
 
-.welcome-logo h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 500; /* Igual que el header */
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    
-    /* Efecto Dorado Metálico - Igual que el header */
-    background: linear-gradient(
-        to bottom,
-        #f8e5ad 0%,
-        #d4af37 40%,
-        #b28a30 60%,
-        #f8e5ad 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-    line-height: 1;
-    margin-bottom: var(--space-xs);
-}
-
 .welcome-logo .tagline {
     font-family: 'Great Vibes', cursive;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #f8e5ad;
-    margin-top: -15px; /* Para que se acerque al título como en el header */
+    margin-top: 8px;
     font-weight: normal;
-    text-transform: lowercase; /* El estilo script suele lucir mejor así */
+    text-transform: lowercase;
     margin-bottom: var(--space-xl);
     font-style: italic;
 }
@@ -1746,14 +1743,6 @@ a:hover {
     }
     
     /* Header ultra compacto */
-    .logo h1 {
-        font-size: 1.5rem;
-    }
-    
-    .logo .tagline {
-        font-size: 0.7rem;
-    }
-    
     .main-nav a span {
         display: none;
     }
@@ -1773,10 +1762,6 @@ a:hover {
     /* Pantalla de bienvenida ajustada */
     .welcome-content {
         padding: var(--space-lg);
-    }
-    
-    .welcome-logo h1 {
-        font-size: 2rem !important;
     }
     
     .welcome-message p {
@@ -1860,6 +1845,19 @@ a:hover {
     width: 60px;
     height: 2px;
     background: linear-gradient(90deg, var(--gold-accent), transparent);
+}
+
+/* Descripción de subcategoría (ej: nota de micheladas) */
+.subcategory-description {
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    font-style: italic;
+    margin-bottom: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(230, 179, 37, 0.08);
+    border-left: 3px solid var(--gold-accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    line-height: 1.4;
 }
 
 .subcategory-items {

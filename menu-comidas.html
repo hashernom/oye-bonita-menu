@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Menú completo del restaurante Oye Bonita - La Casa del Vallenato">
+    <meta name="description" content="Menú del restaurante Oye Bonita - La Casa del Vallenato">
     <meta name="keywords" content="restaurante, vallenato, comida colombiana, menú, Valledupar, Oye Bonita">
     <meta name="author" content="Oye Bonita - La Casa del Vallenato">
     <meta property="og:title" content="OYE BONITA - La Casa del Vallenato | Menú">
@@ -16,19 +16,13 @@
     
     <title>OYE BONITA - La Casa del Vallenato | Menú</title>
     
-    <!-- Preconexiones para performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Hojas de estilo -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 </head>
 <body>
     <!-- Pantalla de bienvenida -->
@@ -51,46 +45,19 @@
         </div>
     </div>
 
-    <!-- Contenido principal (oculto inicialmente) -->
+    <!-- Contenido principal -->
     <div id="main-content" class="main-content" style="display: none;">
-
         <div id="app" role="main">
-            <!-- Header simplificado -->
+            <!-- Header -->
             <header class="main-header" role="banner">
                 <div class="container">
                     <div class="logo">
-                        <img src="logo-oye-bonita.png" alt="Oye Bonita" class="logo-img" loading="lazy">
+                        <img src="logo-oye-bonita.png" alt="Oye Bonita" class="logo-img" loading="eager">
                         <p class="tagline">La Casa del Vallenato</p>
                     </div>
-                    
-                    <!-- Buscador -->
-                    <div class="header-search">
-                        <div class="search-container">
-                            <i class="fas fa-search search-icon" aria-hidden="true"></i>
-                            <input
-                                type="text"
-                                id="menu-search"
-                                class="search-input"
-                                placeholder="Buscar platos, bebidas..."
-                                aria-label="Buscar en el menú"
-                            />
-                            <button class="search-clear" aria-label="Limpiar búsqueda">
-                                <i class="fas fa-times" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <div class="search-results" id="search-results" aria-live="polite"></div>
-                    </div>
-                    
-                    <nav class="main-nav" aria-label="Navegación principal">
-                        <ul role="menubar">
-                            <li role="none">
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </header>
 
-            <!-- Contenido principal -->
             <main>
                 <!-- Navegación de categorías del menú -->
                 <section class="menu-navigation">
@@ -110,12 +77,6 @@
                             <button class="category-btn" data-category="comidas">
                                 <i class="fas fa-utensils"></i> Comidas
                             </button>
-                            <button class="category-btn" data-category="licores">
-                                <i class="fas fa-glass-whiskey"></i> Licores
-                            </button>
-                            <button class="category-btn" data-category="cocteles">
-                                <i class="fas fa-cocktail"></i> Cócteles
-                            </button>
                         </div>
                     </div>
                 </section>
@@ -126,7 +87,7 @@
                         <h3 class="section-title">Entradas</h3>
                         <p class="section-subtitle">Para empezar con buen sabor</p>
                         <div class="menu-grid" id="entradas-grid">
-                            <!-- Las tarjetas se generarán con JavaScript -->
+                            <!-- Generado por JavaScript -->
                         </div>
                     </div>
                 </section>
@@ -137,7 +98,7 @@
                         <h3 class="section-title">Hamburguesas</h3>
                         <p class="section-subtitle">Las mejores hamburguesas con sabor colombiano</p>
                         <div class="menu-grid" id="hamburguesas-grid">
-                            <!-- Contenido generado por JavaScript -->
+                            <!-- Generado por JavaScript -->
                         </div>
                     </div>
                 </section>
@@ -148,7 +109,7 @@
                         <h3 class="section-title">Para Picar</h3>
                         <p class="section-subtitle">Para compartir con amigos y buena música</p>
                         <div class="menu-grid" id="para-picar-grid">
-                            <!-- Contenido generado por JavaScript -->
+                            <!-- Generado por JavaScript -->
                         </div>
                     </div>
                 </section>
@@ -159,29 +120,7 @@
                         <h3 class="section-title">Comidas</h3>
                         <p class="section-subtitle">Platos fuertes para disfrutar en grande</p>
                         <div class="menu-grid" id="comidas-grid">
-                            <!-- Contenido generado por JavaScript -->
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Sección de Licores -->
-                <section id="licores" class="menu-section">
-                    <div class="container">
-                        <h3 class="section-title">Licores</h3>
-                        <p class="section-subtitle">Los mejores licores para brindar</p>
-                        <div class="menu-grid" id="licores-grid">
-                            <!-- Contenido generado por JavaScript -->
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Sección de Cócteles -->
-                <section id="cocteles" class="menu-section">
-                    <div class="container">
-                        <h3 class="section-title">Cócteles</h3>
-                        <p class="section-subtitle">Mezclas perfectas para disfrutar</p>
-                        <div class="menu-grid" id="cocteles-grid">
-                            <!-- Contenido generado por JavaScript -->
+                            <!-- Generado por JavaScript -->
                         </div>
                     </div>
                 </section>
@@ -202,7 +141,7 @@
                 </section>
             </main>
 
-            <!-- Footer simplificado -->
+            <!-- Footer -->
             <footer class="main-footer">
                 <div class="container">
                     <div class="footer-content">
@@ -228,13 +167,11 @@
     <script src="data/menu-data.js"></script>
     <script src="script.js"></script>
     <script>
-        // Transición automática de pantalla de bienvenida
         document.addEventListener('DOMContentLoaded', function() {
             const welcomeScreen = document.getElementById('welcome-screen');
             const mainContent = document.getElementById('main-content');
             const loadingProgress = document.querySelector('.loading-progress');
             
-            // Simular carga
             let progress = 0;
             const interval = setInterval(() => {
                 progress += 2;
@@ -243,7 +180,6 @@
                 if (progress >= 100) {
                     clearInterval(interval);
                     
-                    // Ocultar pantalla de bienvenida y mostrar contenido principal
                     setTimeout(() => {
                         welcomeScreen.style.opacity = '0';
                         welcomeScreen.style.transition = 'opacity 0.5s ease';

@@ -32,52 +32,57 @@
         }
     };
 
-    // Carga de datos
+    // Carga de datos (usa datos embebidos para funcionar sin servidor)
+    function transformAndStoreData(data) {
+        menuData = {};
+        if (data.categories && Array.isArray(data.categories)) {
+            data.categories.forEach(category => {
+                if (category.hasSubcategories && category.subcategories) {
+                    menuData[category.id] = {
+                        hasSubcategories: true,
+                        subcategories: category.subcategories.map(subcat => ({
+                            id: subcat.id,
+                            name: subcat.name,
+                            description: subcat.description || '',
+                            items: subcat.items.map(item => ({
+                                id: item.id,
+                                nombre: item.name,
+                                descripcion: item.description,
+                                precio: item.price,
+                                tags: item.tags || []
+                            }))
+                        }))
+                    };
+                } else {
+                    menuData[category.id] = category.items.map(item => ({
+                        id: item.id,
+                        nombre: item.name,
+                        descripcion: item.description,
+                        precio: item.price,
+                        tags: item.tags || []
+                    }));
+                }
+            });
+        }
+    }
+
     async function loadMenuData() {
         try {
-            Utils.log('Cargando datos del menú...');
-            const response = await fetch('data/menu-data.json');
+            // Usar datos embebidos si están disponibles (funciona en file:// y http://)
+            if (window.EMBEDDED_MENU_DATA) {
+                Utils.log('Usando datos de menú embebidos');
+                transformAndStoreData(window.EMBEDDED_MENU_DATA);
+                return menuData;
+            }
             
+            // Fallback: intentar fetch (solo funciona en http://)
+            Utils.log('Intentando cargar datos vía fetch...');
+            const response = await fetch('data/menu-data.json');
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
-            
             const data = await response.json();
-            
-            // Transformar datos a formato esperado
-            menuData = {};
-            if (data.categories && Array.isArray(data.categories)) {
-                data.categories.forEach(category => {
-                    // Si la categoría tiene subcategorías (licores, cócteles)
-                    if (category.hasSubcategories && category.subcategories) {
-                        // Para categorías con subcategorías, almacenamos la estructura completa
-                        menuData[category.id] = {
-                            hasSubcategories: true,
-                            subcategories: category.subcategories.map(subcat => ({
-                                id: subcat.id,
-                                name: subcat.name,
-                                items: subcat.items.map(item => ({
-                                    id: item.id,
-                                    nombre: item.name,
-                                    descripcion: item.description,
-                                    precio: item.price,
-                                    tags: item.tags || []
-                                }))
-                            }))
-                        };
-                    } else {
-                        // Para categorías sin subcategorías (entradas, hamburguesas, etc.)
-                        menuData[category.id] = category.items.map(item => ({
-                            id: item.id,
-                            nombre: item.name,
-                            descripcion: item.description,
-                            precio: item.price,
-                            tags: item.tags || []
-                        }));
-                    }
-                });
-            }
-            
+            transformAndStoreData(data);
             Utils.log('Datos del menú cargados exitosamente');
             return menuData;
         } catch (error) {
@@ -238,6 +243,14 @@
             title.textContent = subcategory.name;
             subcategoryDiv.appendChild(title);
             
+            // Descripción de la subcategoría (si existe, ej: nota sobre micheladas)
+            if (subcategory.description) {
+                const descriptionEl = document.createElement('p');
+                descriptionEl.className = 'subcategory-description';
+                descriptionEl.textContent = subcategory.description;
+                subcategoryDiv.appendChild(descriptionEl);
+            }
+            
             // Contenedor para items de esta subcategoría
             const itemsContainer = document.createElement('div');
             itemsContainer.className = 'subcategory-items';
@@ -257,11 +270,11 @@
         });
     }
 
-    // Carga todas las categorías del menú
+    // Carga todas las categorías del menú (dinámico - escanea el DOM)
     function loadAllCategories() {
-        const categories = ['entradas', 'hamburguesas', 'para-picar', 'licores', 'cocteles'];
-        
-        categories.forEach(category => {
+        const categorySections = document.querySelectorAll('.menu-section[id]');
+        categorySections.forEach(section => {
+            const category = section.id;
             const items = getItemsByCategory(category);
             renderMenuItems(category, items);
         });
@@ -436,17 +449,15 @@
         Utils.log('Notas musicales flotantes creadas');
     }
     
-    // Inicializa elementos DOM
+    // Inicializa elementos DOM (dinámico - escanea el DOM)
     function initDOM() {
         categoryButtons = document.querySelectorAll('.category-btn');
         
-        menuGrids = {
-            entradas: document.getElementById('entradas-grid'),
-            hamburguesas: document.getElementById('hamburguesas-grid'),
-            "para-picar": document.getElementById('para-picar-grid'),
-            licores: document.getElementById('licores-grid'),
-            cocteles: document.getElementById('cocteles-grid')
-        };
+        menuGrids = {};
+        document.querySelectorAll('.menu-grid[id]').forEach(grid => {
+            const category = grid.id.replace(/-grid$/, '');
+            menuGrids[category] = grid;
+        });
     }
 
     // Función para crear destellos dorados en la pantalla de carga
@@ -558,6 +569,7 @@
                 'entradas': ['entradas', 'entrada', 'aperitivos', 'aperitivo', 'inicio'],
                 'hamburguesas': ['hamburguesas', 'hamburguesa', 'hamburguesas', 'burger', 'burgers'],
                 'para-picar': ['para picar', 'picar', 'picadas', 'picada', 'compartir', 'compartidos'],
+                'comidas': ['comidas', 'comida', 'alimentos', 'platos fuertes', 'almuerzo', 'cena', 'alitas', 'pechuga', 'nuggets'],
                 'licores': ['licores', 'licor', 'bebidas alcoholicas', 'alcohol', 'tragos fuertes', 'aguardiente', 'ron', 'whisky', 'tequila', 'cervezas'],
                 'cocteles': ['cocteles', 'coctel', 'tragos', 'bebidas', 'cocktails', 'mojitos', 'daiquiris', 'micheladas']
             };
@@ -627,6 +639,7 @@
                 'entradas': 'Entradas',
                 'hamburguesas': 'Hamburguesas',
                 'para-picar': 'Para Picar',
+                'comidas': 'Comidas',
                 'licores': 'Licores',
                 'cocteles': 'Cócteles'
             };
@@ -639,6 +652,7 @@
                 'entradas': 'Aperitivos y entradas para comenzar',
                 'hamburguesas': 'Hamburguesas artesanales con ingredientes frescos',
                 'para-picar': 'Platos para compartir en grupo',
+                'comidas': 'Platos fuertes y comidas especiales',
                 'licores': 'Bebidas alcohólicas y licores premium',
                 'cocteles': 'Cócteles clásicos y de autor'
             };
