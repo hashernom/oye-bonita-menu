@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Generar QR - Oye Bonita</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;background:#0a0a0a;color:#f5f5f5;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem}
+h1{color:#E6B325;margin-bottom:.5rem}
+p{color:#B0B0B0;margin-bottom:2rem}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.3);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;max-width:700px;width:100%}
+.step h2{color:#E6B325;font-size:1.1rem;margin-bottom:1rem}
+label{display:block;color:#B0B0B0;margin-bottom:.3rem}
+input[type=url]{width:100%;padding:.75rem;background:rgba(255,255,255,.1);border:1px solid rgba(212,175,55,.3);border-radius:8px;color:#f5f5f5;font-size:1rem;margin-bottom:1rem}
+input[type=url]:focus{outline:none;border-color:#E6B325}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
+@media(max-width:600px){.qr-grid{grid-template-columns:1fr}}
+.qr-card{background:white;border-radius:12px;padding:1.5rem;text-align:center}
+.qr-card h3{color:#0a0a0a;margin-bottom:1rem}
+.qr-card canvas{display:block;margin:0 auto}
+.url-label{color:#666;font-size:.8rem;margin-top:.75rem;word-break:break-all}
+.btn{padding:.75rem 2rem;background:#E6B325;color:#0a0a0a;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer}
+.btn:hover{background:#f8e5ad}
+.btn-secondary{background:transparent;border:2px solid #E6B325;color:#E6B325;margin-left:.5rem}
+.btn-group{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+</style>
+</head>
+<body>
+<h1>Generar C&oacute;digos QR</h1>
+<p>Para los men&uacute;s de <strong>Oye Bonita</strong></p>
+
+<div class="step">
+<h2>Paso 1: Ingresa las URLs</h2>
+<label>URL del men&uacute; completo (index.html):</label>
+<input type="url" id="url-full" placeholder="https://oye-bonita.netlify.app">
+<label>URL del men&uacute; de comidas (menu-comidas.html):</label>
+<input type="url" id="url-food" placeholder="https://oye-bonita.netlify.app/menu-comidas.html">
+</div>
+
+<div class="step">
+<h2>Paso 2: QR generados</h2>
+<div class="qr-grid">
+<div class="qr-card"><h3>Men&uacute; Completo</h3><div id="qrcode-full"></div><p class="url-label" id="label-full">...</p></div>
+<div class="qr-card"><h3>Solo Comidas</h3><div id="qrcode-food"></div><p class="url-label" id="label-food">...</p></div>
+</div>
+<div class="btn-group">
+<button class="btn" id="btn-generate">Generar QR</button>
+<button class="btn btn-secondary" id="btn-download-full">Descargar QR Completo</button>
+<button class="btn btn-secondary" id="btn-download-food">Descargar QR Comidas</button>
+</div>
+</div>
+
+<script>
+var qf=null,qd=null;
+function gen(){
+ var a=document.getElementById('url-full').value.trim()||'https://oye-bonita.netlify.app';
+ var b=document.getElementById('url-food').value.trim()||a.replace(/\/+$/,'')+'/menu-comidas.html';
+ document.getElementById('label-full').textContent=a;
+ document.getElementById('label-food').textContent=b;
+ document.getElementById('qrcode-full').innerHTML='';
+ document.getElementById('qrcode-food').innerHTML='';
+ qf=new QRCode(document.getElementById('qrcode-full'),{text:a,width:200,height:200,colorDark:'#0a0a0a',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+ qd=new QRCode(document.getElementById('qrcode-food'),{text:b,width:200,height:200,colorDark:'#0a0a0a',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+}
+function dl(q,n){
+ if(!q){alert('Genera los QR primero');return}
+ var c=q._el.querySelector('canvas');if(!c){alert('Error');return}
+ var a=document.createElement('a');a.download=n+'.png';a.href=c.toDataURL('image/png');a.click()
+}
+document.getElementById('btn-generate').addEventListener('click',gen);
+document.getElementById('btn-download-full').addEventListener('click',function(){dl(qf,'qr-menu-completo')});
+document.getElementById('btn-download-food').addEventListener('click',function(){dl(qd,'qr-solo-comidas')});
+window.addEventListener('load',gen);
+</script>
+</body>
+</html>
