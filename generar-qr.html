@@ -34,9 +34,9 @@ input[type=url]:focus{outline:none;border-color:#E6B325}
 <div class="step">
 <h2>Paso 1: Ingresa las URLs</h2>
 <label>URL del men&uacute; completo (index.html):</label>
-<input type="url" id="url-full" placeholder="https://oye-bonita.netlify.app">
+<input type="url" id="url-full" value="https://oye-bonita-90v.pages.dev">
 <label>URL del men&uacute; de comidas (menu-comidas.html):</label>
-<input type="url" id="url-food" placeholder="https://oye-bonita.netlify.app/menu-comidas.html">
+<input type="url" id="url-food" value="https://oye-bonita-90v.pages.dev/menu-comidas.html">
 </div>
 
 <div class="step">
@@ -55,8 +55,8 @@ input[type=url]:focus{outline:none;border-color:#E6B325}
 <script>
 var qf=null,qd=null;
 function gen(){
- var a=document.getElementById('url-full').value.trim()||'https://oye-bonita.netlify.app';
- var b=document.getElementById('url-food').value.trim()||a.replace(/\/+$/,'')+'/menu-comidas.html';
+ var a=document.getElementById('url-full').value.trim()||'https://oye-bonita-90v.pages.dev';
+ var b=document.getElementById('url-food').value.trim()||'https://oye-bonita-90v.pages.dev/menu-comidas.html';
  document.getElementById('label-full').textContent=a;
  document.getElementById('label-food').textContent=b;
  document.getElementById('qrcode-full').innerHTML='';
