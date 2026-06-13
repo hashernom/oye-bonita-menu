@@ -1117,20 +1117,44 @@ a:hover { color: var(--gold-bright); }
     max-height: 90vh;
     transform: scale(0.92);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), var(--shadow-gold-strong);
-    border: 1px solid var(--gold-border);
+    border: 2px solid var(--gold);
+    background: var(--bg-elevated);
 }
 .burgertour-modal.active .burgertour-modal-content {
     transform: scale(1);
 }
 
-.burgertour-modal-content img {
+.burgertour-modal-frame {
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    margin: 6px;
+    border-radius: calc(var(--radius-md) - 4px);
+    overflow: hidden;
+}
+
+.burgertour-modal-caption {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(123, 31, 42, 0.08));
+    padding: 1rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--gold-border);
+}
+.burgertour-modal-caption p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    margin: 0;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+}
+
+.burgertour-modal-image {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 85vh;
+    max-height: 75vh;
     object-fit: contain;
 }
 
