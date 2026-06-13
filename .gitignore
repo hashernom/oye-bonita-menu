@@ -1,0 +1,24 @@
+# Server logs
+server.log
+server.err
+
+# Plans and internal notes
+plans/
+
+# Backup data
+data/menu-data-backup.json
+
+# OpenCode internal files
+.od-skills/
+
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor temp files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
