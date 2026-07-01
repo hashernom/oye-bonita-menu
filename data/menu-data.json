@@ -50,6 +50,14 @@
       "icon": "🍔",
       "items": [
         {
+          "id": "la-bonita",
+          "name": "La Bonita",
+          "description": "Carne de res 200g, queso costeño, tocineta, cebolla caramelizada, lechuga fresca, tomate y salsa de la casa.",
+          "price": 30000,
+          "tags": [],
+          "award": "Ganadora del Burger Tour 2026"
+        },
+        {
           "id": "oye-bonita",
           "name": "Oye Bonita",
           "description": "Carne de res, pechuga de pollo, lomo de cerdo, queso fundido y salsas de la casa.",

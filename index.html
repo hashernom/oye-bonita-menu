@@ -142,7 +142,7 @@
                         <i class="fas fa-hamburger section-icon" aria-hidden="true"></i>
                         <p class="section-title">Con todo el sabor</p>
                         <h3 class="section-heading">Hamburguesas</h3>
-                        <p class="section-subtitle">Acompañadas de papa a la francesa</p>
+                        <p class="section-subtitle"><span class="hamburguesa-note">Acompañadas de papa a la francesa</span></p>
                         <div class="menu-grid" id="hamburguesas-grid"></div>
                     </div>
                 </section>
@@ -231,26 +231,6 @@
         </div>
     </div>
 
-    <!-- Burger Tour floating button -->
-    <button class="burgertour-float" onclick="openBurgerTour()" aria-label="Burger Tour - Evento Especial">
-        <i class="fas fa-hamburger"></i>
-    </button>
-
-    <!-- Burger Tour Modal -->
-    <div id="burgertour-modal" class="burgertour-modal" onclick="closeBurgerTour(event)">
-        <div class="burgertour-modal-content" onclick="event.stopPropagation()">
-            <button class="burgertour-modal-close" onclick="closeBurgerTour()" aria-label="Cerrar">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="burgertour-modal-frame">
-                <div class="burgertour-modal-caption">
-                    <p>Visítanos en nuestra propuesta para el Burger Tour 2026</p>
-                </div>
-                <img class="burgertour-modal-image" src="burgertour.jpeg" alt="Burger Tour - Evento Especial Oye Bonita">
-            </div>
-        </div>
-    </div>
-
     <!-- WhatsApp floating button -->
     <a href="https://wa.me/message/AG5GUP6IYOCTP1" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp">
         <i class="fab fa-whatsapp"></i>
@@ -260,22 +240,6 @@
     <script src="data/menu-data.js"></script>
     <script src="script.js"></script>
     <script>
-        function openBurgerTour() {
-            document.getElementById('burgertour-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeBurgerTour(event) {
-            if (event && event.target !== document.getElementById('burgertour-modal')) return;
-            document.getElementById('burgertour-modal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.getElementById('burgertour-modal').classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
             const welcomeScreen = document.getElementById('welcome-screen');
             const mainContent = document.getElementById('main-content');

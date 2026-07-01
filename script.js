@@ -49,7 +49,8 @@
                                 nombre: item.name,
                                 descripcion: item.description,
                                 precio: item.price,
-                                tags: item.tags || []
+                                tags: item.tags || [],
+                                award: item.award || null
                             }))
                         }))
                     };
@@ -59,7 +60,8 @@
                         nombre: item.name,
                         descripcion: item.description,
                         precio: item.price,
-                        tags: item.tags || []
+                        tags: item.tags || [],
+                        award: item.award || null
                     }));
                 }
             });
@@ -185,9 +187,14 @@
             `;
         }
         
+        let awardHTML = '';
+        if (item.award) {
+            awardHTML = `<span class="menu-item-award"><i class="fas fa-trophy"></i> ${item.award}</span>`;
+        }
+
         div.innerHTML = `
             <div class="menu-item-info">
-                <h4 class="menu-item-title">${item.nombre}</h4>
+                <h4 class="menu-item-title">${item.nombre}${awardHTML}</h4>
                 <p class="menu-item-description">${item.descripcion}</p>
                 ${tagsHTML}
             </div>

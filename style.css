@@ -797,6 +797,68 @@ a:hover { color: var(--gold-bright); }
     border-color: rgba(123, 31, 42, 0.4);
 }
 
+.menu-item-award {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 3px 14px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.35));
+    color: var(--gold-light);
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 0 6px rgba(212, 175, 55, 0.15);
+    white-space: nowrap;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item-award::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.12) 45%,
+        rgba(255, 215, 0, 0.25) 50%,
+        rgba(255, 255, 255, 0.12) 55%,
+        transparent 60%
+    );
+    animation: awardGlint 3s ease-in-out infinite;
+}
+
+@keyframes awardGlint {
+    0% { left: -75%; }
+    40% { left: 120%; }
+    100% { left: 120%; }
+}
+
+.menu-item-award i {
+    margin-right: 4px;
+    font-size: 0.6rem;
+    color: var(--gold);
+}
+
+/* Subtítulo destacado para hamburguesas */
+.hamburguesa-note {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--festive-soft);
+    border-left: 3px solid var(--festive);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
 /* Highlight */
 .menu-item.highlighted {
     animation: highlightPulse 2s ease-in-out;
