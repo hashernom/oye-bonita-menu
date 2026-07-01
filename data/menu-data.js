@@ -52,7 +52,7 @@
         {
           "id": "la-bonita",
           "name": "La Bonita",
-          "description": "Carne de res 200g, queso costeño, tocineta, cebolla caramelizada, lechuga fresca, tomate y salsa de la casa.",
+          "description": "Dos carnes, queso cheddar, mermelada de tocineta ahumada, dip especial, tártara de la casa, lechuga, pan de ajo.",
           "price": 30000,
           "tags": [],
           "award": "Ganadora del Burger Tour 2026"

@@ -1302,6 +1302,12 @@ a:hover { color: var(--gold-bright); }
     .menu-item-description { font-size: 0.78rem; }
     .menu-item-price { font-size: 1.05rem; min-width: 80px; }
 
+    .menu-item-award {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+    }
+
     .burgertour-float {
         width: 50px;
         height: 50px;
