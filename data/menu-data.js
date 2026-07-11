@@ -54,8 +54,7 @@
           "name": "La Bonita",
           "description": "Dos carnes, queso cheddar, mermelada de tocineta ahumada, dip especial, tártara de la casa, lechuga, pan de ajo.",
           "price": 30000,
-          "tags": [],
-          "award": "Ganadora del Burger Tour 2026"
+          "tags": []
         },
         {
           "id": "oye-bonita",

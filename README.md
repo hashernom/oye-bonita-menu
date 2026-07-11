@@ -1,48 +1,55 @@
-# 🎵 OYE BONITA - La Casa del Vallenato
+# OYE BONITA - La Casa del Vallenato
 
-## 📖 Manual de Usuario
+## Manual de Usuario
 
-¡Bienvenido! Este manual está diseñado para que cualquier persona, **sin importar si sabe o no de programación**, pueda usar y modificar este sitio web del menú de **Oye Bonita**.
-
----
-
-## 📋 ¿Qué es esto?
-
-Este es un **menú digital interactivo** para el restaurante Oye Bonita. Es una página web que funciona solita — solo necesitas abrir el archivo `index.html` en tu navegador (Chrome, Edge, Firefox, etc.) y listo.
-
-No necesitas instalar nada, ni pagar servidores, ni tener internet más allá de la primera vez que la abras (para cargar las fuentes y los iconos).
+Bienvenido. Este manual está escrito para que cualquier persona, **sin saber de programación**, pueda usar, modificar y publicar el menú digital de **Oye Bonita**.
 
 ---
 
-## 🗂️ Archivos del proyecto (no te asustes)
+## ¿Qué es esto?
 
-Dentro de la carpeta `menu oye bonita` vas a encontrar estos archivos:
+Es un **menú digital interactivo** para el restaurante Oye Bonita. Funciona abriendo el archivo `index.html` en cualquier navegador (Chrome, Edge, Firefox, Safari). No necesitas instalar nada ni pagar un servidor para probarlo.
 
-| Archivo | ¿Qué es? | ¿Lo tocas? |
-|---------|----------|------------|
-| `index.html` | La página principal | ❌ No lo toques |
-| `style.css` | Los colores, tamaños y diseños | ❌ No lo toques |
-| `script.js` | La lógica y animaciones | ❌ No lo toques |
-| `data/menu-data.json` | **LOS DATOS DEL MENÚ** ✅ | ✅ **Sí, aquí se edita** |
-| `README.md` | Este manual | ❌ No lo toques |
-| `plans/todo.md` | Notas internas | ❌ No lo toques |
-
-> ✅ **La única regla de oro**: para cambiar los platos, precios o descripciones, solo tocas el archivo `data/menu-data.json`.
+Para que otros lo vean desde sus celulares, solo hay que subir los archivos a un hosting gratuito como **Cloudflare Pages**, **Netlify**, **Vercel** o **GitHub Pages**.
 
 ---
 
-## 🍔 Cómo cambiar el Menú (platos, precios, descripciones)
+## Archivos del proyecto
 
-### Paso 1: Abrir el archivo correcto
+| Archivo | ¿Qué es? | ¿Lo editas? |
+|---------|----------|-------------|
+| `index.html` | Menú completo (comidas y bebidas) | ❌ No |
+| `menu-comidas.html` | Menú reducido (solo comidas) | ❌ No |
+| `style.css` | Colores, tamaños y diseño | ❌ No |
+| `script.js` | Lógica, animaciones y búsqueda | ❌ No |
+| `data/menu-data.js` | **Datos del menú** | ✅ **Sí, aquí editas** |
+| `data/menu-data-backup.json` | Copia de seguridad del menú | ❌ Solo en emergencias |
+| `logo-oye-bonita.png` | Logo del restaurante | ❌ No |
+| `qr-menu-completo.png` | QR del menú completo | ❌ No |
+| `qr-menu-comidas.png` | QR del menú de comidas | ❌ No |
+| `README.md` | Este manual | ❌ No |
 
-1. Abre la carpeta `menu oye bonita`
-2. Dentro hay una subcarpeta llamada `data`
-3. Dentro de `data` hay un archivo llamado **`menu-data.json`**
-4. Haz clic derecho sobre él → "Abrir con" → **Bloc de notas** (o cualquier editor de texto)
+> **Regla de oro:** para cambiar platos, precios o descripciones, edita únicamente `data/menu-data.js`.
 
-### Paso 2: Entender cómo está organizado
+---
 
-El archivo se ve así (simplificado):
+## Cómo editar el menú
+
+### 1. Abrir el archivo correcto
+
+1. Abre la carpeta del proyecto.
+2. Entra a la carpeta `data`.
+3. Haz clic derecho en `menu-data.js` → **Abrir con** → **Bloc de notas** (o cualquier editor de texto).
+
+### 2. Entender la estructura
+
+El archivo comienza con esta línea:
+
+```javascript
+window.EMBEDDED_MENU_DATA = {
+```
+
+**No la borres ni la modifiques.** Después de esa línea viene el menú organizado en categorías.
 
 ```json
 {
@@ -64,40 +71,32 @@ El archivo se ve así (simplificado):
 }
 ```
 
-**Traducción:**
+- `"categories"` → Las secciones del menú (Entradas, Hamburguesas, etc.).
+- `"items"` → Los platos dentro de cada sección.
+- `"name"` → Nombre del plato.
+- `"description"` → Descripción del plato.
+- `"price"` → Precio en pesos colombianos, **sin puntos ni comas** (`15000` = $15.000).
+- `"tags"` → Etiquetas opcionales. Déjalo como `[]` si no usas etiquetas.
 
-- `"categories"` → Las secciones del menú (Entradas, Hamburguesas, etc.)
-- `"items"` → Los platos dentro de cada sección
-- `"name"` → El nombre del plato
-- `"description"` → La descripción del plato
-- `"price"` → El precio **en pesos colombianos, sin puntos ni comas** (15000 = $15.000)
-- `"tags"` → Etiquetas especiales (déjalo como `[]` si no usas)
+### 3. Cambiar un precio
 
-### Paso 3: Ejemplos de cambios comunes
-
-#### 🔹 Cambiar el precio de un plato
-
-Busca el plato en el archivo y cambia solo el número después de `"price"`:
+Busca el plato y cambia solo el número:
 
 ```json
 "price": 18000
 ```
 
-Cambia `18000` por el nuevo precio. **Sin puntos, sin comas, solo números.**
+### 4. Cambiar una descripción
 
-#### 🔹 Cambiar la descripción de un plato
-
-Busca el texto entre comillas después de `"description"`:
+Cambia el texto entre comillas:
 
 ```json
 "description": "Chorizos artesanales glaseados, acompañados con papas en cascos."
 ```
 
-Cambia el texto entre las comillas `" "` por lo que quieras.
+### 5. Agregar un plato nuevo
 
-#### 🔹 Agregar un plato nuevo
-
-Copia este bloque y pégalo dentro de `"items"` de la categoría que quieras (entre el último plato y el corchete `]`):
+Copia este bloque dentro de `"items"` de la categoría que quieras, después del último plato:
 
 ```json
 {
@@ -109,105 +108,82 @@ Copia este bloque y pégalo dentro de `"items"` de la categoría que quieras (en
 }
 ```
 
-> **Importante**: Después del plato anterior debe haber una coma `,` antes de pegar el nuevo. El último plato de la lista **no lleva coma** al final.
+> **Importante:** después de cada plato debe haber una coma `,`, excepto después del último.
 
-#### 🔹 Eliminar un plato
+### 6. Categorías con subcategorías
 
-Borra todo el bloque `{ ... }` del plato, desde la llave `{` de apertura hasta la llave `}` de cierre. Asegúrate de que no queden comas de más.
-
-### Paso 4: Guardar y ver los cambios
-
-1. Guarda el archivo (`Ctrl + S` en Windows)
-2. Abre (o recarga) el archivo `index.html` en tu navegador
-3. ¡Los cambios aparecerán automáticamente!
+Las categorías **Licores** y **Cócteles** tienen subcategorías. Edítalas igual: busca la subcategoría y modifica sus `"items"`.
 
 ---
 
-## 🧩 Categorías con subcategorías (Licores y Cócteles)
+## Cómo cambiar el nombre, dirección o teléfono
 
-Algunas categorías como **Licores** y **Cócteles** tienen subcategorías (ej: dentro de Licores → Aguardiente, Ron, Whisky...).
-
-Se ven así en el archivo:
-
-```json
-{
-  "id": "licores",
-  "name": "LICORES",
-  "hasSubcategories": true,
-  "subcategories": [
-    {
-      "id": "aguardiente",
-      "name": "Aguardiente",
-      "items": [ ... ]
-    }
-  ]
-}
-```
-
-Para modificarlos, el principio es el mismo: busca el `"items"` dentro de la subcategoría que quieras y edita los platos igual que en las categorías normales.
+1. Abre `index.html` con el Bloc de notas.
+2. Presiona `Ctrl + B` y busca el texto que quieres cambiar (por ejemplo: `Calle 5 No. 31-45` o `318 789 9803`).
+3. Cámbialo con cuidado de no borrar los símbolos `<`, `>`, `/` o `"`.
+4. Repite el cambio en `menu-comidas.html` si quieres que ambos menús muestren la misma información.
 
 ---
 
-## 🎨 Cómo cambiar el nombre del restaurante o la dirección
+## Cómo cambiar el logo
 
-Estos datos están en el archivo `index.html`. Si necesitas cambiar:
-
-- **Nombre del restaurante** ("Oye Bonita")
-- **Dirección** (Calle 70 # 45-23, Ocaña)
-- **Teléfono** (+57 321 456 7890)
-
-Abre `index.html` con el Bloc de notas, busca esas palabras con `Ctrl + B` y cámbialas directamente. **Ten cuidado de no borrar los símbolos raros** como `< > / "`.
+1. Reemplaza el archivo `logo-oye-bonita.png` por tu nuevo logo.
+2. El archivo debe llamarse exactamente `logo-oye-bonita.png`.
+3. Recarga la página para ver el cambio.
 
 ---
 
-## 🖼️ Cómo cambiar la foto de fondo o el logo
+## Cómo publicar el menú en internet
 
-Dentro de la carpeta `menu oye bonita` hay una subcarpeta `assets/images/`. Ahí puedes poner imágenes.
+1. Crea una cuenta gratuita en **Cloudflare Pages**, **Netlify**, **Vercel** o **GitHub Pages**.
+2. Sube todos los archivos de esta carpeta.
+3. La página principal será `index.html`.
+4. El menú completo estará disponible en `https://tudominio.com`.
+5. El menú de solo comidas estará en `https://tudominio.com/menu-comidas.html`.
 
-Si quieres cambiar el logo o alguna imagen, necesitarás ayuda de alguien que sepa de programación, porque hay que ajustar el código para que apunte a la imagen nueva.
+### Si necesitas regenerar los códigos QR
+
+Usa cualquier generador de QR gratuito en internet (por ejemplo, `qr-code-generator.com`) e ingresa estas URLs:
+
+- Menú completo: `https://tudominio.com`
+- Menú de comidas: `https://tudominio.com/menu-comidas.html`
+
+Descarga las imágenes y reemplaza `qr-menu-completo.png` y `qr-menu-comidas.png` si es necesario.
 
 ---
 
-## ❓ Preguntas frecuentes
+## Preguntas frecuentes
 
 ### ¿Se necesita internet para que funcione?
-Solo la primera vez que abras la página, para cargar los iconos y las fuentes bonitas. Después de eso, funciona sin internet.
+Solo la primera vez que se abre, para cargar las fuentes y los iconos. Después, el menú puede usarse sin conexión.
 
-### ¿Se puede ver en el celular?
-✅ **Sí**. La página se adapta sola a cualquier pantalla (celular, tablet, computador).
+### ¿Funciona en celulares?
+Sí. El menú se adapta automáticamente a celulares, tablets y computadores.
 
-### ¿Cómo le hago para que se vea en la calle?
-Necesitarías subirla a internet. Puedes preguntarle a alguien que sepa de "hosting" o "subir una página web". Plataformas como Netlify, Vercel o GitHub Pages son gratis y fáciles.
-
-### ¿Puedo dañar algo si edito el archivo?
-Si borras una coma o una comilla sin querer, la página puede dejar de cargar el menú. **Siempre guarda una copia de seguridad** del archivo `menu-data.json` antes de editarlo. Si algo sale mal, reemplázalo con la copia.
+### ¿Puedo dañar algo si edito el menú?
+Si borras una coma o una comilla sin querer, la página puede dejar de cargar. **Siempre guarda una copia de seguridad** de `data/menu-data.js` antes de editar.
 
 ### ¿Dónde está la copia de seguridad?
-El proyecto ya incluye un respaldo automático llamado `menu-data-backup.json` dentro de la carpeta `data`. Si algo sale mal, borra `menu-data.json` y renombra `menu-data-backup.json` a `menu-data.json`.
+El proyecto incluye `data/menu-data-backup.json`. Si algo sale mal, puedes restaurar el menú copiando el contenido de ese archivo.
+
+### ¿Qué hago si la página no carga después de editar?
+1. Revisa que no falten comas entre los platos.
+2. Revisa que los precios sean solo números (sin puntos, comas ni signos de pesos).
+3. Revisa que todas las comillas `"` estén cerradas.
+4. Si no encuentras el error, restaura la copia de seguridad.
 
 ---
 
-## 🆘 ¿Problemas?
+## Características del sitio
 
-Si la página no carga bien después de editar:
-
-1. **Revisa que no falten comas** entre los platos (cada plato debe tener una coma `,` después de la llave `}`, excepto el último)
-2. **Revisa que los precios sean solo números** (sin puntos, sin comas, sin símbolos de pesos)
-3. **Revisa que todas las comillas estén cerradas** (cada `"` debe tener su par `"`)
-4. Si nada funciona, borra `menu-data.json` y renombra `menu-data-backup.json` a `menu-data.json` para restaurar la versión original
-
----
-
-## ✨ Características del sitio
-
-- ✅ Menú interactivo con categorías
-- ✅ Buscador de platos en tiempo real
-- ✅ Diseño adaptable a celulares y tablets
-- ✅ Notas musicales flotantes decorativas
-- ✅ Pantalla de bienvenida con animación
-- ✅ Colores temáticos vallenatos
-- ✅ Sin necesidad de servidor ni instalación
+- Menú interactivo con navegación por categorías.
+- Buscador de platos en tiempo real.
+- Diseño adaptable a cualquier pantalla.
+- Notas musicales y partículas decorativas.
+- Pantalla de bienvenida animada.
+- Paleta de colores vallenata (negro y dorado).
+- Sin necesidad de servidor ni instalación para probarlo localmente.
 
 ---
 
-*¡Disfruta de Oye Bonita - La Casa del Vallenato!* 🎶
+*Oye Bonita - La Casa del Vallenato*

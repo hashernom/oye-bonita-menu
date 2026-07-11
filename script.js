@@ -70,23 +70,12 @@
 
     async function loadMenuData() {
         try {
-            // Usar datos embebidos si están disponibles (funciona en file:// y http://)
             if (window.EMBEDDED_MENU_DATA) {
                 Utils.log('Usando datos de menú embebidos');
                 transformAndStoreData(window.EMBEDDED_MENU_DATA);
                 return menuData;
             }
-            
-            // Fallback: intentar fetch (solo funciona en http://)
-            Utils.log('Intentando cargar datos vía fetch...');
-            const response = await fetch('data/menu-data.json');
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-            const data = await response.json();
-            transformAndStoreData(data);
-            Utils.log('Datos del menú cargados exitosamente');
-            return menuData;
+            throw new Error('No se encontraron datos embebidos del menú');
         } catch (error) {
             Utils.handleError(error, 'loadMenuData');
             return getFallbackData();
