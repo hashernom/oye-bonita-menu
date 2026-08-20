@@ -30,7 +30,7 @@
         {
           "id": "ceviche-del-juglar",
           "name": "Ceviche del Juglar",
-          "description": "Chicharrón crocante con vegetales, acompañado de guacamole o suero.",
+          "description": "Chicharrón crocante con vegetales, suero y guacamole, acompañado de chips de plátano.",
           "price": 16000,
           "tags": []
         },
@@ -52,7 +52,7 @@
         {
           "id": "la-bonita",
           "name": "La Bonita",
-          "description": "Dos carnes, queso cheddar, mermelada de tocineta ahumada, dip especial, tártara de la casa, lechuga, pan de ajo.",
+          "description": "Dos carnes smash, queso cheddar, mermelada de tocineta ahumada, dip especial, tártara de la casa, lechuga.",
           "price": 30000,
           "tags": []
         },
@@ -109,14 +109,14 @@
         {
           "id": "choripollo",
           "name": "Choripollo",
-          "description": "Chorizo prémium con pollo desmechado y papas.",
+          "description": "Chorizo prémium con pollo desmechado, lechuga batavia y papas.",
           "price": 28000,
           "tags": []
         },
         {
           "id": "salchipollo",
           "name": "Salchipollo",
-          "description": "Salchicha prémium, pollo desmechado y papas.",
+          "description": "Salchicha prémium, pollo desmechado, lechuga batavia y papas.",
           "price": 26000,
           "tags": []
         },
@@ -392,21 +392,21 @@
       "items": [
         {
           "id": "alitas-bbq-x6",
-          "name": "Alitas BBQ x 6",
+          "name": "Alitas x 6",
           "description": "Crocantes alitas de pollo acompañadas de papas a la francesa y salsas de preferencia (BBQ, Picante, Miel Mostaza)",
           "price": 20000,
           "tags": []
         },
         {
           "id": "alitas-bbq-x10",
-          "name": "Alitas BBQ x 10",
+          "name": "Alitas x 10",
           "description": "Crocantes alitas de pollo acompañadas de papas a la francesa y salsas de preferencia (BBQ, Picante, Miel Mostaza)",
           "price": 32000,
           "tags": []
         },
         {
           "id": "alitas-bbq-x15",
-          "name": "Alitas BBQ x 15",
+          "name": "Alitas x 15",
           "description": "Crocantes alitas de pollo acompañadas de papas a la francesa y salsas de preferencia (BBQ, Picante, Miel Mostaza)",
           "price": 42000,
           "tags": []
@@ -437,6 +437,20 @@
           "name": "Nuggets",
           "description": "Nuggets de pollo acompañados de papas a la francesa y salsas",
           "price": 12000,
+          "tags": []
+        },
+        {
+          "id": "lomo-a-la-plancha",
+          "name": "Lomo a la Plancha",
+          "description": "Lomo de cerdo a la plancha, acompañado de papas a la francesa y ensalada fresca.",
+          "price": 28000,
+          "tags": []
+        },
+        {
+          "id": "lomo-en-salsa-de-maracuya",
+          "name": "Lomo en Salsa de Maracuyá",
+          "description": "Lomo de cerdo a la plancha bañado en deliciosa salsa de maracuyá, acompañado de papas a la francesa y ensalada agridulce.",
+          "price": 32000,
           "tags": []
         }
       ]
@@ -497,20 +511,6 @@
               "id": "tu-olvido",
               "name": "Tu Olvido",
               "description": "Gin, maracuyá y notas dulces.",
-              "price": 25000,
-              "tags": ["Autor", "Oye Bonita"]
-            },
-            {
-              "id": "cuando-la-vi",
-              "name": "Cuando la Vi",
-              "description": "Vodka, pitaya y menta.",
-              "price": 25000,
-              "tags": ["Autor", "Oye Bonita"]
-            },
-            {
-              "id": "ahi-vas-paloma",
-              "name": "Ahí Vas Paloma",
-              "description": "Frutal y refrescante.",
               "price": 25000,
               "tags": ["Autor", "Oye Bonita"]
             },
@@ -637,6 +637,75 @@
               "description": "",
               "price": 15000,
               "tags": ["Soda Artesanal"]
+            },
+            {
+              "id": "soda-artesanal-frutos-amarillos",
+              "name": "Frutos Amarillos",
+              "description": "",
+              "price": 15000,
+              "tags": ["Soda Artesanal"]
+            },
+            {
+              "id": "soda-artesanal-frutos-verdes",
+              "name": "Frutos Verdes",
+              "description": "",
+              "price": 15000,
+              "tags": ["Soda Artesanal"]
+            }
+          ]
+        },
+        {
+          "id": "otras-bebidas",
+          "name": "Otras Bebidas",
+          "items": [
+            {
+              "id": "jugos-naturales-agua",
+              "name": "Jugos Naturales de Frutas (En Agua)",
+              "description": "Guanábana, fresa, mora, maracuyá y mango.",
+              "price": 6000,
+              "tags": []
+            },
+            {
+              "id": "jugos-naturales-leche",
+              "name": "Jugos Naturales de Frutas (En Leche)",
+              "description": "Guanábana, fresa, mora, maracuyá y mango.",
+              "price": 8000,
+              "tags": []
+            },
+            {
+              "id": "limonada-natural",
+              "name": "Limonada Natural",
+              "description": "",
+              "price": 6000,
+              "tags": []
+            },
+            {
+              "id": "limonada-de-hierbabuena",
+              "name": "Limonada de Hierbabuena",
+              "description": "",
+              "price": 10000,
+              "tags": []
+            },
+            {
+              "id": "limonada-de-coco",
+              "name": "Limonada de Coco",
+              "description": "",
+              "price": 10000,
+              "tags": []
+            },
+            {
+              "id": "limonada-cerezada",
+              "name": "Limonada Cerezada",
+              "description": "",
+              "price": 10000,
+              "tags": []
+            },
+            {
+              "id": "milo",
+              "name": "Milo",
+              "description": "",
+              "price": 8000,
+              "tags": []
             }
           ]
         }
