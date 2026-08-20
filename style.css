@@ -860,7 +860,8 @@ a:hover { color: var(--gold-bright); }
 }
 
 /* Highlight */
-.menu-item.highlighted {
+.menu-item.highlighted,
+.menu-item-simple.highlighted {
     animation: highlightPulse 2s ease-in-out;
 }
 .menu-section.highlighted {

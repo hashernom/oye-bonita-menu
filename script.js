@@ -160,6 +160,7 @@
     function createMenuItemElement(item, showTags = true) {
         const div = document.createElement('div');
         div.className = 'menu-item-simple';
+        div.dataset.itemId = item.id;
         
         // Crear tags HTML (solo si showTags es true y hay tags)
         let tagsHTML = '';
